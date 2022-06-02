@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/models/notes/Note_Model.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/materials/note3ds/Step_Zone_Note.tres" type="Material" id=2]
+
+[node name="Note" type="Spatial"]
+
+[node name="Note_Model" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.004, 0, 0, 0, -1.74846e-10, -0.004, 0, 0.004, -1.74846e-10, -0.519741, 0.526342, -0.123482 )
+
+[node name="Arrow" parent="Note_Model/RootNode" index="0"]
+material_override = ExtResource( 2 )
+
+[node name="White CellShade" parent="Note_Model/RootNode" index="1"]
+material_override = ExtResource( 2 )
+
+[node name="Black CellShade" parent="Note_Model/RootNode" index="2"]
+material_override = ExtResource( 2 )
+
+[editable path="Note_Model"]

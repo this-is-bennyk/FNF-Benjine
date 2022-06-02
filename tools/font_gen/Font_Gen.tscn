@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tools/font_gen/Font_Gen.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/fnf_psych/FNF_Bold2.font" type="BitmapFont" id=2]
+[ext_resource path="res://assets/fonts/fnf_psych/FNF_Bold1.font" type="BitmapFont" id=3]
+[ext_resource path="res://assets/fonts/fnf_psych/FNF_Normal1.font" type="BitmapFont" id=4]
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1356.0
+margin_bottom = 649.0
+color = Color( 0.411765, 0.411765, 0.411765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 40.4086
+margin_top = 102.144
+margin_right = 836.409
+margin_bottom = 172.144
+custom_fonts/font = ExtResource( 3 )
+text = "A'B()+-&><*0123456789CDE”!FGHIJKLMNOP.Q?RS“TUVWXYZ"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="ColorRect"]
+margin_left = 40.4086
+margin_top = 172.144
+margin_right = 1109.41
+margin_bottom = 242.144
+custom_fonts/font = ExtResource( 2 )
+text = "A'B()+-&><*0123456789CDE”!FGHIJKLMNOP.Q?RS“TUVWXYZ"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="ColorRect"]
+margin_left = 40.0
+margin_top = 242.0
+margin_right = 3451.0
+margin_bottom = 295.0
+custom_fonts/font = ExtResource( 4 )
+text = "%()+-0123456789;=@Aa&ß'Bb\\Cc:,Dd$↓Ee”!Ff/Gg>Hh#♡IiJjKkLl←<Mm×NnOoPp.Qq?Rr→Ss*“TtUu↑Vv|WwXxYyZz[]^_~"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="ColorRect"]
+margin_left = 40.0
+margin_top = 312.0
+margin_right = 3496.0
+margin_bottom = 365.0
+custom_fonts/font = ExtResource( 4 )
+text = "%()+-0123456789;=@Aa&ß'Bb\\Cc:,Dd$↓Ee”!Ff/Gg>Hh#♡IiJjKkLl←<Mm×NnOoPp.Qq?Rr→Ss*“TtUu↑Vv|WwXxYyZz[]^_~"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="ColorRect"]
+position = Vector2( 119.5, 0 )
+points = PoolVector2Array( 0, 90, 0, 240 )
+width = 1.0
+default_color = Color( 0.4, 0.501961, 1, 0.572549 )

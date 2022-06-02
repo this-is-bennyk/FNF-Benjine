@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ANGRY_TEXT_BOX.ogg-d894a7902ee0e4dc99358826a5898e4d.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/resources/sounds/ANGRY_TEXT_BOX.ogg"
+dest_files=[ "res://.import/ANGRY_TEXT_BOX.ogg-d894a7902ee0e4dc99358826a5898e4d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

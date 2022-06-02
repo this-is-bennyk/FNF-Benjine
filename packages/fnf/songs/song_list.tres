@@ -1,0 +1,94 @@
+[gd_resource type="Resource" load_steps=33 format=2]
+
+[ext_resource path="res://scripts/resources/song_list/SongList.gd" type="Script" id=1]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week0.png" type="Texture" id=2]
+[ext_resource path="res://packages/fnf/songs/tutorial/tutorial.data.tres" type="Resource" id=3]
+[ext_resource path="res://packages/fnf/songs/fresh/fresh.data.tres" type="Resource" id=4]
+[ext_resource path="res://packages/fnf/songs/dadbattle/dadbattle.data.tres" type="Resource" id=5]
+[ext_resource path="res://packages/fnf/songs/bopeebo/bopeebo.data.tres" type="Resource" id=6]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week1.png" type="Texture" id=7]
+[ext_resource path="res://packages/fnf/songs/monster/monster.data.tres" type="Resource" id=8]
+[ext_resource path="res://packages/fnf/songs/spookeez/spookeez.data.tres" type="Resource" id=9]
+[ext_resource path="res://packages/fnf/songs/south/south.data.tres" type="Resource" id=10]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week2.png" type="Texture" id=11]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week5.png" type="Texture" id=12]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week6.png" type="Texture" id=13]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week4.png" type="Texture" id=14]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week7.png" type="Texture" id=15]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week3.png" type="Texture" id=16]
+[ext_resource path="res://packages/fnf/songs/philly/philly.data.tres" type="Resource" id=17]
+[ext_resource path="res://packages/fnf/songs/thorns/thorns.data.tres" type="Resource" id=18]
+[ext_resource path="res://packages/fnf/songs/guns/guns.data.tres" type="Resource" id=19]
+[ext_resource path="res://packages/fnf/songs/high/high.data.tres" type="Resource" id=20]
+[ext_resource path="res://packages/fnf/songs/stress/stress.data.tres" type="Resource" id=21]
+[ext_resource path="res://packages/fnf/songs/eggnog/eggnog.data.tres" type="Resource" id=22]
+[ext_resource path="res://packages/fnf/songs/roses/roses.data.tres" type="Resource" id=23]
+[ext_resource path="res://packages/fnf/songs/satin-panties/satin-panties.data.tres" type="Resource" id=24]
+[ext_resource path="res://packages/fnf/songs/ugh/ugh.data.tres" type="Resource" id=25]
+[ext_resource path="res://packages/fnf/songs/winter-horrorland/winter-horrorland.data.tres" type="Resource" id=26]
+[ext_resource path="res://packages/fnf/songs/pico/pico.data.tres" type="Resource" id=27]
+[ext_resource path="res://packages/fnf/songs/milf/milf.data.tres" type="Resource" id=28]
+[ext_resource path="res://packages/fnf/songs/senpai/senpai.data.tres" type="Resource" id=29]
+[ext_resource path="res://packages/fnf/songs/blammed/blammed.data.tres" type="Resource" id=30]
+[ext_resource path="res://packages/fnf/songs/cocoa/cocoa.data.tres" type="Resource" id=31]
+[ext_resource path="res://assets/graphics/menus/story_mode/default_difficulties.tres" type="SpriteFrames" id=32]
+
+[resource]
+script = ExtResource( 1 )
+weeks = [ {
+"level_manager_path": "res://packages/fnf/levels/managers/Tutorial.tscn",
+"song_datas": [ ExtResource( 3 ) ],
+"week_difficulties": ExtResource( 32 ),
+"week_logo": ExtResource( 2 ),
+"week_name": "Tutorial"
+}, {
+"level_manager_path": "res://packages/fnf/levels/managers/Week1.tscn",
+"song_datas": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"story_opponent_path": "res://packages/fnf/characters/daddy_dearest/DD_StoryMode.tscn",
+"week_difficulties": ExtResource( 32 ),
+"week_logo": ExtResource( 7 ),
+"week_name": "Daddy Dearest"
+}, {
+"level_manager_path": "res://packages/fnf/levels/managers/Week2.tscn",
+"song_datas": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 8 ) ],
+"story_opponent_path": "res://packages/fnf/characters/spooky_kids/SKids_StoryMode.tscn",
+"week_difficulties": ExtResource( 32 ),
+"week_logo": ExtResource( 11 ),
+"week_name": "Spooky Month"
+}, {
+"level_manager_path": "res://packages/fnf/levels/managers/Week3.tscn",
+"song_datas": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 30 ) ],
+"story_opponent_path": "res://packages/fnf/characters/pico/Pico_StoryMode.tscn",
+"week_difficulties": ExtResource( 32 ),
+"week_logo": ExtResource( 16 ),
+"week_name": "Pico"
+}, {
+"level_manager_path": "res://packages/fnf/levels/managers/Week4.tscn",
+"song_datas": [ ExtResource( 24 ), ExtResource( 20 ), ExtResource( 28 ) ],
+"story_opponent_path": "res://packages/fnf/characters/mommy_mearest/MM_StoryMode.tscn",
+"week_difficulties": ExtResource( 32 ),
+"week_logo": ExtResource( 14 ),
+"week_name": "Mommy Must Murder"
+}, {
+"level_manager_path": "res://packages/fnf/levels/managers/Week5.tscn",
+"song_datas": [ ExtResource( 31 ), ExtResource( 22 ), ExtResource( 26 ) ],
+"story_opponent_path": "res://packages/fnf/characters/parents_christmas/ParentXMas_StoryMode.tscn",
+"week_difficulties": ExtResource( 32 ),
+"week_logo": ExtResource( 12 ),
+"week_name": "Red Snow"
+}, {
+"level_manager_path": "res://packages/fnf/levels/managers/Week6.tscn",
+"song_datas": [ ExtResource( 29 ), ExtResource( 23 ), ExtResource( 18 ) ],
+"story_opponent_path": "res://packages/fnf/characters/senpai/Senpai_StoryMode.tscn",
+"week_difficulties": ExtResource( 32 ),
+"week_logo": ExtResource( 13 ),
+"week_name": "Hating Simulator ft. Moawling"
+}, {
+"level_manager_path": "res://packages/fnf/levels/managers/Week7.tscn",
+"song_datas": [ ExtResource( 25 ), ExtResource( 19 ), ExtResource( 21 ) ],
+"story_opponent_path": "res://packages/fnf/characters/tankman/Tankman_StoryMode.tscn",
+"week_difficulties": ExtResource( 32 ),
+"week_logo": ExtResource( 15 ),
+"week_name": "Tankman"
+} ]
+freeplay_songs = [  ]

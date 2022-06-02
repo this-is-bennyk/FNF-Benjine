@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/shaders/Note3D.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/inner_color = Color( 0.976471, 0.223529, 0.247059, 1 )
+shader_param/side_color = Color( 0.713726, 0.0509804, 0.462745, 1 )
+shader_param/middle_color = Color( 1, 1, 1, 1 )
+shader_param/outer_color = Color( 0.396078, 0.0627451, 0.219608, 1 )

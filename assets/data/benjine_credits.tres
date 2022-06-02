@@ -1,0 +1,89 @@
+[gd_resource type="Resource" load_steps=20 format=2]
+
+[ext_resource path="res://scripts/resources/mod_credits/ModCredits.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/menus/credits/bk_icon_small.png" type="Texture" id=2]
+[ext_resource path="res://scripts/resources/credit_entry/CreditEntry.gd" type="Script" id=3]
+[ext_resource path="res://assets/graphics/menus/credits/PhantomArcade-Icon.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/menus/credits/Ninjamuffin-Icon.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/menus/credits/Kawaisprite-Icon.png" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/menus/credits/evilsk8r-Icon(2).png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/menus/credits/coppola_icon.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/menus/credits/icon-Pd-346.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/menus/credits/dod_icon.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/menus/credits/sayge_icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/menus/credits/gobot_icon.png" type="Texture" id=12]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+icons = [ ExtResource( 2 ) ]
+name = "ThisIsBennyK"
+roles_or_contributions = "Lead Developer
+Programmer
+Graphic Designer
+UI Designer"
+links = [ "https://www.youtube.com/channel/UCu7zwXQxp4rHmGhW9Dmulkg", "https://twitter.com/thisisbennyk", "https://thisisbennyk.itch.io" ]
+link_names = [ "YouTube", "Twitter", "Itch.io" ]
+link_colors = [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+icons = [ ExtResource( 10 ) ]
+name = "DodZonedOut"
+roles_or_contributions = "Options music"
+links = [ "https://www.youtube.com/channel/UCWAWJ_hikRCypGpcIY8KZIw", "https://twitter.com/DodZonedOut", "https://soundcloud.com/dodzonedout" ]
+link_names = [ "YouTube", "Twitter", "SoundCloud" ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 3 )
+icons = [ ExtResource( 11 ) ]
+name = "Sayge3D"
+roles_or_contributions = "3D Note Model"
+links = [ "https://sayge3d.carrd.co/" ]
+link_names = [ "Carrd" ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 3 )
+icons = [ ExtResource( 9 ) ]
+name = "Palladium346"
+roles_or_contributions = "Extended icons
+Funkin' Team icons"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+icons = [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ) ]
+name = "The Funkin' Crew Inc."
+roles_or_contributions = "Creators of FNF
+Art, music, sounds, etc. of the original game"
+links = [ "https://www.newgrounds.com/portal/view/770371", "https://ninja-muffin24.itch.io/funkin" ]
+link_names = [ "Newgrounds", "Itch.io" ]
+link_colors = [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 3 )
+icons = [ ExtResource( 12 ) ]
+name = "Godot Engine"
+roles_or_contributions = "Made with the Godot game engine!"
+links = [ "https://godotengine.org", "https://godotengine.org/license" ]
+link_names = [ "Website", "License" ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 3 )
+icons = [ ExtResource( 8 ) ]
+name = "Emilio Coppola"
+roles_or_contributions = "Creator of Dialogic
+[i](Dialogic is under copyright (c) 2020 Emilio Coppola.)[/i]"
+links = [ "https://dialogic.coppolaemilio.com", "https://github.com/coppolaemilio/dialogic/blob/main/LICENSE" ]
+link_names = [ "Website", "License" ]
+link_colors = [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+
+[resource]
+script = ExtResource( 1 )
+mod_icon = ExtResource( 2 )
+mod_name = "Benjine"
+credits = [ SubResource( 1 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 2 ), SubResource( 6 ), SubResource( 7 ) ]

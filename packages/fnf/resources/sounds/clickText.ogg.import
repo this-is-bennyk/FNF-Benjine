@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/clickText.ogg-6bf14f35d11e6e7c9bcb395292627138.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/resources/sounds/clickText.ogg"
+dest_files=[ "res://.import/clickText.ogg-6bf14f35d11e6e7c9bcb395292627138.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,552 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://assets/graphics/menus/main_menu/Main_Menu_Options.res" type="SpriteFrames" id=1]
+[ext_resource path="res://assets/graphics/menus/bgs/options_menu_bg.png" type="Texture" id=2]
+[ext_resource path="res://assets/materials/menus/Inverted_Colors.tres" type="Material" id=3]
+[ext_resource path="res://scenes/shared/menus/FNFStyleText_Normal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/shaders/Wiggle.tres" type="Shader" id=5]
+[ext_resource path="res://assets/music/Funkin_Settings_Music.ogg" type="AudioStream" id=6]
+[ext_resource path="res://scripts/menus/options/OptionsUI.gd" type="Script" id=7]
+[ext_resource path="res://scripts/menus/options/OSM_CategorySelect.gd" type="Script" id=8]
+[ext_resource path="res://assets/sounds/scrollMenu.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/sounds/cancelMenu.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/sounds/confirmMenu.ogg" type="AudioStream" id=11]
+[ext_resource path="res://scripts/menus/options/OptionsSubmenu.gd" type="Script" id=12]
+[ext_resource path="res://scripts/menus/options/OSM_Controls.gd" type="Script" id=13]
+[ext_resource path="res://scenes/shared/menus/options/CtrlPckTitle.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/graphics/menus/SB_Empty.tres" type="StyleBox" id=15]
+[ext_resource path="res://assets/fonts/VCR_32_Options_W_Outline.tres" type="DynamicFont" id=16]
+[ext_resource path="res://scenes/shared/menus/options/AudioBars.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/sounds/hxf_beep.ogg" type="AudioStream" id=18]
+[ext_resource path="res://scripts/menus/options/OSM_Audio.gd" type="Script" id=19]
+[ext_resource path="res://scenes/shared/menus/options/SpinOption.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scripts/menus/options/OSM_Gameplay.gd" type="Script" id=21]
+[ext_resource path="res://assets/graphics/game/hud/ratings.tres" type="SpriteFrames" id=22]
+[ext_resource path="res://assets/graphics/game/hud/combo_nums/combo_nums.tres" type="SpriteFrames" id=23]
+[ext_resource path="res://scripts/menus/options/Combo_Adjustment.gd" type="Script" id=24]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/noise_scale = 2.047
+shader_param/time_snap = 0.124
+
+[sub_resource type="ArrayMesh" id=2]
+surfaces/0 = {
+"aabb": AABB( -500, -240, 0, 1000, 480, 0 ),
+"array_data": PoolByteArray( 0, 0, 250, 67, 0, 0, 105, 195, 0, 0, 128, 63, 239, 238, 110, 60, 0, 0, 237, 67, 0, 0, 86, 195, 16, 88, 121, 63, 222, 221, 93, 61, 0, 0, 237, 67, 205, 204, 83, 195, 16, 88, 121, 63, 215, 163, 112, 61, 0, 0, 234, 67, 51, 179, 45, 195, 217, 206, 119, 63, 164, 112, 13, 62, 0, 0, 234, 67, 0, 0, 178, 194, 217, 206, 119, 63, 17, 17, 161, 62, 102, 102, 237, 67, 0, 0, 224, 192, 126, 140, 121, 63, 137, 136, 248, 62, 204, 204, 237, 67, 0, 0, 224, 192, 236, 192, 121, 63, 137, 136, 248, 62, 0, 192, 242, 67, 0, 0, 20, 66, 186, 73, 124, 63, 188, 187, 19, 63, 204, 76, 241, 67, 0, 0, 20, 66, 172, 139, 123, 63, 188, 187, 19, 63, 204, 140, 239, 67, 48, 51, 29, 66, 76, 166, 122, 63, 194, 245, 20, 63, 0, 128, 238, 67, 208, 204, 24, 66, 172, 28, 122, 63, 147, 95, 20, 63, 0, 128, 238, 67, 48, 51, 21, 66, 172, 28, 122, 63, 177, 228, 19, 63, 204, 12, 225, 67, 0, 0, 180, 65, 193, 57, 115, 63, 0, 0, 12, 63, 154, 217, 234, 67, 0, 0, 14, 67, 67, 62, 120, 63, 188, 187, 75, 63, 204, 76, 235, 67, 0, 0, 14, 67, 61, 121, 120, 63, 188, 187, 75, 63, 204, 76, 240, 67, 0, 0, 58, 67, 154, 8, 123, 63, 51, 51, 99, 63, 52, 179, 240, 67, 0, 0, 58, 67, 8, 61, 123, 63, 51, 51, 99, 63, 0, 0, 247, 67, 52, 179, 93, 67, 201, 118, 126, 63, 113, 61, 118, 63, 0, 0, 247, 67, 204, 204, 95, 67, 201, 118, 126, 63, 41, 92, 119, 63, 102, 102, 245, 67, 0, 0, 99, 67, 17, 165, 125, 63, 17, 17, 121, 63, 0, 0, 203, 67, 0, 0, 99, 67, 158, 239, 103, 63, 17, 17, 121, 63, 208, 204, 253, 66, 0, 0, 112, 67, 133, 124, 32, 63, 0, 0, 128, 63, 152, 153, 77, 194, 0, 0, 112, 67, 230, 174, 229, 62, 0, 0, 128, 63, 0, 0, 84, 194, 102, 230, 111, 67, 47, 221, 228, 62, 89, 242, 127, 63, 0, 0, 84, 194, 204, 204, 109, 67, 47, 221, 228, 62, 160, 211, 126, 63, 152, 153, 93, 194, 0, 128, 107, 67, 157, 162, 227, 62, 154, 153, 125, 63, 48, 51, 89, 194, 0, 0, 105, 67, 203, 50, 228, 62, 68, 68, 124, 63, 0, 0, 82, 194, 0, 0, 105, 67, 184, 30, 229, 62, 68, 68, 124, 63, 192, 204, 204, 192, 0, 0, 77, 67, 36, 185, 252, 62, 85, 85, 109, 63, 0, 0, 128, 193, 0, 0, 77, 67, 217, 206, 247, 62, 85, 85, 109, 63, 0, 0, 128, 193, 102, 230, 77, 67, 217, 206, 247, 62, 54, 208, 109, 63, 0, 0, 139, 195, 102, 230, 91, 67, 248, 83, 99, 62, 174, 71, 117, 63, 0, 0, 139, 195, 102, 230, 92, 67, 248, 83, 99, 62, 54, 208, 117, 63, 0, 128, 172, 195, 102, 230, 97, 67, 82, 184, 30, 62, 225, 122, 120, 63, 0, 128, 172, 195, 204, 204, 98, 67, 82, 184, 30, 62, 194, 245, 120, 63, 0, 0, 202, 195, 204, 204, 104, 67, 166, 155, 196, 61, 245, 40, 124, 63, 0, 0, 202, 195, 52, 179, 105, 67, 166, 155, 196, 61, 215, 163, 124, 63, 205, 76, 221, 195, 0, 0, 112, 67, 68, 28, 107, 61, 0, 0, 128, 63, 0, 0, 237, 195, 0, 0, 112, 67, 244, 253, 212, 60, 0, 0, 128, 63, 0, 0, 237, 195, 0, 128, 109, 67, 244, 253, 212, 60, 171, 170, 126, 63, 0, 0, 232, 195, 0, 128, 90, 67, 188, 116, 19, 61, 137, 136, 116, 63, 0, 0, 232, 195, 204, 204, 86, 67, 188, 116, 19, 61, 92, 143, 114, 63, 0, 0, 230, 195, 154, 153, 66, 67, 10, 215, 35, 61, 99, 201, 103, 63, 0, 0, 230, 195, 102, 230, 56, 67, 10, 215, 35, 61, 3, 157, 98, 63, 0, 128, 227, 195, 152, 153, 239, 66, 236, 81, 56, 61, 177, 228, 63, 63, 0, 128, 227, 195, 0, 0, 88, 66, 236, 81, 56, 61, 205, 204, 28, 63, 154, 217, 227, 195, 0, 0, 88, 66, 234, 115, 53, 61, 205, 204, 28, 63, 154, 25, 228, 195, 152, 153, 73, 66, 161, 103, 51, 61, 71, 225, 26, 63, 205, 140, 236, 195, 0, 0, 138, 66, 99, 93, 220, 60, 205, 204, 36, 63, 102, 102, 238, 195, 0, 0, 138, 66, 238, 13, 190, 60, 205, 204, 36, 63, 0, 0, 240, 195, 152, 153, 131, 66, 10, 215, 163, 60, 228, 23, 35, 63, 0, 0, 240, 195, 0, 0, 128, 191, 10, 215, 163, 60, 239, 238, 254, 62, 51, 115, 243, 195, 0, 0, 13, 195, 98, 161, 86, 60, 51, 51, 83, 62, 102, 230, 243, 195, 0, 0, 13, 195, 130, 226, 71, 60, 51, 51, 83, 62, 102, 230, 245, 195, 0, 0, 52, 195, 75, 89, 6, 60, 0, 0, 0, 62, 205, 76, 246, 195, 0, 0, 52, 195, 179, 123, 242, 59, 0, 0, 0, 62, 0, 0, 250, 195, 0, 0, 89, 195, 0, 0, 0, 0, 68, 68, 68, 61, 0, 0, 250, 195, 0, 0, 101, 195, 0, 0, 0, 0, 188, 187, 187, 60, 51, 115, 245, 195, 0, 0, 101, 195, 43, 24, 21, 60, 188, 187, 187, 60, 102, 230, 136, 195, 0, 0, 84, 195, 249, 160, 103, 62, 239, 238, 110, 61, 0, 128, 128, 195, 0, 0, 84, 195, 254, 212, 120, 62, 239, 238, 110, 61, 208, 204, 12, 194, 205, 76, 73, 195, 68, 250, 237, 62, 185, 30, 165, 61, 0, 0, 176, 194, 0, 0, 110, 195, 170, 241, 210, 62, 137, 136, 136, 59, 0, 0, 176, 194, 0, 0, 112, 195, 170, 241, 210, 62, 0, 0, 0, 0, 48, 51, 119, 194, 0, 0, 112, 195, 193, 91, 224, 62, 0, 0, 0, 0, 160, 153, 253, 193, 0, 0, 107, 195, 4, 197, 239, 62, 171, 170, 42, 60, 0, 0, 152, 193, 0, 0, 107, 195, 162, 69, 246, 62, 171, 170, 42, 60, 0, 0, 184, 65, 0, 0, 105, 195, 84, 227, 5, 63, 239, 238, 110, 60, 0, 0, 2, 67, 0, 0, 105, 195, 174, 71, 33, 63, 239, 238, 110, 60, 0, 128, 201, 67, 0, 0, 112, 195, 2, 43, 103, 63, 0, 0, 0, 0, 0, 0, 250, 67, 0, 0, 112, 195, 0, 0, 128, 63, 0, 0, 0, 0 ),
+"array_index_data": PoolByteArray( 70, 0, 0, 0, 1, 0, 1, 0, 2, 0, 3, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 13, 0, 14, 0, 15, 0, 15, 0, 16, 0, 17, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 23, 0, 24, 0, 24, 0, 25, 0, 26, 0, 29, 0, 30, 0, 31, 0, 31, 0, 32, 0, 33, 0, 33, 0, 34, 0, 35, 0, 35, 0, 36, 0, 37, 0, 37, 0, 38, 0, 39, 0, 40, 0, 41, 0, 42, 0, 42, 0, 43, 0, 44, 0, 45, 0, 46, 0, 47, 0, 47, 0, 48, 0, 49, 0, 49, 0, 50, 0, 51, 0, 52, 0, 53, 0, 54, 0, 54, 0, 55, 0, 56, 0, 56, 0, 57, 0, 58, 0, 59, 0, 60, 0, 61, 0, 61, 0, 62, 0, 63, 0, 63, 0, 64, 0, 65, 0, 65, 0, 66, 0, 67, 0, 68, 0, 69, 0, 70, 0, 5, 0, 7, 0, 8, 0, 8, 0, 10, 0, 11, 0, 15, 0, 17, 0, 19, 0, 20, 0, 22, 0, 24, 0, 24, 0, 26, 0, 27, 0, 35, 0, 37, 0, 39, 0, 47, 0, 49, 0, 51, 0, 54, 0, 56, 0, 58, 0, 61, 0, 63, 0, 65, 0, 68, 0, 70, 0, 1, 0, 5, 0, 8, 0, 11, 0, 15, 0, 19, 0, 20, 0, 20, 0, 24, 0, 27, 0, 33, 0, 35, 0, 39, 0, 47, 0, 51, 0, 52, 0, 52, 0, 54, 0, 58, 0, 61, 0, 65, 0, 67, 0, 67, 0, 68, 0, 1, 0, 4, 0, 5, 0, 11, 0, 13, 0, 15, 0, 20, 0, 20, 0, 27, 0, 28, 0, 33, 0, 39, 0, 40, 0, 45, 0, 47, 0, 52, 0, 52, 0, 58, 0, 59, 0, 61, 0, 67, 0, 1, 0, 4, 0, 11, 0, 12, 0, 12, 0, 13, 0, 20, 0, 31, 0, 33, 0, 40, 0, 45, 0, 52, 0, 59, 0, 61, 0, 1, 0, 3, 0, 3, 0, 4, 0, 12, 0, 12, 0, 20, 0, 28, 0, 29, 0, 31, 0, 40, 0, 44, 0, 45, 0, 59, 0, 59, 0, 61, 0, 3, 0, 3, 0, 12, 0, 28, 0, 29, 0, 40, 0, 42, 0, 42, 0, 44, 0, 59, 0, 59, 0, 3, 0, 28, 0, 28, 0, 29, 0, 42, 0, 42, 0, 59, 0, 28, 0 ),
+"blend_shape_data": [  ],
+"format": 262417,
+"index_count": 207,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 71
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Move_In"
+length = 0.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4.2871, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -720 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Music")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Move_Out"
+length = 0.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4.2871, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 720 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Cancel_SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Music")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.25, 0.75, 1 )
+colors = PoolColorArray( 0, 0.603922, 1, 1, 0, 0.603922, 1, 0, 0, 0.603922, 1, 0, 0, 0.603922, 1, 1 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+width = 300
+
+[node name="OptionsUI" type="CanvasLayer"]
+pause_mode = 2
+layer = 100
+script = ExtResource( 7 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Music"
+
+[node name="Scroll_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "SFX"
+
+[node name="Confirm_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+bus = "SFX"
+
+[node name="Cancel_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "SFX"
+
+[node name="Panel" type="Node2D" parent="."]
+position = Vector2( 640, 360 )
+
+[node name="Options_Outline" type="Polygon2D" parent="Panel"]
+position = Vector2( -640, -360 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+antialiased = true
+polygon = PoolVector2Array( 226.7, 148.379, 226.254, 139.025, 226.254, 134.125, 224.473, 126.552, 222.691, 120.761, 220.464, 111.407, 220.464, 102.943, 223.136, 88.6891, 224.918, 78.8892, 231.6, 69.5348, 241.4, 59.7349, 248.972, 54.8349, 253.427, 54.3895, 258.327, 53.944, 269.463, 53.944, 272.136, 53.944, 281.49, 53.4986, 284.608, 53.0531, 288.617, 53.4986, 292.626, 54.8349, 297.972, 57.0622, 301.981, 59.7349, 306.881, 61.9621, 311.335, 59.7349, 318.017, 57.9531, 334.053, 56.6167, 345.189, 60.1803, 347.417, 62.853, 349.198, 65.0803, 352.762, 67.753, 356.771, 71.3166, 368.353, 68.6439, 372.362, 68.1984, 392.852, 67.753, 403.989, 68.6439, 417.798, 69.9802, 422.698, 74.4347, 425.816, 75.7711, 428.934, 73.5438, 432.052, 74.4347, 436.952, 75.7711, 440.516, 77.1074, 443.634, 80.2255, 444.97, 82.0073, 456.106, 77.1074, 461.006, 76.2165, 471.697, 74.8802, 481.942, 75.7711, 491.742, 78.4437, 493.079, 80.2255, 493.969, 83.3437, 494.415, 81.1164, 506.887, 77.5528, 520.251, 76.6619, 522.478, 77.5528, 526.933, 78.4437, 528.714, 79.7801, 530.051, 82.4528, 536.733, 80.671, 543.414, 79.7801, 550.096, 78.4437, 554.996, 78.4437, 568.359, 79.7801, 572.369, 82.0073, 578.159, 82.8982, 590.186, 78.4437, 599.541, 78.4437, 616.913, 82.4528, 622.259, 86.0164, 627.604, 91.8072, 635.622, 105.616, 637.404, 122.098, 638.74, 129.67, 630.722, 181.788, 587.959, 217.424, 293.963, 184.461 )
+
+[node name="Options_Menu_BG" type="MeshInstance2D" parent="Panel"]
+material = SubResource( 1 )
+position = Vector2( 0, 5 )
+scale = Vector2( 1, 1.032 )
+mesh = SubResource( 2 )
+texture = ExtResource( 2 )
+
+[node name="Options_Title" type="AnimatedSprite" parent="Panel"]
+position = Vector2( -209.325, -238.752 )
+rotation = 0.0645772
+scale = Vector2( 0.8, 0.8 )
+frames = ExtResource( 1 )
+animation = "options basic"
+frame = 7
+playing = true
+
+[node name="Menus" type="Control" parent="."]
+margin_left = 340.0
+margin_top = 210.0
+margin_right = 940.0
+margin_bottom = 510.0
+rect_clip_content = true
+
+[node name="Category_Select" type="VBoxContainer" parent="Menus"]
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 8 )
+valid_options_paths = [ NodePath("Gameplay"), NodePath("Audio"), NodePath("Controls"), NodePath("Mod-Specific") ]
+submenu_desc = "Select a category!"
+
+[node name="Gameplay" parent="Menus/Category_Select" instance=ExtResource( 4 )]
+material = ExtResource( 3 )
+margin_right = 600.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Gameplay"
+align = 1
+valign = 1
+
+[node name="BG" parent="Menus/Category_Select/Gameplay" instance=ExtResource( 4 )]
+modulate = Color( 0.203922, 0, 0.768627, 1 )
+show_behind_parent = true
+material = ExtResource( 3 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 602.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Gameplay"
+align = 1
+valign = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Menus/Category_Select"]
+margin_top = 57.0
+margin_right = 600.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+custom_constants/separation = 21
+custom_styles/separator = ExtResource( 15 )
+
+[node name="Audio" parent="Menus/Category_Select" instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = ExtResource( 3 )
+margin_top = 82.0
+margin_right = 600.0
+margin_bottom = 135.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Audio"
+align = 1
+valign = 1
+
+[node name="BG" parent="Menus/Category_Select/Audio" instance=ExtResource( 4 )]
+modulate = Color( 0.203922, 0, 0.768627, 1 )
+show_behind_parent = true
+material = ExtResource( 3 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 602.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Audio"
+align = 1
+valign = 1
+
+[node name="HSeparator3" type="HSeparator" parent="Menus/Category_Select"]
+margin_top = 139.0
+margin_right = 600.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+custom_constants/separation = 21
+custom_styles/separator = ExtResource( 15 )
+
+[node name="Controls" parent="Menus/Category_Select" instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = ExtResource( 3 )
+margin_top = 164.0
+margin_right = 600.0
+margin_bottom = 217.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Controls"
+align = 1
+valign = 1
+
+[node name="BG" parent="Menus/Category_Select/Controls" instance=ExtResource( 4 )]
+modulate = Color( 0.203922, 0, 0.768627, 1 )
+show_behind_parent = true
+material = ExtResource( 3 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 602.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Controls"
+align = 1
+valign = 1
+
+[node name="HSeparator4" type="HSeparator" parent="Menus/Category_Select"]
+margin_top = 221.0
+margin_right = 600.0
+margin_bottom = 242.0
+size_flags_horizontal = 3
+custom_constants/separation = 21
+custom_styles/separator = ExtResource( 15 )
+
+[node name="Mod-Specific" parent="Menus/Category_Select" instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = ExtResource( 3 )
+margin_top = 246.0
+margin_right = 600.0
+margin_bottom = 299.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Mod-Specific"
+align = 1
+valign = 1
+
+[node name="BG" parent="Menus/Category_Select/Mod-Specific" instance=ExtResource( 4 )]
+modulate = Color( 0.203922, 0, 0.768627, 1 )
+show_behind_parent = true
+material = ExtResource( 3 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 602.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Mod-Specific"
+align = 1
+valign = 1
+
+[node name="Gameplay" type="VBoxContainer" parent="Menus"]
+visible = false
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 21 )
+valid_options_paths = [ NodePath("Time_Offset"), NodePath("Downscroll"), NodePath("Middlescroll"), NodePath("Ghost_Tapping"), NodePath("Combo_X_Offset"), NodePath("Combo_Y_Offset"), NodePath("Fullscreen") ]
+submenu_desc = "Fine-tune your experience."
+
+[node name="Time_Offset" parent="Menus/Gameplay" instance=ExtResource( 20 )]
+option_name = "time_offset"
+option_category = "gameplay"
+num_range = true
+num_range_max = 500
+
+[node name="Downscroll" parent="Menus/Gameplay" instance=ExtResource( 20 )]
+margin_top = 33.0
+margin_bottom = 62.0
+option_name = "downscroll"
+option_category = "gameplay"
+
+[node name="Middlescroll" parent="Menus/Gameplay" instance=ExtResource( 20 )]
+margin_top = 66.0
+margin_bottom = 95.0
+option_name = "middlescroll"
+option_category = "gameplay"
+
+[node name="Ghost_Tapping" parent="Menus/Gameplay" instance=ExtResource( 20 )]
+margin_top = 66.0
+margin_bottom = 95.0
+option_name = "ghost_tapping"
+option_category = "gameplay"
+default_option = 1
+
+[node name="Combo_X_Offset" parent="Menus/Gameplay" instance=ExtResource( 20 )]
+option_name = "combo_x_offset"
+option_category = "gameplay"
+num_range = true
+num_range_min = -640
+num_range_max = 640
+
+[node name="Combo_Y_Offset" parent="Menus/Gameplay" instance=ExtResource( 20 )]
+option_name = "combo_y_offset"
+option_category = "gameplay"
+num_range = true
+num_range_min = -360
+num_range_max = 360
+
+[node name="Fullscreen" parent="Menus/Gameplay" instance=ExtResource( 20 )]
+margin_top = 66.0
+margin_bottom = 95.0
+option_name = "fullscreen"
+option_category = "gameplay"
+
+[node name="Audio" type="VBoxContainer" parent="Menus"]
+visible = false
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+valid_options_paths = [ NodePath("Master"), NodePath("Music"), NodePath("SFX") ]
+submenu_desc = "Pump up / cool down the jams!"
+
+[node name="Master" type="Label" parent="Menus/Audio"]
+margin_right = 600.0
+margin_bottom = 29.0
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 16 )
+text = "Master"
+valign = 1
+
+[node name="AudioBars" parent="Menus/Audio/Master" instance=ExtResource( 17 )]
+
+[node name="Audio_Level_Indicator" type="AudioStreamPlayer" parent="Menus/Audio/Master"]
+stream = ExtResource( 18 )
+
+[node name="HSeparator" type="HSeparator" parent="Menus/Audio"]
+margin_top = 33.0
+margin_right = 600.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+custom_styles/separator = ExtResource( 15 )
+
+[node name="Music" type="Label" parent="Menus/Audio"]
+margin_top = 42.0
+margin_right = 600.0
+margin_bottom = 71.0
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 16 )
+text = "Music"
+valign = 1
+
+[node name="AudioBars" parent="Menus/Audio/Music" instance=ExtResource( 17 )]
+
+[node name="Audio_Level_Indicator" type="AudioStreamPlayer" parent="Menus/Audio/Music"]
+stream = ExtResource( 18 )
+bus = "Music"
+
+[node name="HSeparator2" type="HSeparator" parent="Menus/Audio"]
+margin_top = 75.0
+margin_right = 600.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+custom_styles/separator = ExtResource( 15 )
+
+[node name="SFX" type="Label" parent="Menus/Audio"]
+margin_top = 84.0
+margin_right = 600.0
+margin_bottom = 113.0
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 16 )
+text = "SFX"
+valign = 1
+
+[node name="AudioBars" parent="Menus/Audio/SFX" instance=ExtResource( 17 )]
+
+[node name="Audio_Level_Indicator" type="AudioStreamPlayer" parent="Menus/Audio/SFX"]
+stream = ExtResource( 18 )
+bus = "SFX"
+
+[node name="Controls" type="VBoxContainer" parent="Menus"]
+visible = false
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+submenu_desc = "Make your keys comfortable."
+
+[node name="Ctrl_Pck_Title" parent="Menus/Controls" instance=ExtResource( 14 )]
+
+[node name="Mod-Specific" type="VBoxContainer" parent="Menus"]
+visible = false
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+submenu_desc = "Customize your mods! (WIP)"
+
+[node name="Submenu_Desc" type="Label" parent="."]
+margin_left = 253.892
+margin_top = 144.004
+margin_right = 595.892
+margin_bottom = 173.004
+rect_rotation = 2.0
+rect_scale = Vector2( 0.75, 0.75 )
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 16 )
+text = "Select a category!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Move_In"
+anims/Move_In = SubResource( 4 )
+anims/Move_Out = SubResource( 6 )
+anims/RESET = SubResource( 5 )
+
+[node name="Fade" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+rotation = 1.5708
+scale = Vector2( 1, 600 )
+texture = SubResource( 8 )
+
+[node name="Combo_Adjustment" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 640, 360 )
+script = ExtResource( 24 )
+
+[node name="Combo_Pos" type="Node2D" parent="Combo_Adjustment"]
+
+[node name="PopupCombo" type="Node2D" parent="Combo_Adjustment/Combo_Pos"]
+position = Vector2( 64, -50 )
+
+[node name="Rating" type="AnimatedSprite" parent="Combo_Adjustment/Combo_Pos/PopupCombo"]
+scale = Vector2( 0.7, 0.7 )
+frames = ExtResource( 22 )
+
+[node name="ComboNum_Hundreds" type="AnimatedSprite" parent="Combo_Adjustment/Combo_Pos/PopupCombo"]
+position = Vector2( -191.05, 100 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 23 )
+frame = 4
+
+[node name="ComboNum_Tens" type="AnimatedSprite" parent="Combo_Adjustment/Combo_Pos/PopupCombo"]
+position = Vector2( -148.05, 100 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 23 )
+frame = 2
+
+[node name="ComboNum_Ones" type="AnimatedSprite" parent="Combo_Adjustment/Combo_Pos/PopupCombo"]
+position = Vector2( -105.05, 100 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 23 )
+
+[node name="Tween" type="Tween" parent="Combo_Adjustment"]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_anim_finished" flags=3]

@@ -1,0 +1,15 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform float amplitude = 1.0;
+uniform float frequency = 1.0;
+uniform float scale = 1.0;
+
+void fragment()
+{
+	vec4 tex_col = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(amplitude * sin(frequency * SCREEN_UV.y + scale * TIME), 0.0));
+	COLOR = tex_col;
+}
+"

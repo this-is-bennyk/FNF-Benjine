@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Voices.ogg-464ab464bd31207483b51e3bb2a117fa.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/songs/milf/Voices.ogg"
+dest_files=[ "res://.import/Voices.ogg-464ab464bd31207483b51e3bb2a117fa.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

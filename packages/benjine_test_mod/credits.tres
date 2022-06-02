@@ -1,0 +1,40 @@
+[gd_resource type="Resource" load_steps=12 format=2]
+
+[ext_resource path="res://scripts/resources/mod_credits/ModCredits.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/game/hud/icon_grid_extended.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/menus/credits/bk_icon_small.png" type="Texture" id=3]
+[ext_resource path="res://scripts/resources/credit_entry/CreditEntry.gd" type="Script" id=4]
+[ext_resource path="res://assets/graphics/menus/credits/PhantomArcade-Icon.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/menus/credits/evilsk8r-Icon(2).png" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/menus/credits/Ninjamuffin-Icon.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/menus/credits/Kawaisprite-Icon.png" type="Texture" id=8]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 4 )
+icons = [ ExtResource( 3 ) ]
+name = "ThisIsBennyK"
+roles_or_contributions = "We do a lil programming"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 4 )
+icons = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 6 ) ]
+name = "The Funkin' Crew Inc."
+roles_or_contributions = "Test by KawaiSprite
+Vocals and chart by MtH"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 750, 150, 150, 150 )
+
+[resource]
+script = ExtResource( 1 )
+mod_icon = SubResource( 1 )
+mod_name = "Benjine Example Mod"
+credits = [ SubResource( 2 ), SubResource( 3 ) ]

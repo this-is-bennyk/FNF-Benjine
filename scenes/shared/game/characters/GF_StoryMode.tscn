@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/materials/menus/StoryModeCharacterShader.tres" type="Material" id=1]
+[ext_resource path="res://scenes/shared/game/characters/Girlfriend.tscn" type="PackedScene" id=2]
+
+[node name="GF_StoryMode" instance=ExtResource( 2 )]
+material = ExtResource( 1 )
+z_index = 0

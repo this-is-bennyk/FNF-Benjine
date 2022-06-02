@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://packages/fnf/characters/tankman/Tankman.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/materials/menus/StoryModeCharacterShader.tres" type="Material" id=2]
+
+[node name="Tankman_StoryMode" instance=ExtResource( 1 )]
+material = ExtResource( 2 )
+position = Vector2( 590, 300 )
+idle_frequency = 1

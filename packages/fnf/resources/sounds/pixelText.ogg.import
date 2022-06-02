@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pixelText.ogg-4a947bea0ae6b3b6f60dce542a41773f.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/resources/sounds/pixelText.ogg"
+dest_files=[ "res://.import/pixelText.ogg-4a947bea0ae6b3b6f60dce542a41773f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

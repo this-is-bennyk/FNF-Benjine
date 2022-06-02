@@ -1,0 +1,109 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1652484236.cfg"
+		},
+		{
+			"audio": "play",
+			"audio_bus": "SFX",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://packages/fnf/resources/sounds/ANGRY_TEXT_BOX.ogg",
+			"volume": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2.1
+		},
+		{
+			"background": "res://packages/fnf/resources/graphics/week6/textboxes/pixel_day_bg.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0.8
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"animation_wait": false,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1652414206.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Angry",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1652414206.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "Not bad for an ugly worm.\nBut this time I'll rip your nuts off right after your girlfriend finishes gargling mine."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1652417409.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1652417409.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bop beep be be skdoo bep"
+		},
+		{
+			"animation": "instant_out.gd",
+			"animation_length": 0,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "[All]",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "fnf_Roses.json",
+		"name": "FNF_Roses"
+	}
+}

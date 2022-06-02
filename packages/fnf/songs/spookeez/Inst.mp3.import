@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Inst.mp3-70f01a3fa3ad8476fcc009d7f6259ce3.mp3str"
+
+[deps]
+
+source_file="res://packages/fnf/songs/spookeez/Inst.mp3"
+dest_files=[ "res://.import/Inst.mp3-70f01a3fa3ad8476fcc009d7f6259ce3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

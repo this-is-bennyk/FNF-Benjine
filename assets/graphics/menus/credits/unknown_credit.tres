@@ -1,0 +1,9 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=2]
+
+[ext_resource path="res://assets/graphics/game/hud/iconGrid.png" type="Texture" id=1]
+
+[resource]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 16, 160, 90, 85 )
+margin = Rect2( 15, 17, 30, 35 )

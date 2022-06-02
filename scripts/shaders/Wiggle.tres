@@ -1,0 +1,25 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform float noise_scale = 1.0;
+uniform float time_snap = 0.08333333333333333333333333333333;
+
+float snap(float x, float snap)
+{
+	return snap * round(x / snap);
+}
+
+float rand(vec2 co)
+{
+	return fract(sin(dot(co.xy, vec2(12.9898,78.233))) * 43758.5453);
+}
+
+void vertex()
+{
+	float snapped_time = snap(TIME, time_snap);
+	vec2 noise = vec2(rand(VERTEX + snapped_time), rand(VERTEX + snapped_time)) * noise_scale;
+	VERTEX.xy += noise;
+}
+"

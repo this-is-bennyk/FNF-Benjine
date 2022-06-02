@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/shared/game/characters/Girlfriend.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/shared/game/HUDPackage2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/shared/game/characters/Boyfriend.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packages/fnf/scripts/game/levels/Level_Stage.gd" type="Script" id=4]
+[ext_resource path="res://packages/fnf/resources/graphics/week1/stageback.png" type="Texture" id=5]
+[ext_resource path="res://packages/fnf/resources/graphics/week1/stagecurtains.png" type="Texture" id=6]
+[ext_resource path="res://packages/fnf/resources/graphics/week1/stagefront.png" type="Texture" id=7]
+[ext_resource path="res://packages/fnf/characters/daddy_dearest/DaddyDearest.tscn" type="PackedScene" id=8]
+
+[node name="Level" type="Node"]
+script = ExtResource( 4 )
+performers = {
+"metronome": "gf",
+"opponent": "dad",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("ParallaxBackground/Battle/Boyfriend"),
+"dad": NodePath("ParallaxBackground/Battle/Daddy_Dearest"),
+"gf": NodePath("ParallaxBackground/GF/Girlfriend")
+}
+step_zone_paths = {
+"opponent": NodePath("HUDPackage2D/HUD/Visible_Elements/Opponent_Step_Zone"),
+"player": NodePath("HUDPackage2D/HUD/Visible_Elements/Player_Step_Zone")
+}
+hud_path = NodePath("HUDPackage2D/HUD")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.9, 0.9 )
+
+[node name="Stageback" type="Sprite" parent="ParallaxBackground/BG"]
+position = Vector2( -600, -200 )
+z_index = -3
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Stagefront" type="Sprite" parent="ParallaxBackground/BG"]
+position = Vector2( -650, 600 )
+scale = Vector2( 1.1, 1.1 )
+z_index = -2
+texture = ExtResource( 7 )
+centered = false
+
+[node name="GF" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.95, 0.95 )
+
+[node name="Girlfriend" parent="ParallaxBackground/GF" instance=ExtResource( 1 )]
+
+[node name="Battle" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Boyfriend" parent="ParallaxBackground/Battle" instance=ExtResource( 3 )]
+
+[node name="Daddy_Dearest" parent="ParallaxBackground/Battle" instance=ExtResource( 8 )]
+
+[node name="FG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1.3, 1.3 )
+
+[node name="Stagecurtains" type="Sprite" parent="ParallaxBackground/FG"]
+position = Vector2( -350, -150 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="HUDPackage2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Cam_HUD" parent="HUDPackage2D" index="1"]
+zoom = Vector2( 1.111, 1.111 )
+resting_zoom = 0.9
+zoom_on_quarter_hit = 0.915
+
+[editable path="HUDPackage2D"]

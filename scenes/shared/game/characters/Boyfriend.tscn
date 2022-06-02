@@ -1,0 +1,327 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/graphics/boyfriend/Spritesheet_Boyfriend.res" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/game/characters/PlayableCharacter.gd" type="Script" id=2]
+[ext_resource path="res://assets/graphics/boyfriend/anims/Idle.tres" type="Animation" id=3]
+[ext_resource path="res://assets/graphics/boyfriend/anims/Left.tres" type="Animation" id=4]
+[ext_resource path="res://assets/graphics/boyfriend/anims/Right.tres" type="Animation" id=5]
+[ext_resource path="res://assets/graphics/boyfriend/anims/Down.tres" type="Animation" id=6]
+[ext_resource path="res://assets/graphics/boyfriend/anims/Up.tres" type="Animation" id=7]
+[ext_resource path="res://scenes/shared/game/icons/BF_Icon_Extended.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/graphics/boyfriend/anims/Death_Confirm.tres" type="Animation" id=9]
+[ext_resource path="res://assets/graphics/boyfriend/anims/Death_Loop.tres" type="Animation" id=10]
+[ext_resource path="res://assets/graphics/boyfriend/anims/Death_Start.tres" type="Animation" id=11]
+
+[sub_resource type="Animation" id=4]
+resource_name = "Down_Miss"
+length = 1.20833
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "BF NOTE DOWN MISS" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.16667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 28 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 11, 19 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Fear"
+length = 0.166667
+loop = true
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "BF idle shaking" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833334, 0.125 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Hey"
+length = 1.08333
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "BF HEY!!" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.04167 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 25 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -7, -4 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Left_Miss"
+length = 1.41667
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "BF NOTE LEFT MISS" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.375 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 33 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -12, -24 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "BF idle dance" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Right_Miss"
+length = 1.91667
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "BF NOTE RIGHT MISS" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.875 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 45 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 30, -21 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Up_Miss"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "BF NOTE UP MISS" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.958334 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 23 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 29, -27 ) ]
+}
+
+[node name="Boyfriend" type="AnimatedSprite"]
+position = Vector2( 770, 450 )
+frames = ExtResource( 1 )
+animation = "BF idle dance"
+centered = false
+offset = Vector2( 5, 0 )
+script = ExtResource( 2 )
+icon = ExtResource( 8 )
+
+[node name="Camera_Point" type="Position2D" parent="."]
+position = Vector2( 111, 106 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Death_Confirm = ExtResource( 9 )
+anims/Death_Loop = ExtResource( 10 )
+anims/Death_Start = ExtResource( 11 )
+anims/Down = ExtResource( 6 )
+anims/Down_Miss = SubResource( 4 )
+anims/Fear = SubResource( 10 )
+anims/Hey = SubResource( 5 )
+anims/Idle = ExtResource( 3 )
+anims/Left = ExtResource( 4 )
+anims/Left_Miss = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+anims/Right = ExtResource( 5 )
+anims/Right_Miss = SubResource( 8 )
+anims/Up = ExtResource( 7 )
+anims/Up_Miss = SubResource( 9 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Voices.mp3-f20ce6df3e8ffadefec5a0ab3fd0c889.mp3str"
+
+[deps]
+
+source_file="res://packages/fnf/songs/stress/Voices.mp3"
+dest_files=[ "res://.import/Voices.mp3-f20ce6df3e8ffadefec5a0ab3fd0c889.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

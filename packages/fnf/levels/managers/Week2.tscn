@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/game/LevelManager.gd" type="Script" id=1]
+[ext_resource path="res://packages/fnf/songs/spookeez/spookeez.data.tres" type="Resource" id=2]
+[ext_resource path="res://packages/fnf/songs/monster/monster.data.tres" type="Resource" id=3]
+[ext_resource path="res://packages/fnf/songs/south/south.data.tres" type="Resource" id=4]
+
+[node name="LevelManager" type="Node"]
+script = ExtResource( 1 )
+state_stack = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
+state_args = [ {
+}, {
+}, {
+} ]

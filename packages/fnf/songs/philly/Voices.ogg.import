@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Voices.ogg-3c99673d792505ab1f8f05c709b77a62.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/songs/philly/Voices.ogg"
+dest_files=[ "res://.import/Voices.ogg-3c99673d792505ab1f8f05c709b77a62.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

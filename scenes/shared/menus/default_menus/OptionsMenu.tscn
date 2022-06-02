@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/shared/menus/options/OptionsUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/menus/OptionsMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/graphics/menus/bgs/menuDesat.png" type="Texture" id=15]
+[ext_resource path="res://scripts/shaders/Menu_BG_Shader.tres" type="Shader" id=16]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 16 )
+shader_param/prominent_color = Color( 0.88, 0.88, 0.88, 1 )
+shader_param/bg_color = Color( 0, 0.298039, 0.721569, 1 )
+shader_param/outline_color = Color( 0.141176, 0.403922, 0.807843, 1 )
+
+[node name="OptionsMenu" type="Node"]
+script = ExtResource( 2 )
+
+[node name="BG" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="MenuBg" type="Sprite" parent="BG"]
+material = SubResource( 1 )
+position = Vector2( 640, 360 )
+texture = ExtResource( 15 )
+
+[node name="OptionsUI" parent="." instance=ExtResource( 1 )]

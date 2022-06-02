@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/graphics/game/hud/ratings.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://assets/graphics/game/hud/combo_nums/combo_nums.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://scripts/shaders/Menu_BG_Shader.tres" type="Shader" id=3]
+[ext_resource path="res://assets/graphics/menus/bgs/menuDesat.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/prominent_color = Color( 0.88, 0.88, 0.88, 1 )
+shader_param/bg_color = Color( 0, 0.298039, 0.721569, 1 )
+shader_param/outline_color = Color( 0.141176, 0.403922, 0.807843, 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 160, 90 )
+
+[node name="Combo_Adjuster" type="Node2D"]
+
+[node name="MenuBg" type="Sprite" parent="."]
+material = SubResource( 1 )
+texture = ExtResource( 4 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0, 0, 0, 0.392157 )
+polygon = PoolVector2Array( -670, -386, -663, 380, 669, 379, 674, -392 )
+
+[node name="Combo_Pos" type="Area2D" parent="."]
+
+[node name="PopupCombo" type="Node2D" parent="Combo_Pos"]
+position = Vector2( 64, -50 )
+
+[node name="Rating" type="AnimatedSprite" parent="Combo_Pos/PopupCombo"]
+scale = Vector2( 0.7, 0.7 )
+frames = ExtResource( 1 )
+
+[node name="ComboNum_Hundreds" type="AnimatedSprite" parent="Combo_Pos/PopupCombo"]
+position = Vector2( -191.05, 100 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 2 )
+frame = 4
+
+[node name="ComboNum_Tens" type="AnimatedSprite" parent="Combo_Pos/PopupCombo"]
+position = Vector2( -148.05, 100 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 2 )
+frame = 2
+
+[node name="ComboNum_Ones" type="AnimatedSprite" parent="Combo_Pos/PopupCombo"]
+position = Vector2( -105.05, 100 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Combo_Pos"]
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

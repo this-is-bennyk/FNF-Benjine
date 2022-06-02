@@ -1,0 +1,130 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/fonts/VCR_32_Options.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/menus/story_mode/WeekSelection.gd" type="Script" id=2]
+[ext_resource path="res://scenes/shared/menus/story_menu/WeekOption.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/shared/game/characters/GF_StoryMode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/shared/game/characters/BF_StoryMode.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/menus/story_mode/StoryModeMenu.gd" type="Script" id=6]
+[ext_resource path="res://assets/sounds/scrollMenu.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/cancelMenu.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/sounds/confirmMenu.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/graphics/menus/story_mode/default_difficulties.tres" type="SpriteFrames" id=11]
+[ext_resource path="res://assets/graphics/menus/story_mode/campaign_menu_UI_assets.res" type="SpriteFrames" id=12]
+
+[node name="StoryModeMenu" type="Node"]
+script = ExtResource( 6 )
+week_select_menu_path = NodePath("WeekSelection")
+
+[node name="Confirm_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "SFX"
+
+[node name="Cancel_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "SFX"
+
+[node name="WeekSelection" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Selection_Audio" type="AudioStreamPlayer" parent="WeekSelection"]
+stream = ExtResource( 7 )
+bus = "SFX"
+
+[node name="Options_Container" type="Node" parent="WeekSelection"]
+
+[node name="WeekOption" parent="WeekSelection/Options_Container" instance=ExtResource( 3 )]
+
+[node name="BG2" type="Polygon2D" parent="."]
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 0, 1280, 0, 1280, 75, 0, 75 )
+
+[node name="BG" type="Polygon2D" parent="."]
+position = Vector2( 0, 56 )
+color = Color( 0.976471, 0.811765, 0.317647, 1 )
+polygon = PoolVector2Array( 0, 0, 1280, 0, 1280, 400, 0, 400 )
+
+[node name="ClipRect" type="Control" parent="BG"]
+margin_right = 1280.0
+margin_bottom = 400.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Characters" type="Node2D" parent="BG/ClipRect"]
+position = Vector2( 250, -51 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="GF_StoryMode" parent="BG/ClipRect/Characters" instance=ExtResource( 4 )]
+
+[node name="BF_StoryMode" parent="BG/ClipRect/Characters" instance=ExtResource( 5 )]
+
+[node name="Opponents" type="Node2D" parent="BG/ClipRect/Characters"]
+
+[node name="Week_Name" type="Label" parent="."]
+margin_left = 942.0
+margin_top = 13.0
+margin_right = 1265.0
+margin_bottom = 42.0
+grow_horizontal = 0
+custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "week name"
+align = 2
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Week_Score" type="Label" parent="."]
+margin_left = 15.0
+margin_top = 13.0
+margin_right = 338.0
+margin_bottom = 42.0
+custom_colors/font_color = Color( 0.698039, 0.698039, 0.698039, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Week Score: --"
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tracklist" type="Label" parent="."]
+margin_top = 500.0
+margin_right = 384.0
+margin_bottom = 593.0
+grow_horizontal = 2
+custom_colors/font_color = Color( 0.898039, 0.341176, 0.466667, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Tracks:
+
+--"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Prev_Difficulty" type="AnimatedSprite" parent="."]
+position = Vector2( 895.5, 518.5 )
+frames = ExtResource( 12 )
+animation = "arrow left"
+
+[node name="Cur_Difficulty" type="AnimatedSprite" parent="."]
+position = Vector2( 1080, 524.5 )
+frames = ExtResource( 11 )
+animation = "0"
+
+[node name="Tween" type="Tween" parent="Cur_Difficulty"]
+
+[node name="Next_Difficulty" type="AnimatedSprite" parent="."]
+position = Vector2( 1271, 518.5 )
+frames = ExtResource( 12 )
+animation = "arrow right"
+
+[connection signal="option_changed" from="WeekSelection" to="." method="_on_option_changed"]
+[connection signal="option_selected" from="WeekSelection" to="." method="_on_option_selected" flags=7]

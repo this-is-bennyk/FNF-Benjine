@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tools/pck_packer/PCK_Packer.gd" type="Script" id=1]
+
+[node name="PCK_Packer" type="Node"]
+script = ExtResource( 1 )
+package_name = "benjine_test_mod"
+package_display_name = "Benjine_Test_Mod_V1QT4"

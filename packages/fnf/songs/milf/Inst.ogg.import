@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Inst.ogg-7c3184f8db03ea6090b0d98e752bb069.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/songs/milf/Inst.ogg"
+dest_files=[ "res://.import/Inst.ogg-7c3184f8db03ea6090b0d98e752bb069.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

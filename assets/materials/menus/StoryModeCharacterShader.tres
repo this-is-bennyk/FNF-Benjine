@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/shaders/StoryModeCharacter.gdshader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/threshold = 0.75
+shader_param/replacement_color = Color( 0.98, 0.81, 0.32, 1 )

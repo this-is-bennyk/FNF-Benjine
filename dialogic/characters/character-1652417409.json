@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1652417409.json",
+	"mirror_portraits": false,
+	"name": "BF_Pixel",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": -110,
+	"offset_y": -310,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://packages/fnf/resources/graphics/week6/bf_portraits/bf_portrait_static.png"
+		}
+	],
+	"scale": 540,
+	"theme": ""
+}

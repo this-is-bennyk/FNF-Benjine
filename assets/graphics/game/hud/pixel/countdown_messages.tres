@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=2]
+
+[ext_resource path="res://assets/graphics/game/hud/pixel/date-pixel.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/game/hud/pixel/ready-pixel.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/game/hud/pixel/set-pixel.png" type="Texture" id=3]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+} ]

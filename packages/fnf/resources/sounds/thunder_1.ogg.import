@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/thunder_1.ogg-e3c7de87564ef35726e9943fee14a12b.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/resources/sounds/thunder_1.ogg"
+dest_files=[ "res://.import/thunder_1.ogg-e3c7de87564ef35726e9943fee14a12b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

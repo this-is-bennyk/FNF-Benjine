@@ -1,0 +1,18 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform vec4 chroma_key : hint_color = vec4(1.0);
+uniform float bias = 0.01;
+
+void fragment()
+{
+	vec4 final = texture(TEXTURE, UV);
+	
+	if (distance(chroma_key.rgb, final.rgb) <= bias)
+		final.a = 0.0;
+	
+	COLOR = final;
+}
+"

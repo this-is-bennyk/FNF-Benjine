@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/models/notes/Fixed_Arrow_The_Second.fbx" type="PackedScene" id=1]
+
+[node name="Note_Model" instance=ExtResource( 1 )]

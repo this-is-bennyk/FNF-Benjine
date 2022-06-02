@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/VolumeFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/autoload/VolumeChanger.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/hxf_beep.ogg" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Change"
+length = 0.6
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Chirp")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 560, 0 ), Vector2( 560, 0 ), Vector2( 560, -60 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 560, -60 ) ]
+}
+
+[node name="VolumeChanger" type="CanvasLayer"]
+pause_mode = 2
+layer = 101
+script = ExtResource( 2 )
+
+[node name="BG" type="Polygon2D" parent="."]
+position = Vector2( 560, -60 )
+color = Color( 0, 0, 0, 0.501961 )
+polygon = PoolVector2Array( 0, 0, 160, 0, 160, 60, 0, 60 )
+
+[node name="Label" type="Label" parent="BG"]
+margin_left = -33.0
+margin_top = 33.0
+margin_right = 194.0
+margin_bottom = 59.0
+grow_horizontal = 2
+rect_scale = Vector2( 0.5, 1 )
+rect_pivot_offset = Vector2( 113.5, 13 )
+custom_fonts/font = ExtResource( 1 )
+text = "MASTER VOLUME"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bar1" type="Polygon2D" parent="BG"]
+position = Vector2( 20, 28 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 2, 0, 2 )
+
+[node name="Bar2" type="Polygon2D" parent="BG"]
+position = Vector2( 32, 26 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 4, 0, 4 )
+
+[node name="Bar3" type="Polygon2D" parent="BG"]
+position = Vector2( 44, 24 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 6, 0, 6 )
+
+[node name="Bar4" type="Polygon2D" parent="BG"]
+position = Vector2( 56, 22 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[node name="Bar5" type="Polygon2D" parent="BG"]
+position = Vector2( 68, 20 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 10, 0, 10 )
+
+[node name="Bar6" type="Polygon2D" parent="BG"]
+position = Vector2( 80, 18 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 12, 0, 12 )
+
+[node name="Bar7" type="Polygon2D" parent="BG"]
+position = Vector2( 92, 16 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 14, 0, 14 )
+
+[node name="Bar8" type="Polygon2D" parent="BG"]
+position = Vector2( 104, 14 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 16, 0, 16 )
+
+[node name="Bar9" type="Polygon2D" parent="BG"]
+position = Vector2( 116, 12 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 18, 0, 18 )
+
+[node name="Bar10" type="Polygon2D" parent="BG"]
+position = Vector2( 128, 10 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 20, 0, 20 )
+
+[node name="Chirp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Change = SubResource( 1 )
+anims/RESET = SubResource( 2 )

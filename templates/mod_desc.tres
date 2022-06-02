@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/resources/mod_desc/ModDescription.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+mod_name = "My FNF Mod"
+mod_author = "Me"
+mod_version = "1.0.0"
+advanced_mod = false
+description = ""

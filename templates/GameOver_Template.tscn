@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/sounds/gameOverEnd.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/sounds/fnf_loss_sfx.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scripts/game/DeathCamera.gd" type="Script" id=4]
+[ext_resource path="res://scripts/game/GameOver.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="GameOver" type="Node"]
+script = ExtResource( 5 )
+hud_path = NodePath("CanvasLayer")
+camera_path = NodePath("CanvasLayer/Camera2D")
+fade_screen_path = NodePath("CanvasLayer/Camera2D/FadeScreen")
+loss_sfx_path = NodePath("Loss_SFX")
+end_sfx_path = NodePath("End_SFX")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 1.429
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+current = true
+zoom = Vector2( 1.429, 1.429 )
+script = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="CanvasLayer/Camera2D"]
+
+[node name="FadeScreen" type="Polygon2D" parent="CanvasLayer/Camera2D"]
+color = Color( 0, 0, 0, 0 )
+polygon = PoolVector2Array( -997, -558, -981, 596, 971, 591, 954, -551 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Camera2D/FadeScreen"]
+anims/Fade = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="Loss_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="End_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )

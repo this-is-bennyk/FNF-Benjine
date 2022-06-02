@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tools/chart_parser/ChartParser.gd" type="Script" id=1]
+
+[node name="ChartParser" type="Node"]
+script = ExtResource( 1 )
+json_name = "rox-n-roll"
+mod_name = "bogus"
+inst_name_and_ext = "Inst.ogg"
+vocals_name_and_ext = "Voices.ogg"
+result_suffixes = [ "" ]
+chart_type = 0
+difficulties = PoolIntArray( 0 )
+fnf_chart_naming = false
+num_lanes = 4
+psych_separate_gf_lanes = false

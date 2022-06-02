@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/shared/menus/FNFStyleText_Normal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/shared/menus/FNFStyleText_Bold.tscn" type="PackedScene" id=3]
+
+[node name="Node" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 1356.0
+margin_bottom = 649.0
+color = Color( 0.411765, 0.411765, 0.411765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FNFStyleText" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 236.0
+margin_bottom = 120.0
+text = "BINTED GOLD"
+
+[node name="FNFStyleText2" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = 100.0
+margin_top = 150.0
+margin_right = 286.0
+margin_bottom = 220.0
+text = "UPRISING"
+
+[node name="FNFStyleText3" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = 150.0
+margin_top = 250.0
+margin_right = 336.0
+margin_bottom = 320.0
+text = "elite"
+
+[node name="FNFStyleText4" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = 200.0
+margin_top = 350.0
+margin_right = 414.0
+margin_bottom = 420.0
+text = "'()+-&><*0123456789”!.?“"
+
+[node name="FNFStyleText5" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = 250.0
+margin_top = 450.0
+margin_right = 1232.0
+margin_bottom = 520.0
+text = "so cool so swag"
+
+[node name="FNFStyleText_Normal" parent="." instance=ExtResource( 2 )]
+margin_left = 341.291
+margin_top = 182.551
+margin_right = 471.291
+margin_bottom = 235.551
+text = "Gaming"
+
+[node name="FNFStyleText_Normal2" parent="." instance=ExtResource( 2 )]
+margin_left = 211.428
+margin_top = 299.273
+margin_right = 580.428
+margin_bottom = 576.273
+text = "Cally3D
+ThisIsBennyK
+DodZonedOut
+McDoodle
+Sayge3D"

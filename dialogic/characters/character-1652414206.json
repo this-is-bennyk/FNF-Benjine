@@ -1,0 +1,25 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1652414206.json",
+	"mirror_portraits": false,
+	"name": "Senpai",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 130,
+	"offset_y": -315,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://packages/fnf/resources/graphics/week6/senpai_portraits/senpai_portrait_normal_static.png"
+		},
+		{
+			"name": "Angry",
+			"path": "res://packages/fnf/resources/graphics/week6/senpai_portraits/senpai_portrait_angry_static.png"
+		}
+	],
+	"scale": 540,
+	"theme": ""
+}

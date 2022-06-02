@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Voices.mp3-600433dd3e99f03d937d0b895109b3b4.mp3str"
+
+[deps]
+
+source_file="res://packages/fnf/songs/ugh/Voices.mp3"
+dest_files=[ "res://.import/Voices.mp3-600433dd3e99f03d937d0b895109b3b4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

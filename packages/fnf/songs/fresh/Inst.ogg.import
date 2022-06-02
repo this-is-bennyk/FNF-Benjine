@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Inst.ogg-10e4feb704b3d32e53778cf81aaed5ce.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/songs/fresh/Inst.ogg"
+dest_files=[ "res://.import/Inst.ogg-10e4feb704b3d32e53778cf81aaed5ce.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

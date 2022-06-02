@@ -1,0 +1,207 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/shared/game/characters/Boyfriend_Christmas.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/shared/game/HUDPackage2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/shared/game/characters/Girlfriend_Christmas.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packages/fnf/scripts/game/levels/Level_EvilChristmasMall.gd" type="Script" id=4]
+[ext_resource path="res://packages/fnf/resources/graphics/week5/evilBG.png" type="Texture" id=5]
+[ext_resource path="res://packages/fnf/resources/graphics/week5/evilTree.png" type="Texture" id=6]
+[ext_resource path="res://packages/fnf/resources/graphics/week5/evilSnow.png" type="Texture" id=7]
+[ext_resource path="res://packages/fnf/characters/monster/Monster_Christmas.tscn" type="PackedScene" id=8]
+[ext_resource path="res://packages/fnf/resources/sounds/Lights_Turn_On.ogg" type="AudioStream" id=9]
+[ext_resource path="res://packages/fnf/resources/sounds/Lights_Shut_off.ogg" type="AudioStream" id=10]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flash:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Cam_HUD:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.952, 0.952 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Scare"
+length = 5.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flash:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.75 ),
+"transitions": PoolRealArray( 0, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 0, 0, 0 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Scary_Sounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 1.07344,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 1.37014,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 1.75 )
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.75, 5.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "set_to_horror_pos"
+}, {
+"args": [  ],
+"method": "unset_from_horror_pos"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Cam_HUD:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.75, 2.55, 5.05 ),
+"transitions": PoolRealArray( -2, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 0.667, 0.667 ), Vector2( 0.667, 0.667 ), Vector2( 0.952, 0.952 ) ]
+}
+
+[node name="Level" type="Node"]
+script = ExtResource( 4 )
+performers = {
+"metronome": "gf",
+"opponent": "monster",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("Boyfriend_Christmas"),
+"gf": NodePath("ParallaxBackground/GF/Girlfriend_Christmas"),
+"monster": NodePath("Monster_Christmas")
+}
+step_zone_paths = {
+"opponent": NodePath("HUDPackage2D/HUD/Visible_Elements/Opponent_Step_Zone"),
+"player": NodePath("HUDPackage2D/HUD/Visible_Elements/Player_Step_Zone")
+}
+hud_path = NodePath("HUDPackage2D/HUD")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_offset = Vector2( -512, -288 )
+
+[node name="EvilBg" type="Sprite" parent="ParallaxBackground/BG"]
+position = Vector2( -400, -500 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="EvilTree" type="Sprite" parent="ParallaxBackground/BG"]
+position = Vector2( 300, -300 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Snow" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="EvilSnow" type="Sprite" parent="ParallaxBackground/Snow"]
+position = Vector2( -200, 700 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="GF" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.95, 0.95 )
+motion_offset = Vector2( -32, -18 )
+
+[node name="Girlfriend_Christmas" parent="ParallaxBackground/GF" instance=ExtResource( 3 )]
+
+[node name="Boyfriend_Christmas" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1090, 450 )
+idle_frequency = 2
+
+[node name="Monster_Christmas" parent="." instance=ExtResource( 8 )]
+idle_frequency = 2
+
+[node name="Horror_Pos" type="Position2D" parent="."]
+position = Vector2( 592, -2050 )
+
+[node name="HUDPackage2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Cam_HUD" parent="HUDPackage2D" index="1"]
+zoom = Vector2( 0.952, 0.952 )
+resting_zoom = 1.05
+zoom_on_quarter_hit = 1.065
+
+[node name="Flash" type="Polygon2D" parent="HUDPackage2D/HUD" index="2"]
+visible = false
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( -640, -360, 640, -360, 640, 360, -640, 360 )
+
+[node name="Scary_Sounds" type="AudioStreamPlayer" parent="HUDPackage2D/HUD" index="3"]
+stream = ExtResource( 9 )
+bus = "SFX"
+
+[node name="ScareAnim" type="AnimationPlayer" parent="HUDPackage2D/HUD" index="4"]
+anims/RESET = SubResource( 1 )
+anims/Scare = SubResource( 2 )
+
+[editable path="HUDPackage2D"]

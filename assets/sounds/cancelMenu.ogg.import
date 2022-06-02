@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cancelMenu.ogg-45f0b4c42f6f7c64f45c3fe17a8158a4.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/cancelMenu.ogg"
+dest_files=[ "res://.import/cancelMenu.ogg-45f0b4c42f6f7c64f45c3fe17a8158a4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

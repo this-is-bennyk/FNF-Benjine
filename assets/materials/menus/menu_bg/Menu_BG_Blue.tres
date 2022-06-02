@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/shaders/Menu_BG_Shader.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/prominent_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+shader_param/bg_color = Color( 0.572549, 0.443137, 0.992157, 1 )
+shader_param/outline_color = Color( 0.156863, 0.27451, 0.862745, 1 )

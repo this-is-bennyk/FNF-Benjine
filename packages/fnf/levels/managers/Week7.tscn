@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/game/LevelManager.gd" type="Script" id=1]
+[ext_resource path="res://packages/fnf/songs/ugh/ugh.data.tres" type="Resource" id=2]
+[ext_resource path="res://packages/fnf/songs/guns/guns.data.tres" type="Resource" id=3]
+[ext_resource path="res://packages/fnf/songs/stress/stress.data.tres" type="Resource" id=4]
+[ext_resource path="res://scenes/shared/game/VideoCutsceneState.tscn" type="PackedScene" id=5]
+
+[node name="LevelManager" type="Node"]
+script = ExtResource( 1 )
+state_stack = [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
+state_args = [ {
+"package_name": "fnf",
+"video_name": "ughCutscene"
+}, {
+}, {
+"package_name": "fnf",
+"video_name": "gunsCutscene"
+}, {
+}, {
+"package_name": "fnf",
+"video_name": "stressCutscene"
+}, {
+} ]

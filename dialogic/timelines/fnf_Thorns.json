@@ -1,0 +1,109 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1652502100.cfg"
+		},
+		{
+			"audio_bus": "Music",
+			"background-music": "play",
+			"event_id": "dialogic_031",
+			"event_name": "BackgroundMusic",
+			"fade_length": 1,
+			"file": "res://packages/fnf/resources/music/week6/LunchboxScary.ogg",
+			"volume": 0
+		},
+		{
+			"background": "res://packages/fnf/resources/scenes/week6/Senpai_Dies.tscn",
+			"event_id": "dialogic_021",
+			"fade_duration": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 11.5
+		},
+		{
+			"background": "res://packages/fnf/resources/graphics/week6/textboxes/pixel_day_bg.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0
+		},
+		{
+			"animation": "instant_in.gd",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1652502375.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1652502375.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Direct contact with real humans, after being trapped in here for so long...\nand HER of all people.\nI'll make her father pay for what he's done to me and all the others,,,,\nI'll beat you and make you take my place.\nYou don't mind your bodies being borrowed right? It's only fair...",
+			"voice_data": {
+				"0": {
+					"audio_bus": "SFX",
+					"file": "",
+					"start_time": 0
+				}
+			}
+		},
+		{
+			"animation": "instant_out.gd",
+			"animation_length": 0,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1652502375.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 0.1
+		},
+		{
+			"audio_bus": "Master",
+			"background-music": "play",
+			"event_id": "dialogic_031",
+			"event_name": "BackgroundMusic",
+			"fade_length": 1,
+			"file": "",
+			"volume": 0
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "fnf_Thorns.json",
+		"name": "FNF_Thorns"
+	}
+}

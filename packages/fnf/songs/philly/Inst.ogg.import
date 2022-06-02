@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Inst.ogg-b0ea8139b17854698e819b617b7d1af3.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/songs/philly/Inst.ogg"
+dest_files=[ "res://.import/Inst.ogg-b0ea8139b17854698e819b617b7d1af3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

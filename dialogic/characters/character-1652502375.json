@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1652502375.json",
+	"mirror_portraits": false,
+	"name": "Spirit",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -215,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://packages/fnf/resources/graphics/week6/spiritFaceForward.png"
+		}
+	],
+	"scale": 600,
+	"theme": ""
+}

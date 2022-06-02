@@ -1,0 +1,398 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/VCR_20.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/VCR_20_Regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://tools/song_builder/SongBuilder.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.364706, 0.364706, 0.364706, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="SongBuilder" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 340.0
+margin_top = 60.0
+margin_right = 940.0
+margin_bottom = 660.0
+rect_min_size = Vector2( 600, 600 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer"]
+margin_right = 580.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "song builder"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Builder_Menu" type="Panel" parent="Panel/VBoxContainer"]
+margin_top = 28.0
+margin_right = 580.0
+margin_bottom = 540.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/Builder_Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Package_Name" type="HBoxContainer" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer"]
+margin_right = 560.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Package_Name"]
+margin_top = 3.0
+margin_right = 144.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 2 )
+text = "Package Name"
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Package_Name"]
+margin_left = 148.0
+margin_right = 356.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/separator = SubResource( 2 )
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Package_Name"]
+margin_left = 360.0
+margin_right = 560.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+hint_tooltip = "The directory name (aka the folder name) of the modpack of the song.
+ex. fnf, bogus, neo, sonic-exe, etc."
+placeholder_text = "Folder Name"
+
+[node name="Song_Folder_Name" type="HBoxContainer" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer"]
+margin_top = 34.0
+margin_right = 560.0
+margin_bottom = 58.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Song_Folder_Name"]
+margin_top = 3.0
+margin_right = 192.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 2 )
+text = "Song Folder Name"
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Song_Folder_Name"]
+margin_left = 196.0
+margin_right = 356.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/separator = SubResource( 2 )
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Song_Folder_Name"]
+margin_left = 360.0
+margin_right = 560.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+hint_tooltip = "The folder name of the song you wish to load.
+Case-sensitive.
+ex. bopeebo, milf, winter-horrorland, etc."
+placeholder_text = "Folder Name"
+
+[node name="Instrumental" type="HBoxContainer" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer"]
+margin_top = 68.0
+margin_right = 560.0
+margin_bottom = 92.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Instrumental"]
+margin_top = 3.0
+margin_right = 144.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 2 )
+text = "Instrumental"
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Instrumental"]
+margin_left = 148.0
+margin_right = 356.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/separator = SubResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Instrumental"]
+margin_left = 360.0
+margin_right = 560.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Instrumental/HBoxContainer"]
+margin_right = 98.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Inst"
+placeholder_text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Instrumental/HBoxContainer"]
+margin_left = 102.0
+margin_right = 200.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "ogg"
+items = [ "ogg", null, false, 0, null, "mp3", null, false, 1, null, "wav", null, false, 2, null ]
+selected = 0
+
+[node name="Vocals" type="HBoxContainer" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer"]
+margin_top = 102.0
+margin_right = 560.0
+margin_bottom = 126.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Vocals"]
+margin_top = 3.0
+margin_right = 72.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 2 )
+text = "Vocals"
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Vocals"]
+margin_left = 76.0
+margin_right = 356.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/separator = SubResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Vocals"]
+margin_left = 360.0
+margin_right = 560.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Vocals/HBoxContainer"]
+margin_right = 98.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Voices"
+placeholder_text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Vocals/HBoxContainer"]
+margin_left = 102.0
+margin_right = 200.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "ogg"
+items = [ "ogg", null, false, 0, null, "mp3", null, false, 1, null, "wav", null, false, 2, null ]
+selected = 0
+
+[node name="Chart_Info" type="HBoxContainer" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer"]
+margin_top = 136.0
+margin_right = 560.0
+margin_bottom = 211.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Chart_Info"]
+margin_right = 264.0
+margin_bottom = 75.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Chart Info
+(Click outside the box
+to save)"
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Chart_Info"]
+margin_left = 268.0
+margin_right = 356.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/separator = SubResource( 2 )
+
+[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Chart_Info"]
+margin_left = 360.0
+margin_right = 560.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 200, 75 )
+text = "0:Easy
+1:Normal
+2:Hard"
+
+[node name="Default_Level" type="HBoxContainer" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer"]
+margin_top = 221.0
+margin_right = 560.0
+margin_bottom = 245.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Default_Level"]
+margin_top = 3.0
+margin_right = 156.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 2 )
+text = "Default Level"
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Default_Level"]
+margin_left = 160.0
+margin_right = 356.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/separator = SubResource( 2 )
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Default_Level"]
+margin_left = 360.0
+margin_right = 560.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+hint_tooltip = "The directory name (aka the folder name) of the modpack of the song.
+ex. fnf, bogus, neo, sonic-exe, etc."
+placeholder_text = "Filename (no extension)"
+
+[node name="Song_Data_Suffix" type="HBoxContainer" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer"]
+margin_top = 255.0
+margin_right = 560.0
+margin_bottom = 279.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Song_Data_Suffix"]
+margin_top = 3.0
+margin_right = 192.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 2 )
+text = "Song Data Suffix"
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Song_Data_Suffix"]
+margin_left = 196.0
+margin_right = 356.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/separator = SubResource( 2 )
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Song_Data_Suffix"]
+margin_left = 360.0
+margin_right = 560.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+hint_tooltip = "If you have more than one version of a song
+(ex. vocals for multiple characters, special difficulty, etc.),
+you can put a suffix to differentiate them.
+ex. data_ugh, data_ugh_every1_sing, etc."
+placeholder_text = "Suffix"
+
+[node name="Error_Msg" type="Label" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer"]
+margin_top = 289.0
+margin_right = 560.0
+margin_bottom = 385.0
+size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 0.533333, 0.533333, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "ERRORS (no saving allowed):"
+autowrap = true
+
+[node name="Warning_Msg" type="Label" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer"]
+margin_top = 395.0
+margin_right = 560.0
+margin_bottom = 492.0
+size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 0.905882, 0.533333, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "WARNINGS (save with caution):"
+autowrap = true
+
+[node name="Ok_Msg" type="Label" parent="Panel/VBoxContainer/Builder_Menu/VBoxContainer"]
+visible = false
+margin_top = 474.0
+margin_right = 560.0
+margin_bottom = 492.0
+custom_colors/font_color = Color( 0.678431, 1, 0.533333, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Good to go! (you can save safely)"
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 550.0
+margin_right = 580.0
+margin_bottom = 580.0
+rect_min_size = Vector2( 0, 30 )
+custom_constants/separation = 10
+
+[node name="Save" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_right = 186.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Save"
+
+[node name="Load" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_left = 196.0
+margin_right = 383.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Load"
+
+[node name="Reset" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_left = 393.0
+margin_right = 580.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Reset"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 315.0
+margin_top = 35.0
+margin_right = 965.0
+margin_bottom = 685.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="text_entered" from="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Package_Name/LineEdit" to="." method="_on_package_name_entered"]
+[connection signal="text_entered" from="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Song_Folder_Name/LineEdit" to="." method="_on_song_folder_name_entered"]
+[connection signal="text_entered" from="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Instrumental/HBoxContainer/LineEdit" to="." method="_on_inst_name_entered"]
+[connection signal="item_selected" from="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Instrumental/HBoxContainer/OptionButton" to="." method="_on_inst_extension_selected"]
+[connection signal="text_entered" from="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Vocals/HBoxContainer/LineEdit" to="." method="_on_vocals_name_entered"]
+[connection signal="item_selected" from="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Vocals/HBoxContainer/OptionButton" to="." method="_on_vocals_extension_selected"]
+[connection signal="focus_exited" from="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Chart_Info/TextEdit" to="." method="_on_chart_info_changed"]
+[connection signal="text_entered" from="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Default_Level/LineEdit" to="." method="_on_default_level_entered"]
+[connection signal="text_entered" from="Panel/VBoxContainer/Builder_Menu/VBoxContainer/Song_Data_Suffix/LineEdit" to="." method="_on_song_data_suffix_entered"]

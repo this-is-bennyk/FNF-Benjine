@@ -1,0 +1,124 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/shared/game/characters/Girlfriend.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/shared/game/HUDPackage2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/shared/game/characters/Boyfriend_Car.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packages/fnf/scripts/game/levels/Level_Limo.gd" type="Script" id=4]
+[ext_resource path="res://packages/fnf/characters/mommy_mearest/Mommy_Mearest.tscn" type="PackedScene" id=5]
+[ext_resource path="res://packages/fnf/resources/graphics/week4/limoSunset.png" type="Texture" id=6]
+[ext_resource path="res://packages/fnf/resources/graphics/week4/BG_Limo.res" type="SpriteFrames" id=7]
+[ext_resource path="res://packages/fnf/resources/scenes/week4/Dancing_Demon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://packages/fnf/resources/graphics/week4/FG_Limo.res" type="SpriteFrames" id=9]
+[ext_resource path="res://packages/fnf/resources/graphics/week4/fastCarLol.png" type="Texture" id=10]
+[ext_resource path="res://packages/fnf/resources/graphics/week4/limoOverlay.png" type="Texture" id=11]
+[ext_resource path="res://packages/fnf/scripts/Screen_Overlay.tres" type="Shader" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 12 )
+shader_param/region_start = Vector2( 500, 600 )
+shader_param/region_end = Vector2( 1780, 1320 )
+shader_param/rect_size = Vector2( 3262, 1659 )
+shader_param/overlay_tex = ExtResource( 11 )
+
+[node name="Level" type="Node"]
+script = ExtResource( 4 )
+performers = {
+"metronome": "gf",
+"opponent": "mom",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("BF_Car"),
+"gf": NodePath("ParallaxBackground/GF/Girlfriend"),
+"mom": NodePath("Mommy_Mearest")
+}
+step_zone_paths = {
+"opponent": NodePath("HUDPackage2D/HUD/Visible_Elements/Opponent_Step_Zone"),
+"player": NodePath("HUDPackage2D/HUD/Visible_Elements/Player_Step_Zone")
+}
+hud_path = NodePath("HUDPackage2D/HUD")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( -600, -320 )
+
+[node name="LimoSunset" type="Sprite" parent="ParallaxBackground/BG"]
+position = Vector2( -120, -50 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Dancing_Demons" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( -380, -220 )
+
+[node name="BG_Limo" type="AnimatedSprite" parent="ParallaxBackground/Dancing_Demons"]
+position = Vector2( -200, 480 )
+frames = ExtResource( 7 )
+animation = "background limo pink"
+centered = false
+
+[node name="Dancing_Demon" parent="ParallaxBackground/Dancing_Demons" instance=ExtResource( 8 )]
+position = Vector2( 130, 80 )
+
+[node name="Dancing_Demon2" parent="ParallaxBackground/Dancing_Demons" instance=ExtResource( 8 )]
+position = Vector2( 500, 80 )
+
+[node name="Dancing_Demon3" parent="ParallaxBackground/Dancing_Demons" instance=ExtResource( 8 )]
+position = Vector2( 870, 80 )
+
+[node name="Dancing_Demon4" parent="ParallaxBackground/Dancing_Demons" instance=ExtResource( 8 )]
+position = Vector2( 1240, 80 )
+
+[node name="Fast_Car" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="FastCarLol" type="Sprite" parent="ParallaxBackground/Fast_Car"]
+position = Vector2( -12600, 160 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="Tween" type="Tween" parent="ParallaxBackground/Fast_Car/FastCarLol"]
+
+[node name="GF" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.95, 0.95 )
+
+[node name="Girlfriend" parent="ParallaxBackground/GF" instance=ExtResource( 1 )]
+first_idle = "W4_Dance_Left"
+second_idle = "W4_Dance_Right"
+
+[node name="FG_Limo" type="AnimatedSprite" parent="."]
+position = Vector2( -120, 550 )
+frames = ExtResource( 9 )
+animation = "Limo stage"
+centered = false
+
+[node name="BF_Car" parent="." instance=ExtResource( 3 )]
+idle_frequency = 2
+
+[node name="Mommy_Mearest" parent="." instance=ExtResource( 5 )]
+idle_frequency = 2
+
+[node name="Camera_Point2" type="Position2D" parent="Mommy_Mearest"]
+position = Vector2( 841, 236 )
+
+[node name="Car_Pass_Sound" type="AudioStreamPlayer" parent="."]
+volume_db = -3.098
+bus = "SFX"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Overlay" type="Polygon2D" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0.501961 )
+material = SubResource( 1 )
+position = Vector2( -500, -600 )
+polygon = PoolVector2Array( 0, 0, 3262, 0, 3262, 1659, 0, 1659 )
+
+[node name="HUDPackage2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Cam_HUD" parent="HUDPackage2D" index="1"]
+resting_zoom = 0.9
+zoom_on_quarter_hit = 0.915
+
+[editable path="HUDPackage2D"]

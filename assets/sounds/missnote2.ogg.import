@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/missnote2.ogg-d4ccb25d2195abe037decf58dee4b27c.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/missnote2.ogg"
+dest_files=[ "res://.import/missnote2.ogg-d4ccb25d2195abe037decf58dee4b27c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

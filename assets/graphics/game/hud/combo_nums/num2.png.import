@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/num2.png-e59f04d4d6e9362622a2f31566c8fdca.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/graphics/game/hud/combo_nums/num2.png"
+dest_files=[ "res://.import/num2.png-e59f04d4d6e9362622a2f31566c8fdca.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

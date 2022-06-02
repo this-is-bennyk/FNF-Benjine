@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Lights_Shut_off.ogg-79ac9ed42106908ff82cfe1c1d4baf2b.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/resources/sounds/Lights_Shut_off.ogg"
+dest_files=[ "res://.import/Lights_Shut_off.ogg-79ac9ed42106908ff82cfe1c1d4baf2b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

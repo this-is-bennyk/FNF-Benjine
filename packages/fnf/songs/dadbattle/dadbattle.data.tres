@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://scripts/resources/song_data/SongData.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/game/hud/icon_grid_extended.tres" type="SpriteFrames" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Dadbattle"
+level_info_paths = [ "res://packages/fnf/songs/dadbattle/dadbattle_easy.lvl_info.res", "res://packages/fnf/songs/dadbattle/dadbattle_normal.lvl_info.res", "res://packages/fnf/songs/dadbattle/dadbattle_hard.lvl_info.res" ]
+difficulty_names = [ "Easy", "Normal", "Hard" ]
+icons = ExtResource( 2 )
+icon_index = 22
+freeplay_bg_color = Color( 0.572549, 0.443137, 0.992157, 1 )
+freeplay_outline_color = Color( 0.156863, 0.27451, 0.862745, 1 )
+inst_preview_path = "res://packages/fnf/songs/dadbattle/Inst.mp3"

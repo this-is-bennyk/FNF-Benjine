@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/shared/game/characters/Girlfriend.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/shared/game/HUDPackage2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/shared/game/characters/Boyfriend.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packages/fnf/scripts/game/levels/Level_Halloween.gd" type="Script" id=4]
+[ext_resource path="res://packages/fnf/resources/graphics/week2/halloween_bg.res" type="SpriteFrames" id=5]
+[ext_resource path="res://packages/fnf/characters/spooky_kids/Spooky_Kids.tscn" type="PackedScene" id=6]
+[ext_resource path="res://packages/fnf/characters/monster/Monster.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Lightning"
+length = 0.916667
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "halloweem bg lightning strike" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.875 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 21 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "halloweem bg" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[node name="Level" type="Node"]
+script = ExtResource( 4 )
+performers = {
+"metronome": "gf",
+"opponent": "spooky_kids",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("Boyfriend"),
+"gf": NodePath("Girlfriend"),
+"monster": NodePath("Monster"),
+"spooky_kids": NodePath("Spooky_Kids")
+}
+step_zone_paths = {
+"opponent": NodePath("HUDPackage2D/HUD/Visible_Elements/Opponent_Step_Zone"),
+"player": NodePath("HUDPackage2D/HUD/Visible_Elements/Player_Step_Zone")
+}
+hud_path = NodePath("HUDPackage2D/HUD")
+
+[node name="BG" type="AnimatedSprite" parent="."]
+position = Vector2( -200, -100 )
+frames = ExtResource( 5 )
+animation = "halloweem bg"
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BG"]
+anims/Lightning = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="Girlfriend" parent="." instance=ExtResource( 1 )]
+
+[node name="Boyfriend" parent="." instance=ExtResource( 3 )]
+idle_frequency = 2
+
+[node name="Spooky_Kids" parent="." instance=ExtResource( 6 )]
+
+[node name="Monster" parent="." instance=ExtResource( 7 )]
+visible = false
+
+[node name="Thunder" type="AudioStreamPlayer" parent="."]
+
+[node name="HUDPackage2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Cam_HUD" parent="HUDPackage2D" index="1"]
+resting_zoom = 1.05
+zoom_on_quarter_hit = 1.065
+
+[editable path="HUDPackage2D"]

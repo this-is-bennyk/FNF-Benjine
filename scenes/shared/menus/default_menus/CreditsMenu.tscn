@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scripts/shaders/Menu_BG_Shader.tres" type="Shader" id=1]
+[ext_resource path="res://assets/graphics/menus/bgs/menuDesat.png" type="Texture" id=2]
+[ext_resource path="res://scenes/shared/menus/FNFStyleText_Bold.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scripts/menus/CreditsMenu.gd" type="Script" id=5]
+[ext_resource path="res://assets/sounds/cancelMenu.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/graphics/menus/SB_Empty.tres" type="StyleBox" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/prominent_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+shader_param/bg_color = Color( 0.443137, 0.992157, 0.447059, 1 )
+shader_param/outline_color = Color( 0.435294, 0.862745, 0.156863, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.372549 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_bottom = 15
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_bottom = 15
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="CreditsMenu" type="Node"]
+script = ExtResource( 5 )
+
+[node name="MenuBg" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 640, 360 )
+texture = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 275.0
+margin_top = 75.0
+margin_right = -275.0
+margin_bottom = -75.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Credits" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 300.0
+margin_top = 140.0
+margin_right = -300.0
+margin_bottom = -100.0
+custom_fonts/italics_font = SubResource( 5 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 3 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/normal = ExtResource( 7 )
+bbcode_enabled = true
+
+[node name="Credits_Title" parent="." instance=ExtResource( 3 )]
+anchor_right = 1.0
+margin_top = 65.0
+margin_right = 0.0
+margin_bottom = 135.0
+text = "Credits"
+align = 1
+
+[node name="Cancel_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "SFX"
+
+[connection signal="meta_clicked" from="Credits" to="." method="_on_link_clicked"]

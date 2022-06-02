@@ -1,0 +1,17 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform vec4 prominent_color : hint_color = vec4(0.88, 0.88, 0.88, 1.0);
+uniform vec4 bg_color : hint_color = vec4(0.55, 0.55, 0.55, 1.0);
+uniform vec4 outline_color : hint_color = vec4(0.88, 0.88, 0.88, 1.0);
+
+void fragment()
+{
+	vec4 cur_color = texture(TEXTURE, UV);
+	vec4 final_color = mix(bg_color, outline_color, distance(cur_color, prominent_color) / distance(outline_color, bg_color));
+	
+	COLOR = final_color;
+}
+"

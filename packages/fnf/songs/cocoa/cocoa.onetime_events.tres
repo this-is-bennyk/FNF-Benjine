@@ -1,0 +1,58 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://scripts/general/ResourceList.gd" type="Script" id=1]
+[ext_resource path="res://scripts/game/events/GameEventInfo.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+occurrence_time = 31.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "switch_singing_parent"
+func_ref_args = [  ]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+occurrence_time = 63.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "switch_singing_parent"
+func_ref_args = [  ]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+occurrence_time = 95.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "switch_singing_parent"
+func_ref_args = [  ]
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+occurrence_time = 127.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "switch_singing_parent"
+func_ref_args = [  ]
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+occurrence_time = 143.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "switch_singing_parent"
+func_ref_args = [  ]
+
+[resource]
+script = ExtResource( 1 )
+list = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ]

@@ -1,0 +1,525 @@
+[gd_scene load_steps=46 format=2]
+
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tankSky.png" type="Texture" id=1]
+[ext_resource path="res://scenes/shared/game/HUDPackage2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/shared/game/characters/Boyfriend.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packages/fnf/scripts/game/levels/Level_Tankman.gd" type="Script" id=4]
+[ext_resource path="res://packages/fnf/characters/tankman/Tankman.tscn" type="PackedScene" id=5]
+[ext_resource path="res://packages/fnf/characters/w7_gf/W7_GF.tscn" type="PackedScene" id=6]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tankClouds.png" type="Texture" id=7]
+[ext_resource path="res://packages/fnf/scripts/Week_7_Clouds.tres" type="Shader" id=8]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tankMountains.png" type="Texture" id=9]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tankBuildings.png" type="Texture" id=10]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tankGround.png" type="Texture" id=11]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tankRuins.png" type="Texture" id=12]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/smokeRight.res" type="SpriteFrames" id=13]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/smokeLeft.res" type="SpriteFrames" id=14]
+[ext_resource path="res://packages/fnf/resources/anims/week7/Smoking.tres" type="Animation" id=15]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tankWatchtower.res" type="SpriteFrames" id=16]
+[ext_resource path="res://scripts/game/characters/BeatNode.gd" type="Script" id=17]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tank0.res" type="SpriteFrames" id=18]
+[ext_resource path="res://packages/fnf/resources/anims/week7/TankmanFG_Idle14.tres" type="Animation" id=19]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tank2.res" type="SpriteFrames" id=20]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tank1.res" type="SpriteFrames" id=21]
+[ext_resource path="res://packages/fnf/resources/anims/week7/TankmanFG_Idle15.tres" type="Animation" id=22]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tank4.res" type="SpriteFrames" id=23]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tank5.res" type="SpriteFrames" id=24]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tank3.res" type="SpriteFrames" id=25]
+[ext_resource path="res://packages/fnf/resources/graphics/week7/tankRolling.res" type="SpriteFrames" id=26]
+[ext_resource path="res://scenes/shared/game/characters/Partners.tscn" type="PackedScene" id=27]
+[ext_resource path="res://packages/fnf/characters/w7_pico/Pico_Speaker.tscn" type="PackedScene" id=28]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 8 )
+shader_param/direction = Vector2( -1, 0 )
+shader_param/speed = 0.01
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+length = 0.583333
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.541667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 13 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Curve2D" id=15]
+_data = {
+"points": PoolVector2Array( -75.4392, 36.436, 75.4392, -36.436, -380.362, 742.121, -849.275, 0.133236, 849.275, -0.133236, 705.963, 487.552, 0, 0, 0, 0, 1909.96, 737.552 )
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Roll"
+length = 0.125
+loop = true
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Idle"
+length = 0.583333
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.541667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 13 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Idle"
+length = 0.583333
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.541667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 13 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Idle"
+length = 0.583333
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.541667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 13 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Idle"
+length = 0.625
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.583333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 14 ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[node name="Level" type="Node"]
+script = ExtResource( 4 )
+performers = {
+"metronome": "gf",
+"opponent": "tankman",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("Boyfriend"),
+"gf": NodePath("ParallaxBackground/Metronomes/W7_GF"),
+"partners": NodePath("Partners"),
+"tankman": NodePath("Tankman")
+}
+step_zone_paths = {
+"opponent": NodePath("HUDPackage2D/HUD/Visible_Elements/Opponent_Step_Zone"),
+"player": NodePath("HUDPackage2D/HUD/Visible_Elements/Player_Step_Zone")
+}
+hud_path = NodePath("HUDPackage2D/HUD")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( -576, -324 )
+
+[node name="TankSky" type="Sprite" parent="ParallaxBackground/Sky"]
+position = Vector2( -100, -300 )
+scale = Vector2( 1.4, 1.4 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( -576, -324 )
+
+[node name="TankClouds" type="Sprite" parent="ParallaxBackground/Clouds"]
+material = SubResource( 1 )
+position = Vector2( -100, 0 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Far_BG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_offset = Vector2( -512, -288 )
+
+[node name="TankMountains" type="Sprite" parent="ParallaxBackground/Far_BG"]
+position = Vector2( -255, 0 )
+scale = Vector2( 1.15, 1.15 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="TankBuildings" type="Sprite" parent="ParallaxBackground/Far_BG"]
+position = Vector2( -75, 25 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="Ruins" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_offset = Vector2( -448, -252 )
+
+[node name="TankRuins" type="Sprite" parent="ParallaxBackground/Ruins"]
+position = Vector2( -50, 40 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="SmokeLeft" type="AnimatedSprite" parent="ParallaxBackground/Ruins"]
+position = Vector2( -160, -80 )
+frames = ExtResource( 14 )
+animation = "SmokeBlurLeft instance 1"
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Ruins/SmokeLeft"]
+autoplay = "Smoking"
+anims/Smoking = ExtResource( 15 )
+
+[node name="SmokeRight" type="AnimatedSprite" parent="ParallaxBackground/Ruins"]
+position = Vector2( 1145, -85 )
+frames = ExtResource( 13 )
+animation = "SmokeRight instance 1"
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Ruins/SmokeRight"]
+autoplay = "Smoking"
+anims/RESET = SubResource( 2 )
+anims/Smoking = ExtResource( 15 )
+
+[node name="Watchtower" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( -384, -216 )
+
+[node name="Watchtower" type="AnimatedSprite" parent="ParallaxBackground/Watchtower"]
+position = Vector2( 200, 60 )
+frames = ExtResource( 16 )
+animation = "watchtower gradient color instance 1"
+centered = false
+script = ExtResource( 17 )
+idle_frequency = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Watchtower/Watchtower"]
+anims/Idle = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="Behind_Ground" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Tank_Path" type="Path2D" parent="ParallaxBackground/Behind_Ground"]
+curve = SubResource( 15 )
+
+[node name="Tank_PathFollow" type="PathFollow2D" parent="ParallaxBackground/Behind_Ground/Tank_Path"]
+position = Vector2( -380.362, 742.121 )
+rotation = -0.47345
+
+[node name="Tank_Center" type="Node2D" parent="ParallaxBackground/Behind_Ground/Tank_Path/Tank_PathFollow"]
+rotation = 0.312414
+
+[node name="Rolling_Tank" type="AnimatedSprite" parent="ParallaxBackground/Behind_Ground/Tank_Path/Tank_PathFollow/Tank_Center"]
+position = Vector2( -159.5, -164 )
+frames = ExtResource( 26 )
+animation = "BG tank w lighting instance 1"
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Behind_Ground/Tank_Path/Tank_PathFollow/Tank_Center/Rolling_Tank"]
+autoplay = "Roll"
+anims/RESET = SubResource( 16 )
+anims/Roll = SubResource( 17 )
+
+[node name="Tween" type="Tween" parent="ParallaxBackground/Behind_Ground/Tank_Path/Tank_PathFollow"]
+
+[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="TankGround" type="Sprite" parent="ParallaxBackground/Ground"]
+position = Vector2( -363, -125 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="Metronomes" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.95, 0.95 )
+motion_offset = Vector2( -32, -18 )
+
+[node name="W7_GF" parent="ParallaxBackground/Metronomes" instance=ExtResource( 6 )]
+
+[node name="Pico_Speaker" parent="ParallaxBackground/Metronomes" instance=ExtResource( 28 )]
+visible = false
+position = Vector2( 400, -5 )
+
+[node name="Partners" parent="." instance=ExtResource( 27 )]
+visible = false
+
+[node name="Boyfriend" parent="." instance=ExtResource( 3 )]
+position = Vector2( 911, 506 )
+idle_frequency = 2
+
+[node name="Tankman" parent="." instance=ExtResource( 5 )]
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="ParallaxForeground" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="Men1" type="ParallaxLayer" parent="ParallaxForeground"]
+motion_scale = Vector2( 1.5, 1.5 )
+motion_offset = Vector2( 320, 180 )
+
+[node name="Tankman1" type="AnimatedSprite" parent="ParallaxForeground/Men1"]
+position = Vector2( -325, 755 )
+frames = ExtResource( 18 )
+animation = "fg tankhead far right instance 1"
+centered = false
+script = ExtResource( 17 )
+idle_frequency = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxForeground/Men1/Tankman1"]
+anims/Idle = ExtResource( 19 )
+anims/RESET = SubResource( 5 )
+
+[node name="Tankman2" type="AnimatedSprite" parent="ParallaxForeground/Men1"]
+position = Vector2( -25, 1075 )
+frames = ExtResource( 21 )
+animation = "fg tankhead 5 instance 1"
+centered = false
+script = ExtResource( 17 )
+idle_frequency = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxForeground/Men1/Tankman2"]
+anims/Idle = ExtResource( 22 )
+anims/RESET = SubResource( 8 )
+
+[node name="Tankman3" type="AnimatedSprite" parent="ParallaxForeground/Men1"]
+position = Vector2( 600, 1035 )
+frames = ExtResource( 20 )
+animation = "foreground man 3 instance 1"
+centered = false
+script = ExtResource( 17 )
+idle_frequency = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxForeground/Men1/Tankman3"]
+anims/Idle = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+
+[node name="Tankman4" type="AnimatedSprite" parent="ParallaxForeground/Men1"]
+position = Vector2( 1450, 965 )
+frames = ExtResource( 23 )
+animation = "fg tankman bobbin 3 instance 1"
+centered = false
+script = ExtResource( 17 )
+idle_frequency = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxForeground/Men1/Tankman4"]
+anims/Idle = SubResource( 9 )
+anims/RESET = SubResource( 10 )
+
+[node name="Tankman5" type="AnimatedSprite" parent="ParallaxForeground/Men1"]
+position = Vector2( 1765, 765 )
+frames = ExtResource( 24 )
+animation = "fg tankhead far right instance 1"
+centered = false
+script = ExtResource( 17 )
+idle_frequency = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxForeground/Men1/Tankman5"]
+anims/Idle = SubResource( 11 )
+anims/RESET = SubResource( 12 )
+
+[node name="Men2" type="ParallaxLayer" parent="ParallaxForeground"]
+motion_scale = Vector2( 2.5, 2.5 )
+motion_offset = Vector2( 960, 540 )
+
+[node name="Tankman6" type="AnimatedSprite" parent="ParallaxForeground/Men2"]
+position = Vector2( 1275, 1305 )
+frames = ExtResource( 25 )
+animation = "fg tankhead 4 instance 1"
+centered = false
+script = ExtResource( 17 )
+idle_frequency = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxForeground/Men2/Tankman6"]
+anims/Idle = SubResource( 13 )
+anims/RESET = SubResource( 14 )
+
+[node name="HUDPackage2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Cam_HUD" parent="HUDPackage2D" index="1"]
+resting_zoom = 0.9
+zoom_on_quarter_hit = 0.915
+
+[editable path="HUDPackage2D"]

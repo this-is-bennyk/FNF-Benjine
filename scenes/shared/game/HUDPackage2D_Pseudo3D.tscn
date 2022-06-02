@@ -1,0 +1,195 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scripts/game/HealthBar2D.gd" type="Script" id=1]
+[ext_resource path="res://scripts/game/HUD.gd" type="Script" id=2]
+[ext_resource path="res://scripts/menus/NonControlText.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/VCR_20.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scripts/game/characters/BeatNode.gd" type="Script" id=6]
+[ext_resource path="res://scenes/shared/game/notes/3d/Right_Lane.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/graphics/game/hud/countdown_messages.tres" type="SpriteFrames" id=12]
+[ext_resource path="res://scripts/game/GameCamera.gd" type="Script" id=13]
+[ext_resource path="res://scenes/shared/game/notes/3d/Left_Lane.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/shared/game/notes/3d/Down_Lane.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/shared/game/notes/3d/Up_Lane.tscn" type="PackedScene" id=16]
+[ext_resource path="res://default_env.tres" type="Environment" id=17]
+
+[sub_resource type="Animation" id=7]
+resource_name = "Idle"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "tween_zoom"
+} ]
+}
+
+[sub_resource type="World" id=5]
+environment = ExtResource( 17 )
+fallback_environment = ExtResource( 17 )
+
+[sub_resource type="ViewportTexture" id=6]
+viewport_path = NodePath("Step_Zones_3D")
+
+[sub_resource type="Animation" id=8]
+resource_name = "Idle"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "tween_zoom"
+} ]
+}
+
+[node name="HUDPackage2D" type="Node"]
+
+[node name="Default_Pos" type="Position2D" parent="."]
+position = Vector2( 770, 450 )
+
+[node name="Cam_HUD" type="Camera2D" parent="."]
+position = Vector2( 770, 450 )
+rotating = true
+current = true
+zoom = Vector2( 1.429, 1.429 )
+script = ExtResource( 13 )
+
+[node name="Tween" type="Tween" parent="Cam_HUD"]
+
+[node name="Cam_Zoom_Beat" type="Node" parent="Cam_HUD"]
+script = ExtResource( 6 )
+idle_frequency = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cam_HUD/Cam_Zoom_Beat"]
+anims/Idle = SubResource( 7 )
+
+[node name="Step_Zones_3D" type="Viewport" parent="."]
+size = Vector2( 1280, 720 )
+own_world = true
+world = SubResource( 5 )
+transparent_bg = true
+msaa = 2
+
+[node name="Player_Step_Zone" type="Spatial" parent="Step_Zones_3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.181, 2.562, 0.498 )
+
+[node name="Left_Lane" parent="Step_Zones_3D/Player_Step_Zone" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65, 0, 0 )
+
+[node name="Down_Lane" parent="Step_Zones_3D/Player_Step_Zone" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0 )
+
+[node name="Up_Lane" parent="Step_Zones_3D/Player_Step_Zone" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0 )
+
+[node name="Right_Lane" parent="Step_Zones_3D/Player_Step_Zone" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65, 0, 0 )
+
+[node name="Opponent_Step_Zone" type="Spatial" parent="Step_Zones_3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.181, 2.562, 0.498 )
+
+[node name="Left_Lane" parent="Step_Zones_3D/Opponent_Step_Zone" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65, 0, 0 )
+lane_type = 1
+
+[node name="Down_Lane" parent="Step_Zones_3D/Opponent_Step_Zone" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0 )
+lane_type = 1
+
+[node name="Up_Lane" parent="Step_Zones_3D/Opponent_Step_Zone" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0 )
+lane_type = 1
+
+[node name="Right_Lane" parent="Step_Zones_3D/Opponent_Step_Zone" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65, 0, 0 )
+lane_type = 1
+
+[node name="Camera" type="Camera" parent="Step_Zones_3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.151 )
+current = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 2 )
+camera_path = NodePath("../Cam_HUD")
+ratings_list_path = NodePath("Visible_Elements/Ratings_List")
+player_health_path = NodePath("Visible_Elements/Health_Bar_BG/Player_Health")
+opponent_health_path = NodePath("Visible_Elements/Health_Bar_BG/Opponent_Health")
+score_text_path = NodePath("Visible_Elements/Score_Text")
+countdown_path = NodePath("Visible_Elements/Countdown_Msgs/Countdown")
+countdown_msgs_path = NodePath("Visible_Elements/Countdown_Msgs")
+countdown_tween_path = NodePath("Visible_Elements/Countdown_Msgs/Countdown_Tween")
+miss_sound_player_path = NodePath("Miss_Sound")
+
+[node name="Visible_Elements" type="Node2D" parent="HUD"]
+
+[node name="Step_Zones" type="Sprite" parent="HUD/Visible_Elements"]
+texture = SubResource( 6 )
+centered = false
+flip_v = true
+
+[node name="Score_Text" type="Node2D" parent="HUD/Visible_Elements"]
+position = Vector2( 640, 684 )
+script = ExtResource( 3 )
+text = "Score: 100 | Accuracy: 99%"
+font = ExtResource( 4 )
+h_align = 1
+v_align = 1
+
+[node name="Health_Bar_BG" type="Line2D" parent="HUD/Visible_Elements"]
+position = Vector2( 640, 648 )
+points = PoolVector2Array( -300, 0, 300, 0 )
+width = 20.0
+default_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 1 )
+
+[node name="Opponent_Health" type="Line2D" parent="HUD/Visible_Elements/Health_Bar_BG"]
+points = PoolVector2Array( -296, 0, 0, 0 )
+width = 12.0
+default_color = Color( 1, 0, 0, 1 )
+
+[node name="Player_Health" type="Line2D" parent="HUD/Visible_Elements/Health_Bar_BG"]
+points = PoolVector2Array( 0, 0, 296, 0 )
+width = 12.0
+default_color = Color( 0.4, 1, 0.2, 1 )
+
+[node name="Player_Icon" type="Node2D" parent="HUD/Visible_Elements/Health_Bar_BG"]
+scale = Vector2( -1, 1 )
+
+[node name="Opponent_Icon" type="Node2D" parent="HUD/Visible_Elements/Health_Bar_BG"]
+
+[node name="Countdown_Msgs" type="AnimatedSprite" parent="HUD/Visible_Elements"]
+visible = false
+position = Vector2( 640, 360 )
+scale = Vector2( 0.7, 0.7 )
+frames = ExtResource( 12 )
+animation = "3"
+
+[node name="Countdown" type="AudioStreamPlayer" parent="HUD/Visible_Elements/Countdown_Msgs"]
+
+[node name="Countdown_Tween" type="Tween" parent="HUD/Visible_Elements/Countdown_Msgs"]
+
+[node name="Ratings_List" type="Node2D" parent="HUD/Visible_Elements"]
+position = Vector2( 640, 360 )
+
+[node name="Miss_Sound" type="AudioStreamPlayer" parent="HUD"]
+
+[node name="HUD_Zoom_Beat" type="Node" parent="HUD"]
+script = ExtResource( 6 )
+idle_frequency = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/HUD_Zoom_Beat"]
+anims/Idle = SubResource( 8 )

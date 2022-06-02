@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/graphics/game/notes/pixel/Pixel_Notes.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/game/notes/Note2D.gd" type="Script" id=2]
+
+[node name="Note2D" type="PathFollow2D"]
+rotation = -1.5708
+loop = false
+script = ExtResource( 2 )
+regular_note_anim = "arrow_left"
+sustain_line_anim = "susLine_left"
+sustain_cap_anim = "susEnd_left"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 6, 6 )
+frames = ExtResource( 1 )
+animation = "arrow_left"

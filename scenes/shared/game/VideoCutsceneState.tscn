@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/game/VideoCutsceneState.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/fnf_psych/FNF_Bold1.font" type="BitmapFont" id=2]
+[ext_resource path="res://assets/fonts/VCR_32_Options.tres" type="DynamicFont" id=3]
+
+[node name="VideoCutsceneState" type="VideoPlayer"]
+margin_right = 1280.0
+margin_bottom = 720.0
+script = ExtResource( 1 )
+
+[node name="HTML5_Error" type="RichTextLabel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/bold_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]
+
+
+
+
+
+
+
+[b]WHOOPS![/b]
+
+Videos are currently not supported
+in the HTML5 version of the Benjine."
+text = "
+
+
+
+
+
+
+
+WHOOPS!
+
+Videos are currently not supported
+in the HTML5 version of the Benjine."
+
+[connection signal="finished" from="." to="." method="_on_cutscene_finished"]

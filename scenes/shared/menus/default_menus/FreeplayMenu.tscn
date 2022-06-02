@@ -1,0 +1,155 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://scenes/shared/menus/FNFStyleMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/menus/FreeplayMenu.gd" type="Script" id=2]
+[ext_resource path="res://scripts/shaders/Inverted_Colors.tres" type="Shader" id=3]
+[ext_resource path="res://assets/graphics/menus/bgs/menuDesat.png" type="Texture" id=4]
+[ext_resource path="res://scripts/shaders/Menu_BG_Shader.tres" type="Shader" id=5]
+[ext_resource path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scenes/shared/menus/FNFStyleText_Normal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sounds/cancelMenu.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/graphics/menus/SB_Empty.tres" type="StyleBox" id=9]
+[ext_resource path="res://assets/graphics/menus/ui/orange_h_slider/Orange_Grabber.tres" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/menus/ui/orange_h_slider/OrangeSlider_BG.tres" type="StyleBox" id=11]
+[ext_resource path="res://assets/graphics/menus/ui/orange_h_slider/Orange_Grabber_Disabled.tres" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/menus/ui/orange_h_slider/Orange_Grabber_Highlight.tres" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/menus/ui/static_checkbox/Static_CB_Checked.tres" type="Texture" id=14]
+[ext_resource path="res://assets/graphics/menus/ui/static_checkbox/Static_CB_Unchecked.tres" type="Texture" id=15]
+[ext_resource path="res://assets/graphics/menus/ui/static_checkbox/Static_CB_Unchecked_Disabled.tres" type="Texture" id=16]
+[ext_resource path="res://assets/graphics/menus/ui/static_checkbox/Static_CB_Checked_Disabled.tres" type="Texture" id=17]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/prominent_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+shader_param/bg_color = Color( 0.572549, 0.443137, 0.992157, 1 )
+shader_param/outline_color = Color( 0.156863, 0.27451, 0.862745, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[node name="FreeplayMenu" type="Node"]
+script = ExtResource( 2 )
+song_select_menu_path = NodePath("Song_Select_Menu")
+inst_player_path = NodePath("Inst_Player")
+tween_path = NodePath("Tween")
+bg_path = NodePath("MenuBg")
+score_fg_path = NodePath("Score_FG")
+score_bg_path = NodePath("Score_BG")
+difficulty_name_path = NodePath("Difficulty")
+song_speed_indicator_path = NodePath("Song_Speed_Indicator")
+song_speed_changer_path = NodePath("Song_Speed_Changer")
+botplay_button_path = NodePath("Botplay_Button")
+cancel_sound_path = NodePath("Cancel_Sound")
+
+[node name="MenuBg" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 640, 360 )
+texture = ExtResource( 4 )
+
+[node name="Song_Select_Menu" parent="." instance=ExtResource( 1 )]
+
+[node name="Inst_Player" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+
+[node name="Cancel_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "SFX"
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Score_BG" parent="." instance=ExtResource( 7 )]
+margin_left = 1063.0
+margin_top = 40.0
+margin_right = 1270.0
+margin_bottom = 93.0
+grow_horizontal = 0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 1
+text = "0"
+align = 2
+
+[node name="Score_FG" parent="." instance=ExtResource( 7 )]
+material = SubResource( 3 )
+margin_left = 1063.0
+margin_top = 40.0
+margin_right = 1270.0
+margin_bottom = 93.0
+grow_horizontal = 0
+text = "0"
+align = 2
+
+[node name="PB" type="Label" parent="."]
+margin_left = 1088.0
+margin_top = 10.0
+margin_right = 1270.0
+margin_bottom = 32.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 2 )
+text = "Personal Best"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Difficulty" type="Label" parent="."]
+margin_left = 1088.0
+margin_top = 98.0
+margin_right = 1270.0
+margin_bottom = 120.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 2 )
+text = "< Normal >"
+align = 2
+
+[node name="Song_Speed_Indicator" type="Label" parent="."]
+margin_left = 1088.0
+margin_top = 141.0
+margin_right = 1270.0
+margin_bottom = 163.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 2 )
+text = "Song Speed: 1"
+align = 2
+
+[node name="Song_Speed_Changer" type="HSlider" parent="."]
+margin_left = 1088.0
+margin_top = 166.0
+margin_right = 1272.0
+margin_bottom = 182.0
+focus_mode = 0
+custom_icons/grabber_disabled = ExtResource( 12 )
+custom_icons/grabber_highlight = ExtResource( 13 )
+custom_icons/grabber = ExtResource( 10 )
+custom_styles/slider = ExtResource( 11 )
+custom_styles/grabber_area_highlight = ExtResource( 9 )
+custom_styles/grabber_area = ExtResource( 9 )
+min_value = 0.5
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="Botplay_Button" type="CheckBox" parent="."]
+margin_left = 1130.0
+margin_top = 190.0
+margin_right = 1270.0
+margin_bottom = 228.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+custom_icons/checked_disabled = ExtResource( 17 )
+custom_icons/checked = ExtResource( 14 )
+custom_icons/unchecked_disabled = ExtResource( 16 )
+custom_icons/unchecked = ExtResource( 15 )
+text = "Botplay"
+
+[connection signal="option_changed" from="Song_Select_Menu" to="." method="_on_option_changed"]
+[connection signal="option_selected" from="Song_Select_Menu" to="." method="_on_option_selected" flags=7]
+[connection signal="value_changed" from="Song_Speed_Changer" to="." method="_on_song_speed_changed"]
+[connection signal="toggled" from="Botplay_Button" to="." method="_on_botplay_toggled"]

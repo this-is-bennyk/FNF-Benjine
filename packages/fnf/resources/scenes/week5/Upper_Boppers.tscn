@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://packages/fnf/resources/graphics/week5/Upper_Boppers.res" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/game/characters/BeatNode.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 0.541667
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 12 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[node name="Upper_Boppers" type="AnimatedSprite"]
+position = Vector2( -240, -90 )
+scale = Vector2( 0.85, 0.85 )
+frames = ExtResource( 1 )
+animation = "Upper Crowd Bob"
+centered = false
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 1 )
+anims/RESET = SubResource( 2 )

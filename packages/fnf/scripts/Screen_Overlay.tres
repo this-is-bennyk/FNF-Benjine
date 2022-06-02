@@ -1,0 +1,27 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform sampler2D overlay_tex;
+
+uniform vec2 region_start = vec2(0);
+uniform vec2 region_end = vec2(1);
+uniform vec2 rect_size = vec2(1);
+
+vec3 overlay(in vec3 src, in vec3 dst)
+{
+	return mix(2.0 * src * dst, 1.0 - 2.0 * (1.0 - src) * (1.0-dst), step(0.5, dst));
+}
+
+void fragment()
+{
+	vec2 region_uv = mix(region_start / rect_size, region_end / rect_size, SCREEN_UV);
+	vec4 final_color = texture(overlay_tex, region_uv);
+	vec4 screen_color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	
+	final_color.rgb = overlay(screen_color.rgb, final_color.rgb);
+	
+	COLOR = final_color;
+}
+"

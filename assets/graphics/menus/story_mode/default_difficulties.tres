@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=2]
+
+[ext_resource path="res://assets/graphics/menus/story_mode/hard.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/menus/story_mode/easy.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/menus/story_mode/normal.png" type="Texture" id=3]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "0",
+"speed": 5.0
+} ]

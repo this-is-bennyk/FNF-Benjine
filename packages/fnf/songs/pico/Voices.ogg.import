@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Voices.ogg-2283ed83fa65e8b67fdb47c9ee79230b.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/songs/pico/Voices.ogg"
+dest_files=[ "res://.import/Voices.ogg-2283ed83fa65e8b67fdb47c9ee79230b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

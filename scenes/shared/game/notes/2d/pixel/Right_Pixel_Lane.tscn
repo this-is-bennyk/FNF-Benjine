@@ -1,0 +1,156 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/graphics/game/notes/pixel/Pixel_Notes.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scenes/shared/game/notes/2d/pixel/Right_Pixel_Note.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/game/notes/Lane.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=4]
+resource_name = "Lighted"
+length = 0.0833333
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Strum_Arrow:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "confirm_right" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Strum_Arrow:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0416667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Neutral"
+length = 0.001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Strum_Arrow:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "static_right" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Strum_Arrow:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Pressed"
+length = 0.001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Strum_Arrow:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "press_right" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Strum_Arrow:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Strum_Arrow:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "static_right" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Strum_Arrow:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -900 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 900, 0, 0, 0, 0, 0, 0 )
+}
+
+[node name="Right_Pixel_Lane" type="Node2D"]
+script = ExtResource( 3 )
+direction = 3
+strum_arrow_nodepath = NodePath("Strum_Arrow")
+strum_arrow_anim_nodepath = NodePath("AnimationPlayer")
+start_path_nodepath = NodePath("Start_Path")
+end_path_nodepath = NodePath("End_Path")
+action = "4k_right"
+note_scenes = [ ExtResource( 2 ) ]
+
+[node name="Strum_Arrow" type="AnimatedSprite" parent="."]
+scale = Vector2( 6, 6 )
+frames = ExtResource( 1 )
+animation = "static_right"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Lighted = SubResource( 4 )
+anims/Neutral = SubResource( 3 )
+anims/Pressed = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="End_Path" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="Start_Path" type="Path2D" parent="."]
+curve = SubResource( 2 )

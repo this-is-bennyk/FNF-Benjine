@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/shit.png-d4d16ba19e086358dc7f51ab7243b821.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/graphics/game/hud/shit.png"
+dest_files=[ "res://.import/shit.png-d4d16ba19e086358dc7f51ab7243b821.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

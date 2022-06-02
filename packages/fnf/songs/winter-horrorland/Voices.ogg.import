@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Voices.ogg-b60fe044fb3a55d4167f90a6a8b731f1.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/songs/winter-horrorland/Voices.ogg"
+dest_files=[ "res://.import/Voices.ogg-b60fe044fb3a55d4167f90a6a8b731f1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

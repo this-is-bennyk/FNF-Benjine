@@ -1,0 +1,191 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/autoload/TransitionSystem.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.333, 0.667, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 2160
+
+[sub_resource type="Animation" id=3]
+resource_name = "Basic_Fade_In"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Basic_Fade:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Basic_Fade:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1280, -720 ), Vector2( 1280, 720 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Basic_Fade_Out"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Basic_Fade:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Basic_Fade:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1280, -2160 ), Vector2( 1280, -720 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Instant_Fade_Out"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Basic_Fade:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Basic_Fade:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 1280, -720 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Basic_Fade:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1280, -2160 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Basic_Fade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Screen_Capture:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Screen_Cap_In"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Screen_Capture:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Screen_Cap_Out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Screen_Capture:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="TransitionSystem" type="CanvasLayer"]
+pause_mode = 2
+layer = 100
+script = ExtResource( 1 )
+anim_player_path = NodePath("AnimationPlayer")
+
+[node name="Basic_Fade" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1280, -2160 )
+rotation = 1.5708
+scale = Vector2( 1, 1280 )
+texture = SubResource( 2 )
+centered = false
+
+[node name="Screen_Capture" type="Sprite" parent="."]
+visible = false
+centered = false
+flip_v = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Basic_Fade_In = SubResource( 3 )
+anims/Basic_Fade_Out = SubResource( 4 )
+anims/Instant_Fade_Out = SubResource( 8 )
+anims/RESET = SubResource( 5 )
+anims/Screen_Cap_In = SubResource( 6 )
+anims/Screen_Cap_Out = SubResource( 7 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hxf_flixel.ogg-ceff365411ab28a167a37f7c6137ff27.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/hxf_flixel.ogg"
+dest_files=[ "res://.import/hxf_flixel.ogg-ceff365411ab28a167a37f7c6137ff27.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

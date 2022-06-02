@@ -1,0 +1,63 @@
+[gd_scene format=2]
+
+[node name="AudioBars" type="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -116.0
+margin_top = -32.0
+rect_min_size = Vector2( 116, 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bar1" type="Polygon2D" parent="."]
+position = Vector2( 0, 28.8 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 3.2, 0, 3.2 )
+
+[node name="Bar2" type="Polygon2D" parent="."]
+position = Vector2( 12, 25.6 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 6.4, 0, 6.4 )
+
+[node name="Bar3" type="Polygon2D" parent="."]
+position = Vector2( 24, 22.4 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 9.6, 0, 9.6 )
+
+[node name="Bar4" type="Polygon2D" parent="."]
+position = Vector2( 36, 19.2 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 12.8, 0, 12.8 )
+
+[node name="Bar5" type="Polygon2D" parent="."]
+position = Vector2( 48, 16 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 16, 0, 16 )
+
+[node name="Bar6" type="Polygon2D" parent="."]
+position = Vector2( 60, 12.8 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 19.2, 0, 19.2 )
+
+[node name="Bar7" type="Polygon2D" parent="."]
+position = Vector2( 72, 9.6 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 22.4, 0, 22.4 )
+
+[node name="Bar8" type="Polygon2D" parent="."]
+position = Vector2( 84, 6.4 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 25.6, 0, 25.6 )
+
+[node name="Bar9" type="Polygon2D" parent="."]
+position = Vector2( 96, 3.2 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 28.8, 0, 28.8 )
+
+[node name="Bar10" type="Polygon2D" parent="."]
+position = Vector2( 108, 0 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+polygon = PoolVector2Array( 0, 0, 8, 0, 8, 32, 0, 32 )

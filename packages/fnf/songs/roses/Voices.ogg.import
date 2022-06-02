@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Voices.ogg-947fa8d4601876afcb4c7761348a885b.oggstr"
+
+[deps]
+
+source_file="res://packages/fnf/songs/roses/Voices.ogg"
+dest_files=[ "res://.import/Voices.ogg-947fa8d4601876afcb4c7761348a885b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

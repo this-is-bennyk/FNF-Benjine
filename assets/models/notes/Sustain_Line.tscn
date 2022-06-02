@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/materials/note3ds/Up_Sustain_Inner_Color.tres" type="Material" id=2]
+[ext_resource path="res://assets/materials/note3ds/Up_Sustain_Outer_Color.tres" type="Material" id=3]
+[ext_resource path="res://assets/materials/note3ds/Sustain_White.tres" type="Material" id=4]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.936
+
+[node name="Sustain_Line" type="Spatial"]
+
+[node name="Inner" type="MeshInstance" parent="."]
+transform = Transform( 1.47, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = ExtResource( 2 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Outline1" type="MeshInstance" parent="."]
+transform = Transform( 1.617, 0, 0, 0, 1.036, 0, 0, 0, 1.1, 0, 0, 0 )
+material_override = ExtResource( 4 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Outline2" type="MeshInstance" parent="."]
+transform = Transform( 1.764, 0, 0, 0, 1.091, 0, 0, 0, 1.2, 0, 0, 0 )
+material_override = ExtResource( 3 )
+mesh = SubResource( 1 )
+material/0 = null

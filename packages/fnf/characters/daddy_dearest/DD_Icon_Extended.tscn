@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://templates/HealthIcon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/graphics/game/hud/icon_grid_extended.tres" type="SpriteFrames" id=2]
+
+[node name="DD_Icon_Extended" instance=ExtResource( 1 )]
+health_to_index_map = [ {
+"health": 1.0,
+"index": 20
+}, {
+"health": 0.8,
+"index": 21
+}, {
+"health": 0.6,
+"index": 22
+}, {
+"health": 0.4,
+"index": 23
+}, {
+"health": 0.2,
+"index": 24
+} ]
+
+[node name="Icon" parent="." index="0"]
+frames = ExtResource( 2 )
+frame = 22

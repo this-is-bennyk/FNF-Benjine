@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://packages/fnf/characters/spooky_kids/Spooky_Kids.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/materials/menus/StoryModeCharacterShader.tres" type="Material" id=4]
+
+[node name="SKids_StoryMode" instance=ExtResource( 1 )]
+material = ExtResource( 4 )
