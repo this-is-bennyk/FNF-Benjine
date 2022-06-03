@@ -24,9 +24,9 @@ icons = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 6 )
 name = "The Funkin' Crew Inc."
 roles_or_contributions = "Test by KawaiSprite
 Vocals and chart by MtH"
-links = [  ]
-link_names = [  ]
-link_colors = [  ]
+links = [ "https://www.youtube.com/watch?v=p-qo-2AmA4M" ]
+link_names = [ "Original \"Test\"" ]
+link_colors = [ Color( 1, 1, 1, 1 ) ]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
