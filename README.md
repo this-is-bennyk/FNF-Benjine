@@ -31,18 +31,22 @@ Play or get the Benjine on [itch.io](https://thisisbennyk.itch.io/friday-night-f
 
 ### Some nice quality-of-life changes
 - A slightly redesigned Story Mode menu
+
 ![No more strangely disproportionate characters that are out of sync with the beat lol](https://cdn.discordapp.com/attachments/982020014284607518/982026431309697044/unknown.png "No more strangely disproportionate characters that are out of sync with the beat lol")
-- All sorts of scroll options
+- All sorts of scroll types
+
 ![Downscroll](https://cdn.discordapp.com/attachments/982020014284607518/982027542041100329/unknown.png "Downscroll")
 ![Middlescroll](https://cdn.discordapp.com/attachments/982020014284607518/982027791107235950/unknown.png "Middlescroll")
 ![Down-the-middle-scroll (for the osu! and Quaver fans)](https://cdn.discordapp.com/attachments/982020014284607518/982028000717570108/unknown.png "Down-the-middle-scroll (for the osu! and Quaver fans)")
 - A bunch of options! (Coming soon: and mods can add their own!)
+
 ![Gameplay options](https://cdn.discordapp.com/attachments/982020014284607518/982029464668106812/unknown.png "Gameplay options")
 ![Sound options (more than just the master volume)](https://cdn.discordapp.com/attachments/982020014284607518/982029515373019137/unknown.png "Sound options (more than just the master volume)")
 ![Way more control over the controls](https://cdn.discordapp.com/attachments/982020014284607518/982029579222929448/unknown.png "WWay more control over the controls")
 
 ### Mods are supported and easy to install!
 - Create basic mods that are automatically meshed into the base Benjine...
+
 <p align="center">
  <img src="https://cdn.discordapp.com/attachments/982020014284607518/982021358856859759/unknown.png">
  <img src="https://cdn.discordapp.com/attachments/982020014284607518/982021391706652752/unknown.png">
@@ -62,6 +66,10 @@ Play or get the Benjine on [itch.io](https://thisisbennyk.itch.io/friday-night-f
 - Click "Import & Edit."
 - Now you're ready to mod!
 
+## How to mod using the Benjine
+Check the wiki for the latest info on how to mod the Benjine.
+The Benjine assumes you have some sort of experience working with the Godot game engine. Please do not ask me how to use Godot.
+
 ## Exporting your mod
 In order to be a valid Benjine mod, your mod MUST have:
 - A folder with a unique name (ex. whitty, bogus, sonic_exe, etc.)
@@ -80,5 +88,15 @@ To export your mod:
 
 ![The options for your PCK](https://cdn.discordapp.com/attachments/982020014284607518/982033523131162644/unknown.png "The options for your PCK")
 
-- Run this specific scene by pressing the clapboard with the play arrow, or press F6. You should see a black screen. Once it's done, assuming the packing goes well, you should see something like the example console output.
+- Run this specific scene by pressing the clapboard with the play arrow, or press F6. You should see a black screen. Once it's done, assuming the packing goes well, you should see something like the example console output. (You may get some warnings about output overflow, but they shouldn't matter if the pack is done correctly.)
 
+![Run the scene](https://cdn.discordapp.com/attachments/982020014284607518/982034345936175214/unknown.png "Run the scene")
+![What the output should look like](https://cdn.discordapp.com/attachments/982020014284607518/982034417428099072/unknown.png "What the output should look like")
+
+- Open your project folder (which can be done as shown below).
+
+![Right-click res:// and open it in the file manager](https://cdn.discordapp.com/attachments/982020014284607518/982034584051015680/unknown.png "Right-click res:// and open it in the file manager")
+
+- Your completed PCK will be in here!
+
+![A completed mod!](https://cdn.discordapp.com/attachments/982020014284607518/982034544708423780/unknown.png "A completed mod!")
