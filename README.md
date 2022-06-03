@@ -67,7 +67,7 @@ Play or get the Benjine on [itch.io](https://thisisbennyk.itch.io/friday-night-f
 - Now you're ready to mod!
 
 ## How to mod using the Benjine
-Check the wiki for the latest info on how to mod the Benjine.  
+Check the [wiki](https://github.com/this-is-bennyk/FNF-Benjine/wiki) for the latest info on how to mod the Benjine.  
 The Benjine assumes you have some sort of experience working with the Godot game engine. Please do not ask me how to use Godot.
 
 ## Exporting your mod
