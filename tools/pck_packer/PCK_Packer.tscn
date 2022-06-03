@@ -5,4 +5,4 @@
 [node name="PCK_Packer" type="Node"]
 script = ExtResource( 1 )
 package_name = "benjine_test_mod"
-package_display_name = "Benjine_Test_Mod_V1QT4"
+package_display_name = "Benjine_Test_Mod_V1.0.0"
