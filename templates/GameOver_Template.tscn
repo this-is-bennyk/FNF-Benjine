@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://assets/sounds/cancelMenu.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/sounds/gameOverEnd.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/sounds/fnf_loss_sfx.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scripts/game/DeathCamera.gd" type="Script" id=4]
@@ -43,6 +44,7 @@ camera_path = NodePath("CanvasLayer/Camera2D")
 fade_screen_path = NodePath("CanvasLayer/Camera2D/FadeScreen")
 loss_sfx_path = NodePath("Loss_SFX")
 end_sfx_path = NodePath("End_SFX")
+cancel_sfx_path = NodePath("Cancel_SFX")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
@@ -65,6 +67,12 @@ anims/RESET = SubResource( 2 )
 
 [node name="Loss_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+bus = "SFX"
 
 [node name="End_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+bus = "SFX"
+
+[node name="Cancel_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "SFX"

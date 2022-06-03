@@ -1,6 +1,6 @@
 extends Node
 
-enum DeathState {START, LOOP, END}
+enum DeathState {START, LOOP, END, QUIT}
 
 export(NodePath) var hud_path
 export(NodePath) var camera_path
@@ -8,6 +8,7 @@ export(NodePath) var player_character_path
 export(NodePath) var fade_screen_path
 export(NodePath) var loss_sfx_path
 export(NodePath) var end_sfx_path
+export(NodePath) var cancel_sfx_path
 
 export(AudioStream) var death_music = preload("res://assets/music/gameOver.ogg")
 export(float) var death_music_bpm = 100
@@ -18,6 +19,7 @@ onready var player_character = get_node(player_character_path)
 onready var fade_screen = get_node(fade_screen_path)
 onready var loss_sfx = get_node(loss_sfx_path)
 onready var end_sfx = get_node(end_sfx_path)
+onready var cancel_sfx = get_node(cancel_sfx_path)
 
 var cam_pos_from_level = Vector2(770, 450)
 var zoom_from_level = Vector2(1 / 0.7, 1 / 0.7)
@@ -57,6 +59,13 @@ func advance_death_state(state):
 			get_tree().create_timer(0.7).connect("timeout", fade_screen.get_node("AnimationPlayer"), "play", ["Fade"], CONNECT_ONESHOT)
 			get_tree().create_timer(2.7).connect("timeout", TransitionSystem, "start_transition", ["Instant_Fade_Out"], CONNECT_ONESHOT)
 			get_tree().create_timer(2.7).connect("timeout", get_parent(), "restart", [], CONNECT_DEFERRED | CONNECT_ONESHOT)
+		
+		DeathState.QUIT:
+			cancel_sfx.play()
+			Conductor.stop_song()
+			
+			TransitionSystem.connect("transition_finished", self, "_quit",  [], CONNECT_DEFERRED | CONNECT_ONESHOT)
+			TransitionSystem.play_transition(TransitionSystem.Transitions.BASIC_FADE_OUT)
 
 func _advance_after_start(anim_name):
 	advance_death_state(DeathState.LOOP)
@@ -65,13 +74,23 @@ func _process(delta):
 	on_update()
 
 func on_update():
-	if Input.is_action_just_pressed("ui_accept"):
+	var action_pressed = GodotX.xor(Input.is_action_just_pressed("ui_accept"), Input.is_action_just_pressed("ui_cancel"))
+	
+	if action_pressed:
 		if player_character.anim_player.is_connected("animation_finished", self, "_advance_after_start"):
 			player_character.anim_player.disconnect("animation_finished", self, "_advance_after_start")
 		
 		camera.reset_position()
-		advance_death_state(DeathState.END)
+		
+		if Input.is_action_just_pressed("ui_accept"):
+			advance_death_state(DeathState.END)
+		else:
+			advance_death_state(DeathState.QUIT)
+		
 		set_process(false)
 		return
-	else:
-		camera.on_update()
+	
+	camera.on_update()
+
+func _quit(_trans_name):
+	get_parent().quit_to_menu()
