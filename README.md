@@ -9,7 +9,7 @@
 The engine actively in development for [FNFVR](https://thisisbennyk.itch.io/funkin-vr) and the second version of [the Bogus mod](https://gamebanana.com/mods/317381). Meant to closely replicate the original feel of FNF, with a flexible backend in mind.  
 **All Benjine mods MUST be open source, just like with the original FNF. It also helps avoid folder name clashes for mods.**
 
-Play or get the Benjine on [itch.io](https://thisisbennyk.itch.io/friday-night-funkin-benjine) or GameJolt!
+Play or get the Benjine on [itch.io](https://thisisbennyk.itch.io/friday-night-funkin-benjine) or [GameJolt](https://gamejolt.com/games/fnf-benjine/722531)!
 
 ## Credits / Attributions
 **ThisIsBennyK** - Lead developer, programmer, graphic designer, UI designer ([YT](https://www.youtube.com/channel/UCu7zwXQxp4rHmGhW9Dmulkg) / [Twitter](https://twitter.com/thisisbennyk) / [Other Games](https://thisisbennyk.itch.io))  
