@@ -10,7 +10,7 @@ const DEFAULT_SETTINGS_PATH: String = "res://assets/data/default_settings.data"
 #	return "res://override.cfg" if OS.has_feature("editor") else OS.get_executable_path().get_base_dir().plus_file("override.cfg")
 
 func get_modpacks_path():
-	return "res://test/mods" if OS.has_feature("editor") else OS.get_executable_path().get_base_dir().plus_file("mods")
+	return "res://testing/mods" if OS.has_feature("editor") else OS.get_executable_path().get_base_dir().plus_file("mods")
 
 func _ready():
 	_attempt_first_time_setup()

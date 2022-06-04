@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Inst.mp3-b807b181c4af23f09192bc3bf3249a60.mp3str"
+
+[deps]
+
+source_file="res://packages/benjine_test_mod/songs/test/Inst.mp3"
+dest_files=[ "res://.import/Inst.mp3-b807b181c4af23f09192bc3bf3249a60.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
