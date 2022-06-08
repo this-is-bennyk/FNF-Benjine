@@ -514,15 +514,24 @@ func go_to_death_scene():
 		})
 
 func switch_performer(performer_name, character_name, replace = true):
+	var prev_performer = get_performer(performer_name)
+	
+	# Hide the previous performer
 	if replace && has_performer(performer_name):
 		get_performer(performer_name).hide()
 	
-	_performers[performer_name] = character_name
+	# Set (and show if necessary) the new performer
+	set_performer(performer_name, character_name)
 	
 	if replace:
 		get_performer(performer_name).show()
 	
-	switch_icons(performer_name, performer_name)
+	# Adjust parts of the level based on performers if necessary
+	if performer_name == "player" || performer_name == "opponent":
+		switch_icons(performer_name, performer_name)
+	
+	if hud.camera.follow_point == prev_performer.camera_follow_point:
+		set_cam_follow_point(performer_name)
 
 # TODO: Refactor icons to not depend on child 0
 
@@ -733,6 +742,9 @@ func get_performer(performer_name):
 	if has_performer(performer_name):
 		return get_character(_performers[performer_name])
 	return null
+
+func set_performer(performer_name, character_name = ""):
+	_performers[performer_name] = character_name
 
 func get_character_insensitive(char_or_performer):
 	if char_or_performer in _performers.keys():

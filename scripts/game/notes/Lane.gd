@@ -1,6 +1,8 @@
 class_name Lane
 extends Node
 
+#const MAX_JACK_TIME = 1 / 6.0
+
 enum Type {PLAYER, OPPONENT, BOTPLAY, OTHER}
 
 # Lane properties
@@ -70,6 +72,9 @@ func initialize(note_info_array: Array):
 	note_data.invert()
 
 func check_input(pressed):
+	if lane_type != Type.PLAYER:
+		return
+	
 	# Redefine if the action is currently being pressed
 	action_pressed = pressed
 	
@@ -88,11 +93,37 @@ func check_input(pressed):
 		
 		# Find if we hit 1 or more notes
 		var notes_to_delete = []
+		var regular_note_hit = false
+		var sustain_note_hit = false
 		
-		for note in notes_in_play:
-			if Conductor.is_note_in_safe_zone(note.strum_time):
-				hit_note(note)
-				notes_to_delete.append(note)
+		for i in len(notes_in_play):
+			var cur_note = notes_in_play[i]
+			
+			# We don't care about precision for sustained notes
+			if cur_note.note_type != Note.Type.REGULAR:
+				if sustain_note_hit:
+					continue
+				
+				hit_note(cur_note)
+				notes_to_delete.append(cur_note)
+				sustain_note_hit = true
+			else:
+				# If we already hit a regular note on this input, continue
+				if regular_note_hit:
+					continue
+				
+				var prev_note = null
+				var next_note = null
+				
+				if i > 0:
+					prev_note = notes_in_play[i - 1]
+				if i < len(notes_in_play) - 1:
+					next_note = notes_in_play[i + 1]
+				
+				if Note.is_regular_hit(prev_note, cur_note, next_note):
+					hit_note(cur_note)
+					notes_to_delete.append(cur_note)
+					regular_note_hit = true
 		
 		# If we didn't, play the lane press animation (and punish for non-ghost tapping if necessary)
 		if notes_to_delete.empty():
@@ -133,14 +164,15 @@ func add_notes_from_data():
 		
 		# If this note is sustained, spawn the appropriate amount of sustained notes
 		if cur_note_data.sustain_length > 0:
-			var num_sustain_notes = int(floor(cur_note_data.sustain_length / Conductor.get_sixteenth_length()))
+			# We add 1 for the additional sustain note right on the regular note
+			var num_sustain_notes = int(floor(cur_note_data.sustain_length / Conductor.get_sixteenth_length())) + 1
 			
 			for i in num_sustain_notes:
 				# Make an instance
 				var sus_note_instance = note_template.instance()
 				
 				# Set the note specific variables
-				sus_note_instance.strum_time = cur_note_data.strum_time + (Conductor.get_sixteenth_length() * (i + 1))
+				sus_note_instance.strum_time = cur_note_data.strum_time + (Conductor.get_sixteenth_length() * i)
 				sus_note_instance.note_type = Note.Type.SUSTAIN_CAP \
 											  if i == num_sustain_notes - 1 \
 											  else Note.Type.SUSTAIN_LINE
@@ -191,7 +223,7 @@ func update_current_notes():
 			if note_in_start_path && (lane_type == Type.PLAYER || note.ai_miss):
 				start_path.remove_child(note)
 				end_path.add_child(note)
-				note.unit_offset = relative_song_pos
+				note.unit_offset = Conductor.get_relative_song_position(note.strum_time, false)
 			else:
 				# If this is an AI note, hit the note so that it doesn't go beyond the strum line
 				if !(lane_type == Type.PLAYER || note.ai_miss):
@@ -206,8 +238,8 @@ func update_current_notes():
 	
 	for note in notes_to_delete:
 		notes_spawned.erase(note)
-		
-		# Assumption: note is in notes_in_play if this lane isn't an AI lane
+
+#		# Assumption: note is in notes_in_play if this lane isn't an AI lane
 		if lane_type == Type.PLAYER:
 			notes_in_play.erase(note)
 

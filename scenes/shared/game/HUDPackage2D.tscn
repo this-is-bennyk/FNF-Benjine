@@ -59,6 +59,10 @@ beat_anim_path = NodePath("HUD_Zoom_Beat")
 [node name="Visible_Elements" type="Node2D" parent="HUD"]
 position = Vector2( -640, -360 )
 
+[node name="Ratings_List" type="Node2D" parent="HUD/Visible_Elements"]
+position = Vector2( 640, 360 )
+script = ExtResource( 5 )
+
 [node name="Player_Step_Zone" type="Node2D" parent="HUD/Visible_Elements"]
 position = Vector2( 960, 104 )
 script = ExtResource( 10 )
@@ -136,10 +140,6 @@ animation = "3"
 bus = "SFX"
 
 [node name="Countdown_Tween" type="Tween" parent="HUD/Visible_Elements/Countdown_Msgs"]
-
-[node name="Ratings_List" type="Node2D" parent="HUD/Visible_Elements"]
-position = Vector2( 640, 360 )
-script = ExtResource( 5 )
 
 [node name="Miss_Sound" type="AudioStreamPlayer" parent="HUD"]
 bus = "SFX"

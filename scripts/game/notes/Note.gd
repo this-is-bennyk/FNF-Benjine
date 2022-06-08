@@ -9,6 +9,8 @@ const SUSTAIN_INFIX = "sustain_part"
 
 const DEFAULT_ACTION = "default"
 
+const MAX_JACK_TIME = 1 / 6.0
+
 enum Type {REGULAR, SUSTAIN_LINE, SUSTAIN_CAP}
 
 export(String) var regular_hit_action = "default"
@@ -56,3 +58,29 @@ func do_hit_action(lvl, dir, lane_type_string: String):
 
 func do_miss_action(lvl, dir, lane_type_string: String):
 	do_action(lvl, dir, lane_type_string, MISS_PREFIX)
+
+# Remarks: I HATE JACKS I HATE JACKS I HATE JACKS
+static func is_regular_hit(prev_note, cur_note, next_note) -> bool:
+	var prev_time_diff = cur_note.strum_time - prev_note.strum_time if prev_note else 0
+	var next_time_diff = next_note.strum_time - cur_note.strum_time if next_note else 0
+	
+	# If we don't have a jack pattern, we hit the note
+	if !( \
+		(next_note && next_time_diff < MAX_JACK_TIME) || \
+		(prev_note && prev_time_diff < MAX_JACK_TIME)):
+		return true
+	
+	# Adjust the hit windows
+	var jack_early_window = prev_time_diff \
+							if prev_note && prev_note.note_type == Type.REGULAR && prev_time_diff <= Conductor.SAFE_ZONE * Conductor.EARLY_HIT_MULT \
+							else Conductor.SAFE_ZONE * Conductor.EARLY_HIT_MULT
+	var jack_late_window = next_time_diff \
+						   if next_note && next_note.note_type == Type.REGULAR && next_time_diff <= Conductor.SAFE_ZONE \
+						   else Conductor.SAFE_ZONE
+	
+	# Check to see if we hit the note with the adjusted windows
+	if !(cur_note.strum_time - jack_early_window < Conductor.event_position && \
+	   Conductor.event_position < cur_note.strum_time + jack_late_window):
+		return false
+	
+	return true

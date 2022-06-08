@@ -1,0 +1,14 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform sampler2D img;
+
+void fragment()
+{
+	vec4 final = texture(img, UV);
+	final.a = texture(TEXTURE, UV).a;
+	COLOR = final;
+}
+"

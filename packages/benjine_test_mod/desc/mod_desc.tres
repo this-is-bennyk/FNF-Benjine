@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/resources/mod_desc/ModDescription.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+mod_name = "Benjine Example Mod"
+mod_author = "ThisIsBennyK"
+mod_version = "1.1.0"
+mod_package_name = "Benjine_Example_Mod_V1.1.0"
+advanced_mod = false
+main_path = "res://scenes/Main.tscn"
+description = ""

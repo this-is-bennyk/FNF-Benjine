@@ -24,7 +24,7 @@ func tween_zoom():
 		"zoom_axis",
 		zoom_on_quarter_hit,
 		resting_zoom,
-		Conductor.get_quarter_length() * 2,
+		Conductor.get_quarter_length() * 2 / Conductor.pitch_scale,
 		Tween.TRANS_EXPO,
 		Tween.EASE_OUT)
 	tween.start()

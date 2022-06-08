@@ -139,7 +139,7 @@ func tween_zoom():
 		"scale",
 		Vector2(zoom_on_quarter_hit, zoom_on_quarter_hit),
 		Vector2(resting_zoom, resting_zoom),
-		Conductor.get_quarter_length() * 2,
+		Conductor.get_quarter_length() * 2 / Conductor.pitch_scale,
 		Tween.TRANS_EXPO,
 		Tween.EASE_OUT)
 	tween.start()

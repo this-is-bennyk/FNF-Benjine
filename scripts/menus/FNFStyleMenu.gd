@@ -48,12 +48,11 @@ func on_update():
 
 func change_option(increment):
 	cur_selected = wrapi(cur_selected + increment, 0, len(options))
-	
-	for i in options_container.get_child_count():
-		var child = options_container.get_child(i)
-		var idx_relative_to_selected = i - cur_selected
-		
-		child.modulate.a = get_option_alpha(idx_relative_to_selected)
+	_update_alphas()
+
+func change_option_to(idx):
+	cur_selected = wrapi(idx, 0, len(options))
+	_update_alphas()
 
 func get_option_position(idx):
 	var scaled_idx = range_lerp(idx, 0, 1, 0, 1.3)
@@ -94,6 +93,13 @@ func _create_text(idx):
 	new_text.modulate.a = get_option_alpha(idx)
 	
 	get_node(container_path).add_child(new_text)
+
+func _update_alphas():
+	for i in options_container.get_child_count():
+		var child = options_container.get_child(i)
+		var idx_relative_to_selected = i - cur_selected
+		
+		child.modulate.a = get_option_alpha(idx_relative_to_selected)
 
 func _emit_changed():
 	emit_signal("option_changed", cur_selected, options[cur_selected])

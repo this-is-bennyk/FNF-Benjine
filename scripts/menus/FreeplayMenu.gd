@@ -36,13 +36,16 @@ onready var botplay_button = get_node(botplay_button_path)
 onready var cancel_sound = get_node(cancel_sound_path)
 
 var freeplay_list = []
+var prev_menu_path = ""
+var immediate_load = true
+var song_idx = 0
+var difficulty_idx = 1
+
 var cached_instrumentals = {}
 
 var cur_bg_color
 var cur_outline_color
 
-var song_idx = 0
-var difficulty_idx = 1
 
 var song_score = 0
 var song_lerp_score = 0
@@ -56,9 +59,10 @@ func _process(delta):
 func _input(event):
 	on_input(event)
 
-# Pre: At least the FNF package exists
+# Pre: If no freeplay list specified, at least the FNF freeplay list exists
 func on_ready():
-	freeplay_list = UserData.get_entire_basic_mod_freeplay_list()
+	if freeplay_list.empty():
+		freeplay_list = UserData.get_entire_basic_mod_freeplay_list()
 	
 	# CORNER: the first song has only 1 difficulty
 	var cur_num_difficulties = len(freeplay_list[song_idx].difficulty_names)
@@ -86,14 +90,9 @@ func on_ready():
 		icon.position.x = option.rect_size.x + 75 + 20
 		icon.position.y = 27.5
 	
-	_check_for_instrumental(0)
+	song_select_menu_ref.change_option_to(song_idx)
 	
-	get_node(inst_player_path).volume_db = linear2db(0)
-	get_node(inst_player_path).stream = cached_instrumentals[0]
-	get_node(inst_player_path).play()
-	
-	cur_bg_color = freeplay_list[0].freeplay_bg_color
-	cur_outline_color = freeplay_list[0].freeplay_outline_color
+	change_song(get_node(inst_player_path))
 	
 	get_node(bg_path).material.set_shader_param("bg_color", cur_bg_color)
 	get_node(bg_path).material.set_shader_param("outline_color", cur_outline_color)
@@ -150,12 +149,13 @@ func update_bg_material():
 		bg.material.set_shader_param("bg_color", lerp(bg.material.get_shader_param("bg_color"), cur_bg_color, lerp_val))
 		bg.material.set_shader_param("outline_color", lerp(bg.material.get_shader_param("outline_color"), cur_outline_color, lerp_val))
 
-func change_song():
+func change_song(inst_player_ref = null):
+	var i_player = inst_player_ref if inst_player_ref else inst_player
 	_check_for_instrumental(song_idx)
 	
-	inst_player.volume_db = linear2db(0)
-	inst_player.stream = cached_instrumentals[song_idx]
-	inst_player.play()
+	i_player.volume_db = linear2db(0)
+	i_player.stream = cached_instrumentals[song_idx]
+	i_player.play()
 	
 	cur_bg_color = freeplay_list[song_idx].freeplay_bg_color
 	cur_outline_color = freeplay_list[song_idx].freeplay_outline_color
@@ -223,13 +223,29 @@ func _switch_to_level(_trans_name):
 			{}
 		],
 		"difficulty": difficulty_idx,
-		"is_freeplay": true
+		"is_freeplay": true,
+		"prev_state_variables": {
+			"freeplay_list": freeplay_list,
+			"prev_menu_path": prev_menu_path,
+			"immediate_load": immediate_load,
+			"song_idx": song_idx,
+			"difficulty_idx": difficulty_idx
+		}
 	}
 	
 	get_parent().switch_state(LEVEL_MANAGER, level_manager_args)
 
 func _switch_to_main_menu(_trans_name):
-	get_parent().switch_state(MAIN_MENU)
+	if prev_menu_path.empty():
+		get_parent().switch_state(MAIN_MENU)
+		return
+	
+	if prev_menu_path == "QUIT":
+		get_tree().quit()
+	elif immediate_load:
+		get_parent().switch_state(load(prev_menu_path))
+	else:
+		get_parent().switch_state(prev_menu_path)
 
 func _on_song_speed_changed(value: float):
 	Conductor.set_pitch_scale(value)

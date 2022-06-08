@@ -186,7 +186,12 @@ func get_beat(divisor, floored):
 func get_bpm():
 	if counting_down:
 		return countdown_bpm
-	return bpm_maps[bpm_map_idx].bpm
+	if len(bpm_maps) > 0:
+		return bpm_maps[bpm_map_idx].bpm
+	
+	# There is no default BPM but beat nodes start up automatically soooo
+	# TODO: Figure out better solution for this
+	return 60.0
 
 func get_seconds_per_beat(bpm_ = null):
 	if bpm_:

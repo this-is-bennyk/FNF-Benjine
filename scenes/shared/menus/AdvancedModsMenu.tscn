@@ -1,0 +1,326 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://assets/graphics/menus/bgs/menuBG_epic.png" type="Texture" id=1]
+[ext_resource path="res://assets/sounds/scrollMenu.ogg" type="AudioStream" id=2]
+[ext_resource path="res://scenes/shared/menus/FNFStyleText_Bold.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/menus/AdvancedModsMenu.gd" type="Script" id=4]
+[ext_resource path="res://assets/music/Advance.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/fonts/VCR_32_Options.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/graphics/menus/advanced_mods/benjine_mod_banner.png" type="Texture" id=7]
+[ext_resource path="res://scripts/shaders/ReplaceKeepAlpha.tres" type="Shader" id=8]
+[ext_resource path="res://assets/fonts/VCR_20_Regular.tres" type="DynamicFont" id=9]
+[ext_resource path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.83 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 8 )
+shader_param/img = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0666667, 1, 0, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.839216, 0.988235, 1, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0.156863, 0.45098, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.415686, 0.741176, 1, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0, 0.0823529, 0.352941, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.74, 0.978333, 1, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="DynamicFont" id=12]
+size = 32
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "Fade_In"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -3, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../Music")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Fade_Out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -3, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Music:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Music:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="AdvancedModsMenu" type="Node"]
+script = ExtResource( 4 )
+
+[node name="MenuBg" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = ExtResource( 1 )
+
+[node name="Credits_Title" parent="." instance=ExtResource( 3 )]
+anchor_right = 1.0
+margin_top = 30.0
+margin_right = 0.0
+margin_bottom = 100.0
+text = "Advanced Mods"
+align = 1
+
+[node name="BG_Options" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 120.0
+margin_right = -500.0
+margin_bottom = -30.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BG_Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG_Options/ScrollContainer"]
+margin_right = 690.0
+rect_min_size = Vector2( 690, 0 )
+
+[node name="BG_Desc" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 810.0
+margin_top = 120.0
+margin_right = -50.0
+margin_bottom = -30.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Banner" type="Panel" parent="."]
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 830.0
+margin_top = 140.0
+margin_right = -70.0
+margin_bottom = -365.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="Description" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 830.0
+margin_top = 370.0
+margin_right = -70.0
+margin_bottom = -135.0
+custom_fonts/normal_font = ExtResource( 9 )
+bbcode_enabled = true
+
+[node name="Launch" type="Button" parent="."]
+margin_left = 830.0
+margin_top = 600.0
+margin_right = 1210.0
+margin_bottom = 670.0
+custom_colors/font_color_disabled = Color( 0, 0.219608, 0.533333, 1 )
+custom_colors/font_color_focus = Color( 0, 0.156863, 0.45098, 1 )
+custom_colors/font_color = Color( 0, 0.156863, 0.45098, 1 )
+custom_colors/font_color_hover = Color( 0, 0.227451, 0.65098, 1 )
+custom_colors/font_color_pressed = Color( 0.741176, 0.980392, 1, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 13 )
+custom_styles/normal = SubResource( 5 )
+text = "Launch"
+
+[node name="Button_Template" type="Button" parent="."]
+margin_left = 85.0
+margin_top = -153.0
+margin_right = 775.0
+margin_bottom = -118.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.407843, 0.407843, 0.407843, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "Base Benjine"
+flat = true
+clip_text = true
+align = 0
+
+[node name="Select_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Music"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 640, 360 )
+current = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D"]
+color = Color( 0, 0, 0, 0 )
+polygon = PoolVector2Array( -694, -392, -701, 437, 731, 445, 699, -401 )
+
+[node name="Label" type="Label" parent="Camera2D"]
+visible = false
+margin_left = -637.0
+margin_top = 152.0
+margin_right = 640.0
+margin_bottom = 357.0
+grow_vertical = 0
+custom_fonts/font = SubResource( 12 )
+text = "Initializing..."
+valign = 2
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+anims/Fade_In = SubResource( 9 )
+anims/Fade_Out = SubResource( 11 )
+anims/RESET = SubResource( 10 )
+
+[connection signal="pressed" from="Launch" to="." method="_on_launch_pressed" flags=6]

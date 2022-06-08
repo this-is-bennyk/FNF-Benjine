@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=20 format=2]
+[gd_resource type="Resource" load_steps=29 format=2]
 
 [ext_resource path="res://scripts/resources/mod_credits/ModCredits.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/menus/credits/bk_icon_small.png" type="Texture" id=2]
@@ -12,6 +12,12 @@
 [ext_resource path="res://assets/graphics/menus/credits/dod_icon.png" type="Texture" id=10]
 [ext_resource path="res://assets/graphics/menus/credits/sayge_icon.png" type="Texture" id=11]
 [ext_resource path="res://assets/graphics/menus/credits/gobot_icon.png" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/menus/credits/unknown_credit.tres" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/menus/credits/shadowmario.png" type="Texture" id=14]
+[ext_resource path="res://assets/graphics/menus/credits/et_al.png" type="Texture" id=15]
+[ext_resource path="res://assets/graphics/menus/credits/riveroaken.png" type="Texture" id=16]
+[ext_resource path="res://assets/graphics/menus/credits/bb-panzu.png" type="Texture" id=17]
+[ext_resource path="res://assets/graphics/menus/credits/bastiaan_icon.png" type="Texture" id=18]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
@@ -63,6 +69,15 @@ links = [ "https://www.newgrounds.com/portal/view/770371", "https://ninja-muffin
 link_names = [ "Newgrounds", "Itch.io" ]
 link_colors = [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 
+[sub_resource type="Resource" id=9]
+script = ExtResource( 3 )
+icons = [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 15 ) ]
+name = "Psych Engine Team"
+roles_or_contributions = "Improved FNF Alphabet"
+links = [ "https://github.com/ShadowMario/FNF-PsychEngine" ]
+link_names = [ "Psych Engine" ]
+link_colors = [ Color( 1, 1, 1, 1 ) ]
+
 [sub_resource type="Resource" id=6]
 script = ExtResource( 3 )
 icons = [ ExtResource( 12 ) ]
@@ -76,14 +91,34 @@ link_colors = [  ]
 script = ExtResource( 3 )
 icons = [ ExtResource( 8 ) ]
 name = "Emilio Coppola"
-roles_or_contributions = "Creator of Dialogic
-[i](Dialogic is under copyright (c) 2020 Emilio Coppola.)[/i]"
+roles_or_contributions = "Dialogic
+[i]Dialogic is under copyright (c) 2020 Emilio Coppola.[/i]"
 links = [ "https://dialogic.coppolaemilio.com", "https://github.com/coppolaemilio/dialogic/blob/main/LICENSE" ]
 link_names = [ "Website", "License" ]
+link_colors = [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 3 )
+icons = [ ExtResource( 13 ) ]
+name = "MakovWait"
+roles_or_contributions = "Improved Resource Picker
+[i]IMRP is under copyright (c) 2020 Maxim Kovkel.[/i]"
+links = [ "https://github.com/MakovWait/improved_resource_picker", "https://github.com/MakovWait/improved_resource_picker/blob/main/LICENSE" ]
+link_names = [ "Plugin", "License" ]
+link_colors = [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 3 )
+icons = [ ExtResource( 18 ), ExtResource( 15 ) ]
+name = "Bastiaan Olij et al."
+roles_or_contributions = "Godot OpenXR
+[i]The Godot OpenXR plugin is under copyright (c) 2018-2021 Bastiaan Olij, Christoph Haag and contributors.[/i]"
+links = [ "https://github.com/GodotVR/godot_openxr", "https://github.com/GodotVR/godot_openxr/blob/master/LICENSE" ]
+link_names = [ "Plugin", "License" ]
 link_colors = [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 
 [resource]
 script = ExtResource( 1 )
 mod_icon = ExtResource( 2 )
 mod_name = "Benjine"
-credits = [ SubResource( 1 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 2 ), SubResource( 6 ), SubResource( 7 ) ]
+credits = [ SubResource( 1 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 2 ), SubResource( 9 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 10 ) ]

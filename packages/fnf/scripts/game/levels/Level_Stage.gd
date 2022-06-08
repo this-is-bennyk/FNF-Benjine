@@ -12,7 +12,7 @@ func do_level_specific_prep():
 			# EDIT: it's a Godot bug
 #			get_character("dad").hide()
 			
-			_performers.metronome = ""
+			set_performer("metronome") # Clear metronome
 			
 			gf_layer.motion_scale = Vector2.ONE
 		

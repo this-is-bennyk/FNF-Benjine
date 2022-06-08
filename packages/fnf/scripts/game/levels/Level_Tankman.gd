@@ -18,7 +18,7 @@ func do_level_specific_prep():
 			switch_performer("player", "partners")
 
 			get_performer("metronome").hide()
-			_performers.metronome = ""
+			set_performer("metronome") # Clear metronome
 
 			pico_speaker.show()
 

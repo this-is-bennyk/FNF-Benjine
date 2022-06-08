@@ -190,9 +190,9 @@ _global_script_class_icons={
 
 config/name="Friday Night Funkin' Benjine"
 config/description="The Benjine source + tools to mod it with!"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/shared/menus/DescriptionLoader.tscn"
 run/delta_smoothing=false
-boot_splash/image="res://assets/graphics/menus/loading_screens/benjine_splash.png"
+boot_splash/image="res://assets/graphics/menus/loading_screens/benjine_simple_splash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://benjine_icon.png"
 config/windows_native_icon="res://benjine_app_icon.ico"
@@ -217,7 +217,11 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg", "res://addons/godot-openxr/plugin.cfg", "res://addons/imrp/plugin.cfg" )
+
+[gdnative]
+
+singletons=[ "res://addons/godot-openxr/config/godot_openxr.gdnlib" ]
 
 [input]
 

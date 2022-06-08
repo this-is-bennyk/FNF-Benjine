@@ -8,6 +8,7 @@ onready var main = get_parent()
 
 var story_mode_path = "res://scenes/shared/menus/default_menus/StoryModeMenu.tscn"
 var freeplay_path = "res://scenes/shared/menus/default_menus/FreeplayMenu.tscn"
+var prev_state_variables := {}
 
 var pause_scene
 
@@ -116,9 +117,9 @@ func quit_to_menu():
 	get_tree().paused = false
 	
 	if is_freeplay:
-		main.switch_state(freeplay_path) # load(freeplay_path)
+		main.switch_state(freeplay_path, prev_state_variables) # load(freeplay_path)
 	else:
-		main.switch_state(story_mode_path) # load(story_mode_path)
+		main.switch_state(story_mode_path, prev_state_variables) # load(story_mode_path)
 
 func _load_level_infos():
 	var paths = []

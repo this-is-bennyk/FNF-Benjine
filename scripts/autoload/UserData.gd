@@ -12,6 +12,15 @@ const DEFAULT_SETTINGS_PATH: String = "res://assets/data/default_settings.data"
 func get_modpacks_path():
 	return "res://testing/mods" if OS.has_feature("editor") else OS.get_executable_path().get_base_dir().plus_file("mods")
 
+func get_mod_desc_path(package: String):
+	return IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("desc/mod_desc.tres")
+
+func get_credits_path(package: String):
+	return IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("credits.tres")
+
+func get_song_list_path(package: String):
+	return IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("songs/credits.tres")
+
 func _ready():
 	_attempt_first_time_setup()
 
@@ -83,17 +92,17 @@ func is_valid_mod(package: String):
 		return true
 	
 	var directory = Directory.new()
-	var has_mod_desc = directory.file_exists(IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("mod_desc.tres"))
-	var has_credits = directory.file_exists(IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("credits.tres"))
+	var has_mod_desc = directory.file_exists(get_mod_desc_path(package))
+#	var has_credits = directory.file_exists(get_credits_path(package))
 	
-	return has_mod_desc && has_credits
+	return has_mod_desc
 
 func is_basic_mod(package: String):
 	if package == "fnf":
 		return true
 	
 	if is_valid_mod(package):
-		var mod_desc: ModDescription = load(IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("mod_desc.tres"))
+		var mod_desc: ModDescription = get_mod_desc(package)
 		return !mod_desc.advanced_mod
 	return false
 
@@ -101,7 +110,13 @@ func get_mod_desc(package: String):
 	if !is_valid_mod(package):
 		return null
 	
-	return load(IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("mod_desc.tres"))
+	return load(get_mod_desc_path(package))
+
+func get_song_list(package: String):
+	if !is_valid_mod(package):
+		return null
+	
+	return load(get_song_list_path(package))
 
 func get_setting(setting: String, default_val = null, category: String = "", package: String = "general"):
 	var cur_settings = load_data(SETTINGS_DATA_PATH)
@@ -186,21 +201,24 @@ func get_entire_basic_mod_freeplay_list():
 	var basic_mod_freeplay_list = []
 	var package_names = get_package_names()
 	
-	basic_mod_freeplay_list.append_array(_get_basic_mod_freeplay_list("fnf"))
+	basic_mod_freeplay_list.append_array(get_freeplay_list("fnf"))
 	
 	for package_name in package_names:
-		if package_name != "fnf":
-			basic_mod_freeplay_list.append_array(_get_basic_mod_freeplay_list(package_name))
+		if package_name == "fnf":
+			continue
+		
+		if is_basic_mod(package_name):
+			basic_mod_freeplay_list.append_array(get_freeplay_list(package_name))
 	
 	return basic_mod_freeplay_list
 
-func _get_basic_mod_freeplay_list(package: String):
+func get_freeplay_list(package: String):
 	var directory = Directory.new()
 	var path = IMPORTED_PACKAGES_PATH
 	path = path.plus_file(package).plus_file("songs")
 	
 	var data_path_err = directory.open(path)
-	if !is_valid_mod(package) || !is_basic_mod(package) || data_path_err || !directory.file_exists("song_list.tres"):
+	if !is_valid_mod(package) || data_path_err || !directory.file_exists("song_list.tres"):
 		return []
 	
 	path = path.plus_file("song_list.tres")

@@ -24,7 +24,6 @@ corner_radius_bottom_left = 15
 [sub_resource type="DynamicFont" id=5]
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_bottom = 15
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=4]

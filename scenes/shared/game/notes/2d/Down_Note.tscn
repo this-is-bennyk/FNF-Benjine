@@ -1,19 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/graphics/game/notes/NOTE_assets.res" type="SpriteFrames" id=1]
 [ext_resource path="res://scripts/game/notes/Note2D.gd" type="Script" id=2]
+[ext_resource path="res://scenes/shared/game/notes/2d/Sustain2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/graphics/game/notes/sustains/Down_Sustain_Cap.tres" type="StyleBox" id=4]
+[ext_resource path="res://assets/graphics/game/notes/sustains/Down_Sustain_Line.tres" type="StyleBox" id=5]
 
 [node name="Note2D" type="PathFollow2D"]
 rotation = -1.5708
 loop = false
 script = ExtResource( 2 )
-direction = 1
-regular_note_anim = "blue"
-sustain_line_anim = "blue hold piece"
-sustain_cap_anim = "blue hold end"
+sustain_line_stylebox = ExtResource( 5 )
+sustain_cap_stylebox = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 scale = Vector2( 0.7, 0.7 )
 frames = ExtResource( 1 )
 animation = "blue"
+
+[node name="Sustain" parent="." instance=ExtResource( 3 )]
+self_modulate = Color( 1, 1, 1, 0.5 )
+rotation = 1.5708
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Tween" type="Tween" parent="."]

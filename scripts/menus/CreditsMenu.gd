@@ -26,7 +26,7 @@ func _create_credits():
 	for package in UserData.get_package_names():
 		if package == "fnf" || !UserData.is_basic_mod(package):
 			continue
-		_parse_credits(load(UserData.IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("credits.tres")))
+		_parse_credits(load(UserData.get_credits_path(package)))
 	
 	credits.append_bbcode(SEPARATOR)
 
@@ -80,7 +80,7 @@ func _add_header(icon: Texture, title: String):
 	_add_big_text(title)
 
 func _add_icon(texture: Texture):
-	credits.append_bbcode("[img=73x73]" + texture.resource_path + "[/img]")
+	credits.append_bbcode("[img=73]" + texture.resource_path + "[/img]")
 
 func _add_big_text(string: String):
 	credits.append_bbcode("[b]" + string + "[/b]")
