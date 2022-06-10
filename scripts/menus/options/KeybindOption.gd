@@ -20,7 +20,7 @@ func on_input(event: InputEvent):
 		key_string.text = BINDING_TEXT
 	
 	elif binding && !event.is_pressed():
-		if !event.is_action_released("ui_cancel"):
+		if !event.is_action_released("ui_cancel") && (event is InputEventKey || event is InputEventJoypadButton):
 			action_input = event
 			UserData.set_setting(action_name, action_input, "input", action_package)
 			

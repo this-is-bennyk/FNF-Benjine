@@ -3,6 +3,7 @@ extends Node
 const OPTIONS = [
 	"story mode",
 	"freeplay",
+	"mods",
 	"credits",
 	"options"
 ]
@@ -10,6 +11,7 @@ const OPTIONS = [
 const MENUS = [
 	"res://scenes/shared/menus/default_menus/StoryModeMenu.tscn",
 	"res://scenes/shared/menus/default_menus/FreeplayMenu.tscn",
+	"res://scenes/shared/menus/default_menus/ModsMenu.tscn",
 	"res://scenes/shared/menus/default_menus/CreditsMenu.tscn",
 	"res://scenes/shared/menus/default_menus/OptionsMenu.tscn",
 	"res://scenes/shared/menus/default_menus/TitleScreen.tscn"
@@ -21,25 +23,20 @@ const CANCEL_SOUND = preload("res://assets/sounds/cancelMenu.ogg")
 
 export(NodePath) var menu_bg_path
 export(NodePath) var options_list_path
-export(NodePath) var story_mode_btn_path
-export(NodePath) var freeplay_btn_path
-export(NodePath) var credits_btn_path
-export(NodePath) var options_btn_path
+export(NodePath) var mod_type_path
 export(NodePath) var camera_path
 export(NodePath) var position_path
 export(NodePath) var menu_select_sound_path
 
 onready var menu_bg = get_node(menu_bg_path)
 onready var options_list = get_node(options_list_path)
-onready var story_mode_btn = get_node(story_mode_btn_path)
-onready var freeplay_btn = get_node(freeplay_btn_path)
-onready var credits_btn = get_node(credits_btn_path)
-onready var options_btn = get_node(options_btn_path)
+onready var mod_type = get_node(mod_type_path)
 onready var camera = get_node(camera_path)
 onready var position = get_node(position_path)
 onready var menu_select_sound = get_node(menu_select_sound_path)
 
 var option_idx = 0
+var advanced_mods = false
 
 func _ready():
 	on_ready()
@@ -52,12 +49,14 @@ func _input(event):
 
 func on_ready():
 	var options_list_ref = get_node(options_list_path)
+	var mod_type_ref = get_node(mod_type_path)
 	var position_ref = get_node(position_path)
 	var camera_ref = get_node(camera_path)
 	
 	position_ref.global_position = options_list_ref.get_child(option_idx).global_position
 	camera_ref.follow_point = position_ref
 	camera_ref.reset_position()
+	mod_type_ref.play()
 	
 	for idx in options_list_ref.get_child_count():
 		var suffix = " white" if idx == 0 else " basic"
@@ -77,7 +76,7 @@ func on_input(event):
 		options_list.get_child(option_idx).play(OPTIONS[option_idx] + " basic")
 		
 		var increment = -1 if event.is_action_pressed("ui_up") else 1
-		option_idx = wrapi(option_idx + increment, 0, 4)
+		option_idx = wrapi(option_idx + increment, 0, len(OPTIONS))
 		
 		position.global_position = options_list.get_child(option_idx).global_position
 		options_list.get_child(option_idx).play(OPTIONS[option_idx] + " white")
@@ -85,10 +84,22 @@ func on_input(event):
 		menu_select_sound.stop()
 		menu_select_sound.play()
 		
+		if option_idx == 2:
+			mod_type.show()
+		else:
+			mod_type.hide()
+	
+	elif option_idx == 2 && GodotX.xor(event.is_action_pressed("ui_left"), event.is_action_pressed("ui_right")):
+		advanced_mods = !advanced_mods
+		
+		mod_type.get_node("Label").text = "[ADVANCED]" if advanced_mods else "[BASIC]"
+		menu_select_sound.stop()
+		menu_select_sound.play()
+	
 	elif event.is_action_pressed("ui_accept"):
 		set_process_input(false)
 		
-		if option_idx == 1 || option_idx == 3:
+		if option_idx == 1 || option_idx == 2 || option_idx == 4:
 			Conductor.stop_song()
 		
 		menu_select_sound.stop()
@@ -120,5 +131,9 @@ func _switch_to_menu(_trans_name):
 			get_parent().switch_state(load(MENUS[len(MENUS) - 1]), { "intro_skipped": true })
 		0:
 			get_parent().switch_state(MENUS[option_idx])
+		2:
+			get_parent().switch_state(load(MENUS[option_idx]), {
+				"advanced_mods": advanced_mods
+			})
 		_:
 			get_parent().switch_state(load(MENUS[option_idx]))

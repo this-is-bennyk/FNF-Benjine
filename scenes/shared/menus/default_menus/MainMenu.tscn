@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/graphics/menus/bgs/menuBG.png" type="Texture" id=1]
 [ext_resource path="res://scripts/menus/MainMenuCamera.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://scripts/menus/MainMenu.gd" type="Script" id=4]
 [ext_resource path="res://assets/sounds/scrollMenu.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/graphics/menus/bgs/menuBGMagenta.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/graphics/menus/main_menu/Mod_Type_Selection_BG.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://assets/fonts/VCR_20.tres" type="DynamicFont" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Flicker"
@@ -40,14 +43,18 @@ tracks/0/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
+[sub_resource type="DynamicFont" id=3]
+size = 72
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
 [node name="MainMenu" type="Node"]
 script = ExtResource( 4 )
 menu_bg_path = NodePath("ParallaxBackground/ParallaxLayer/MenuBg")
 options_list_path = NodePath("Options")
-story_mode_btn_path = NodePath("Options/Story_Mode")
-freeplay_btn_path = NodePath("Options/Freeplay")
-credits_btn_path = NodePath("Options/Credits")
-options_btn_path = NodePath("Options/Options")
+mod_type_path = NodePath("Options/Mods/Mod_Type")
 camera_path = NodePath("Camera2D")
 position_path = NodePath("Position2D")
 menu_select_sound_path = NodePath("AudioStreamPlayer")
@@ -78,24 +85,61 @@ script = ExtResource( 2 )
 [node name="Options" type="CanvasLayer" parent="."]
 
 [node name="Story_Mode" type="AnimatedSprite" parent="Options"]
-position = Vector2( 640, 121 )
+position = Vector2( 640, 101 )
 frames = ExtResource( 3 )
 animation = "story mode basic"
 
 [node name="Freeplay" type="AnimatedSprite" parent="Options"]
-position = Vector2( 640, 281 )
+position = Vector2( 640, 226 )
 frames = ExtResource( 3 )
 animation = "freeplay basic"
 
+[node name="Mods" type="AnimatedSprite" parent="Options"]
+position = Vector2( 640, 359 )
+frames = ExtResource( 3 )
+animation = "mods basic"
+
+[node name="Mod_Type" type="AnimatedSprite" parent="Options/Mods"]
+visible = false
+position = Vector2( 353, -136 )
+frames = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="Options/Mods/Mod_Type"]
+margin_left = -419.0
+margin_top = -46.0
+margin_right = 416.0
+margin_bottom = 18.0
+grow_horizontal = 2
+rect_rotation = 7.2
+rect_scale = Vector2( 1, 1.5 )
+rect_pivot_offset = Vector2( 417.5, 32 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 3 )
+text = "[BASIC]"
+align = 1
+valign = 1
+
 [node name="Credits" type="AnimatedSprite" parent="Options"]
-position = Vector2( 640, 441 )
+position = Vector2( 640, 495 )
 frames = ExtResource( 3 )
 animation = "credits basic"
 
 [node name="Options" type="AnimatedSprite" parent="Options"]
-position = Vector2( 640, 601 )
+position = Vector2( 640, 621 )
 frames = ExtResource( 3 )
 animation = "options basic"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Version" type="Label" parent="CanvasLayer"]
+margin_left = 5.0
+margin_top = 697.0
+margin_right = 221.0
+margin_bottom = 715.0
+custom_fonts/font = ExtResource( 9 )
+text = "FNF Benjine v2.1.0"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

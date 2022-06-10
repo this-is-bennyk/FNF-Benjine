@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/benjine_mod_banner.png-e9b67b9c1acf3719f794a23526b7d308.stex"
+path="res://.import/benjine_mod_banner.png-ba2e239e4b0e94d30439de59a5514796.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/menus/advanced_mods/benjine_mod_banner.png"
-dest_files=[ "res://.import/benjine_mod_banner.png-e9b67b9c1acf3719f794a23526b7d308.stex" ]
+source_file="res://assets/graphics/menus/mods/benjine_mod_banner.png"
+dest_files=[ "res://.import/benjine_mod_banner.png-ba2e239e4b0e94d30439de59a5514796.stex" ]
 
 [params]
 

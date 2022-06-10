@@ -76,7 +76,6 @@ color = Color( 0, 0, 0, 0 )
 polygon = PoolVector2Array( -51, -36, -41, 752, 1335, 757, 1326, -53 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Polygon2D"]
-autoplay = "Fade_In"
 anims/Fade_In = SubResource( 2 )
 anims/Fade_Out = SubResource( 3 )
 anims/RESET = SubResource( 4 )

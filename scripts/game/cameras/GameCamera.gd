@@ -1,6 +1,6 @@
-extends "res://scripts/game/FollowerCamera2D.gd"
+extends "res://scripts/game/cameras/FollowerCamera.gd"
 
-export(float) var zoom_on_quarter_hit = 0.715
+export(float) var zoom_on_quarter_hit = 0.715 # 65 for 3D cams
 
 onready var beat_anim = $Cam_Zoom_Beat
 
@@ -11,11 +11,6 @@ func get_movement_lerp():
 
 func get_default_resting_zoom():
 	return 0.7
-
-#func get_zoom_on_quarter_hit():
-#	if custom_zoom_on_hit:
-#		return custom_zoom_on_hit
-#	return get_resting_zoom() + 0.015
 
 func tween_zoom():
 	tween.stop(self, "zoom_axis")

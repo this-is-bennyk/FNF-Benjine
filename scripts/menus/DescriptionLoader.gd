@@ -7,7 +7,7 @@ onready var progress_label = $Label
 onready var transition_anim = $Polygon2D/AnimationPlayer
 
 func _ready():
-	if OS.get_name() == "HTML5":
+	if OS.has_feature("editor") || OS.get_name() == "HTML5":
 		get_tree().change_scene("res://scenes/Main.tscn")
 	else:
 		call_deferred("_load_descriptions")
@@ -50,8 +50,8 @@ func _load_descriptions():
 	
 	########################################
 	
-	transition_anim.play("Fade_Out")
-	yield(transition_anim, "animation_finished")
+#	transition_anim.play("Fade_Out")
+#	yield(transition_anim, "animation_finished")
 	
 	VolumeChanger.disabled = false
-	get_tree().change_scene("res://scenes/shared/menus/AdvancedModsMenu.tscn")
+	get_tree().change_scene("res://scenes/Main.tscn")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/game/cameras/GameCamera.gd" type="Script" id=1]
-[ext_resource path="res://scripts/game/characters/BeatNode.gd" type="Script" id=2]
+[ext_resource path="res://scripts/game/characters/BeatNode.gd" type="Script" id=1]
+[ext_resource path="res://scripts/game/cameras/GameCamera.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -21,17 +21,16 @@ tracks/0/keys = {
 } ]
 }
 
-[node name="Cam_HUD" type="Camera2D"]
-position = Vector2( 770, 450 )
-rotating = true
+[node name="Cam_HUD" type="Camera"]
 current = true
-zoom = Vector2( 1.429, 1.429 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
+resting_zoom = 70.0
+zoom_on_quarter_hit = 65.0
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Cam_Zoom_Beat" type="Node" parent="."]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 idle_frequency = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Cam_Zoom_Beat"]

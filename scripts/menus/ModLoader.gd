@@ -13,8 +13,8 @@ func _ready():
 		call_deferred("_load_packages")
 
 func _load_packages():
-	VolumeChanger.disabled = true
-	transition_anim.play("Fade_In")
+#	VolumeChanger.disabled = true
+#	transition_anim.play("Fade_In")
 	yield(transition_anim, "animation_finished")
 	
 	########################################

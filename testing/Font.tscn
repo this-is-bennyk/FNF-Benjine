@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/fonts/fnf_psych/FNF_Bold1.font" type="BitmapFont" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( 73, 82, 79, 319, 806, 308, 778, 72 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 143.0
+margin_top = 153.0
+margin_right = 768.0
+margin_bottom = 489.0
+custom_fonts/font = ExtResource( 1 )
+text = "FRIDAY NIGHT"
