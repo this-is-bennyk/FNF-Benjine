@@ -5,6 +5,7 @@
 ## A Friday Night Funkin' fangame engine made with Godot!
 
 [Click here](#start) to jump straight into getting started with developing on the Benjine.
+**Don't always rely on the main branch for looking at Benjine code.** The main branch may have changes farther ahead then the current version of the Benjine you're using. Always be sure use the official releases for stable versions of the Benjine.
 
 The engine actively in development for [FNFVR](https://thisisbennyk.itch.io/funkin-vr) and the second version of [the Bogus mod](https://gamebanana.com/mods/317381). Meant to closely replicate the original feel of FNF, with a flexible backend in mind.  
 **All Benjine mods MUST be open source, just like with the original FNF. It also helps avoid folder name clashes for mods.**
@@ -73,11 +74,12 @@ The Benjine assumes you have some sort of experience working with the Godot game
 ## Exporting your mod
 In order to be a valid Benjine mod, your mod MUST have:
 - A folder with a unique name (ex. whitty, bogus, sonic_exe, etc.)
-- A **ModDescription** resource called **mod_desc.tres**
+- A **ModDescription** resource called **mod_desc.tres** in (your mod name)/desc
+    - Your mod description and any resources it uses MUST be contained in (your mod name)/desc
 - A **ModCredits** resource called **credits.tres**
 - A **SongList** resource called **song_list.tres** in (your mod name)/songs
 
-![Here's what that all looks like](https://cdn.discordapp.com/attachments/982020014284607518/982032061386850324/unknown.png "Here's what that all looks like")
+![Here's what that all looks like](https://cdn.discordapp.com/attachments/982020014284607518/984914937862307900/unknown.png "Here's what that all looks like")
 
 To export your mod:
 - Open the PCK Packer scene
