@@ -63,6 +63,7 @@ margin_left = 300.0
 margin_top = 140.0
 margin_right = -300.0
 margin_bottom = -100.0
+focus_mode = 2
 custom_fonts/italics_font = SubResource( 5 )
 custom_fonts/bold_font = SubResource( 4 )
 custom_fonts/normal_font = SubResource( 3 )
