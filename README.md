@@ -56,7 +56,8 @@ Play or get the Benjine on [itch.io](https://thisisbennyk.itch.io/friday-night-f
  <img src="https://cdn.discordapp.com/attachments/982020014284607518/982025683784065034/unknown.png">
 </p>
 
-- Coming soon: ...or advanced mods that let you create whatever you want!
+- ...or advanced mods that let you create whatever you want!
+![For example... FNFVR!](https://cdn.discordapp.com/attachments/982020014284607518/987487770798882846/unknown.png)
 
 <h2 id="start">Getting Started</h2>
 
@@ -76,6 +77,7 @@ In order to be a valid Benjine mod, your mod MUST have:
 - A folder with a unique name (ex. whitty, bogus, sonic_exe, etc.)
 - A **ModDescription** resource called **mod_desc.tres** in (your mod name)/desc
     - Your mod description and any resources it uses MUST be contained in (your mod name)/desc
+    - Make sure to add the package name
 - A **ModCredits** resource called **credits.tres**
 - A **SongList** resource called **song_list.tres** in (your mod name)/songs
 
@@ -99,6 +101,6 @@ To export your mod:
 
 ![Right-click res:// and open it in the file manager](https://cdn.discordapp.com/attachments/982020014284607518/982034584051015680/unknown.png "Right-click res:// and open it in the file manager")
 
-- Your completed PCK will be in here!
+- Your completed PCKs will be in here!
 
 ![A completed mod!](https://cdn.discordapp.com/attachments/982020014284607518/984915909523173426/unknown.png "A completed mod!")
