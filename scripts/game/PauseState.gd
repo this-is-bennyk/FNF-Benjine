@@ -31,7 +31,7 @@ func _input(event):
 func _on_option_selected(_option_idx, option):
 	match option:
 		"Resume":
-			get_parent().set_pause(false)
+			_unpause()
 		"Restart Song":
 			_exit_level_premature("_restart")
 		"Options":
@@ -46,13 +46,6 @@ func _on_option_selected(_option_idx, option):
 		"Quit":
 			_exit_level_premature("_quit_to_menu")
 
-func _exit_level_premature(func_name):
-	music_tween.interpolate_property(pause_music, "volume_db", pause_music.volume_db, linear2db(0.005), 0.7)
-	
-	TransitionSystem.play_transition(TransitionSystem.Transitions.BASIC_FADE_OUT)
-	TransitionSystem.connect("transition_finished", self, "_stop_music", [], CONNECT_DEFERRED | CONNECT_ONESHOT)
-	TransitionSystem.connect("transition_finished", self, func_name, [], CONNECT_DEFERRED | CONNECT_ONESHOT)
-
 func _connect_pause_menu_signal():
 	var menu
 	
@@ -62,6 +55,16 @@ func _connect_pause_menu_signal():
 		menu = get_node(pause_menu_path)
 	
 	menu.connect("option_selected", self, "_on_option_selected", [], CONNECT_DEFERRED | CONNECT_ONESHOT)
+
+func _unpause():
+	get_parent().set_pause(false)
+
+func _exit_level_premature(func_name):
+	music_tween.interpolate_property(pause_music, "volume_db", pause_music.volume_db, linear2db(0.005), 0.7)
+	
+	TransitionSystem.play_transition(TransitionSystem.Transitions.BASIC_FADE_OUT)
+	TransitionSystem.connect("transition_finished", self, "_stop_music", [], CONNECT_DEFERRED | CONNECT_ONESHOT)
+	TransitionSystem.connect("transition_finished", self, func_name, [], CONNECT_DEFERRED | CONNECT_ONESHOT)
 
 func _restart(_trans_name):
 	get_parent().restart()

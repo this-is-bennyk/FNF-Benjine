@@ -11,7 +11,6 @@
 [node name="Note3D" type="PathFollow"]
 loop = false
 script = ExtResource( 5 )
-direction = 3
 
 [node name="Note" parent="." instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
@@ -40,6 +39,8 @@ material_override = ExtResource( 6 )
 
 [node name="Outline2" parent="Sustain_Cap" index="2"]
 material_override = ExtResource( 7 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [editable path="Note"]
 [editable path="Note/Note_Model"]

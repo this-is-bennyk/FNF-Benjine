@@ -9,8 +9,6 @@ onready var thunder = $Thunder
 onready var lightning_anim = $BG/AnimationPlayer
 
 func do_level_specific_prep():
-	
-	
 	match song_data.name:
 		"Monster":
 			switch_performer("opponent", "monster")

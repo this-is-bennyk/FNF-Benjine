@@ -40,6 +40,8 @@ material_override = ExtResource( 6 )
 [node name="Outline2" parent="Sustain_Cap" index="2"]
 material_override = ExtResource( 7 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [editable path="Note"]
 [editable path="Note/Note_Model"]
 [editable path="Sustain_Line"]

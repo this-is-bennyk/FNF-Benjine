@@ -11,6 +11,8 @@
 script = ExtResource( 4 )
 albedo_texture = ExtResource( 5 )
 normal_texture = ExtResource( 6 )
+skeleton = NodePath("HandModel/Armature/Skeleton")
+hand_mesh = NodePath("HandModel/Armature/Skeleton/vr_glove_right_slim")
 
 [node name="HandModel" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.5, 1, -0.5 )

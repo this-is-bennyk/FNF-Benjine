@@ -187,9 +187,9 @@ func end_level_part_1():
 	Conductor.stop_song()
 	
 	if lvl_manager.is_freeplay:
-		transition_to_level_exit()
+		do_post_level_freeplay_event()
 	else:
-		do_post_level_event()
+		do_post_level_story_event()
 
 func end_level_part_2(_trans_name = ""):
 	do_level_cleanup()
@@ -313,26 +313,15 @@ func connect_end_of_song_signal(quarter):
 	else:
 		Conductor.call_deferred("connect", "quarter_hit", self, "connect_end_of_song_signal", [], CONNECT_DEFERRED | CONNECT_ONESHOT)
 
-# ------------------------------
-# do_post_level_event
-# Desc: Does an event after the end of the level (ex. a textbox, a cutscene, etc.).
-# ------------------------------
-# It MUST call end_level_part_2() by EITHER calling it directly
-# ex.
-# func do_post_level_event():
-# 	end_level_part_2()
-# or with a connection from a signal. DO NOT USE YIELD STATEMENTS, AS THEY ARE UNRELIABLE WITH SWITCHING STATES.
-# ex.
-# cutscene_player.connect("on_animation_finished", self, "_cutscene_finished", [], CONNECT_DEFERRED | CONNECT_ONESHOT)
-# func _cutscene_finished(anim_name):
-# 	end_level_part_2()
-# ------------------------------
-func do_post_level_event():
+func do_post_level_story_event():
 	if lvl_manager.in_last_state():
 		transition_to_level_exit()
 	else:
 		TransitionSystem.play_transition(TransitionSystem.Transitions.SCREEN_CAP_OUT)
 		end_level_part_2()
+
+func do_post_level_freeplay_event():
+	transition_to_level_exit()
 
 func transition_to_level_exit():
 	set_process(false)

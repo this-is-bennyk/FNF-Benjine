@@ -24,18 +24,19 @@ export(String) var pressed_anim = "Pressed"
 
 # Data from Godot resources
 export(String) var action # Name of InputEventAction to check for
+export(Array, PackedScene) var note_scenes := [] # Array of scenes that are notes
 
 # Lane components
 onready var strum_arrow = get_node(strum_arrow_nodepath)
 onready var strum_arrow_anim_player: AnimationPlayer = get_node(strum_arrow_anim_nodepath)
 onready var start_path = get_node(start_path_nodepath)
 onready var end_path = get_node(end_path_nodepath)
+
 var lvl
 
 var note_data := []
 var notes_spawned := []
 var notes_in_play := [] # Notes that are ready to be hit (only applies to player)
-var note_scenes := [] # Array of scenes that are notes
 
 var action_pressed = false
 var strum_arrow_animating = false
@@ -74,6 +75,9 @@ func initialize(note_info_array: Array):
 func check_input(pressed):
 	if lane_type != Type.PLAYER:
 		return
+	# If we're already pressing / not pressing this lane, avoid a double input
+	if pressed == action_pressed:
+		return
 	
 	# Redefine if the action is currently being pressed
 	action_pressed = pressed
@@ -91,7 +95,14 @@ func check_input(pressed):
 			
 			return
 		
-		# Find if we hit 1 or more notes
+		_check_for_hit_notes()
+	# Otherwise revert the strum arrow back to normal
+	else:
+		strum_arrow_anim_player.stop()
+		strum_arrow_anim_player.play(neutral_anim)
+
+func _check_for_hit_notes():
+	# Find if we hit 1 or more notes
 		var notes_to_delete = []
 		var regular_note_hit = false
 		var sustain_note_hit = false
@@ -137,10 +148,6 @@ func check_input(pressed):
 			for note in notes_to_delete:
 				notes_spawned.erase(note)
 				notes_in_play.erase(note)
-	# Otherwise revert the strum arrow back to normal
-	else:
-		strum_arrow_anim_player.stop()
-		strum_arrow_anim_player.play(neutral_anim)
 
 func add_notes_from_data():
 	if note_data.empty():

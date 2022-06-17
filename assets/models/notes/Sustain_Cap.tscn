@@ -7,7 +7,7 @@
 [node name="Sustain_Cap" type="Spatial"]
 
 [node name="Inner" type="CSGCylinder" parent="."]
-transform = Transform( 1.47, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.074899, 0 )
+transform = Transform( 1.47, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.393, 0 )
 material_override = ExtResource( 2 )
 calculate_tangents = false
 radius = 0.15
@@ -20,7 +20,7 @@ radius = 0.15
 radial_segments = 20
 
 [node name="Outline1" type="CSGCylinder" parent="."]
-transform = Transform( 1.617, 0, 0, 0, 1.044, 0, 0, 0, 1.1, 0, 0.074899, 0 )
+transform = Transform( 1.617, 0, 0, 0, 1.022, 0, 0, 0, 1.1, 0, -0.401, 0 )
 material_override = ExtResource( 4 )
 calculate_tangents = false
 radius = 0.15
@@ -33,7 +33,7 @@ radius = 0.15
 radial_segments = 20
 
 [node name="Outline2" type="CSGCylinder" parent="."]
-transform = Transform( 1.764, 0, 0, 0, 1.11, 0, 0, 0, 1.2, 0, 0.074899, 0 )
+transform = Transform( 1.764, 0, 0, 0, 1.055, 0, 0, 0, 1.2, 0, -0.414, 0 )
 material_override = ExtResource( 3 )
 calculate_tangents = false
 radius = 0.15

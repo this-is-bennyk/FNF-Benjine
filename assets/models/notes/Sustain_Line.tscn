@@ -12,19 +12,19 @@ height = 0.936
 [node name="Sustain_Line" type="Spatial"]
 
 [node name="Inner" type="MeshInstance" parent="."]
-transform = Transform( 1.47, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1.47, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.468, 0 )
 material_override = ExtResource( 2 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="Outline1" type="MeshInstance" parent="."]
-transform = Transform( 1.617, 0, 0, 0, 1.036, 0, 0, 0, 1.1, 0, 0, 0 )
+transform = Transform( 1.617, 0, 0, 0, 0.999, 0, 0, 0, 1.1, 0, -0.468, 0 )
 material_override = ExtResource( 4 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="Outline2" type="MeshInstance" parent="."]
-transform = Transform( 1.764, 0, 0, 0, 1.091, 0, 0, 0, 1.2, 0, 0, 0 )
+transform = Transform( 1.764, 0, 0, 0, 1, 0, 0, 0, 1.2, 0, -0.468, 0 )
 material_override = ExtResource( 3 )
 mesh = SubResource( 1 )
 material/0 = null

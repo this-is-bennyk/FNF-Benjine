@@ -4,4 +4,4 @@
 
 [node name="PCK_Packer" type="Node"]
 script = ExtResource( 1 )
-package_name = "bogus"
+package_name = "benjine_test_mod"

@@ -4,6 +4,8 @@ class_name SongList
 const DEFAULT_WEEK_LIST = [
 	{
 		"week_name": "Your Week",
+		"level_manager_path": "",
+		"week_difficulties": null,
 		"song_datas": [],
 		"week_logo": null,
 		"week_color": Color("#f9cf51")

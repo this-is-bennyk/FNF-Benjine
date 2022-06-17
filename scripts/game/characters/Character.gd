@@ -42,6 +42,8 @@ func _swap_name_if_flipped(anim_name):
 
 func _flipped():
 	var this = get_parent().get_node(name)
-	
+
+	if this is Spatial:
+		return false
 	return sign(this.scale.x) == -1 || \
 		   (abs(this.rotation_degrees) == 180 && sign(this.scale.y) == -1)

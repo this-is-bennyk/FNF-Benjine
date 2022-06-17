@@ -23,11 +23,15 @@ func on_update():
 
 func update_movement():
 	if !movement_overriden():
-		this.global_position = lerp(this.global_position, get_position_to_follow(), GodotX.get_haxeflixel_lerp(get_movement_lerp()))
+		if this is Camera:
+			this.global_transform.origin = lerp(this.global_transform.origin, get_position_to_follow(), GodotX.get_haxeflixel_lerp(get_movement_lerp()))
+		else:
+			this.global_position = lerp(this.global_position, get_position_to_follow(), GodotX.get_haxeflixel_lerp(get_movement_lerp()))
 	
 	if !rotation_overriden():
 		if this is Camera:
-			this.rotation = this.rotation.slerp(get_position_to_follow(), GodotX.get_haxeflixel_lerp(get_movement_lerp()))
+			var new_quat = this.global_transform.basis.get_rotation_quat().slerp(get_rotation_to_follow(), GodotX.get_haxeflixel_lerp(get_movement_lerp()))
+			this.global_transform.basis = Basis(new_quat)
 
 func get_movement_lerp():
 	return get_default_movement_lerp()
@@ -37,14 +41,25 @@ func get_default_movement_lerp():
 
 func get_position_to_follow():
 	if custom_position:
-		return custom_position.global_position
-	return follow_point.global_position
+		return custom_position.global_position if custom_position is Position2D else custom_position.global_transform.origin
+	return follow_point.global_position if follow_point is Position2D else follow_point.global_transform.origin
+
+func get_rotation_to_follow():
+	if custom_position:
+		return custom_position.global_rotation if custom_position is Position2D else custom_position.global_transform.basis.get_rotation_quat()
+	return follow_point.global_rotation if follow_point is Position2D else follow_point.global_transform.basis.get_rotation_quat()
 
 func reset_position(different_pos = null):
 	if different_pos is Vector2 || different_pos is Vector3:
-		this.global_position = different_pos
+		if this is Camera:
+			this.global_transform.origin = different_pos
+		else:
+			this.global_position = different_pos
 	else:
-		this.global_position = get_position_to_follow()
+		if this is Camera:
+			this.global_transform.origin = get_position_to_follow()
+		else:
+			this.global_position = get_position_to_follow()
 
 func reset_zoom(different_zoom = null):
 	if different_zoom is float:

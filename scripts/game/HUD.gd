@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node
 
 const BAR_START_X = -296
 const BAR_END_X = 296
