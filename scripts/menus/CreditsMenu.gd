@@ -10,9 +10,11 @@ onready var cancel_sound = $Cancel_Sound
 func _ready():
 	_create_credits()
 	TransitionSystem.play_transition(TransitionSystem.Transitions.BASIC_FADE_IN)
+	credits.grab_focus()
 
 func _input(event):
 	if event.is_action_released("ui_cancel"):
+		set_process_input(false)
 		cancel_sound.play()
 		
 		TransitionSystem.play_transition(TransitionSystem.Transitions.BASIC_FADE_OUT)
