@@ -15,7 +15,7 @@ func _ready():
 func _load_packages():
 #	VolumeChanger.disabled = true
 #	transition_anim.play("Fade_In")
-	yield(transition_anim, "animation_finished")
+	print("Loading shit")
 	
 	########################################
 	

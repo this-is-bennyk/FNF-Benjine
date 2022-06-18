@@ -50,8 +50,4 @@ func _load_descriptions():
 	
 	########################################
 	
-#	transition_anim.play("Fade_Out")
-#	yield(transition_anim, "animation_finished")
-	
-	VolumeChanger.disabled = false
 	get_tree().change_scene("res://scenes/Main.tscn")

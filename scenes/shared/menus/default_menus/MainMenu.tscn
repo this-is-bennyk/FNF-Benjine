@@ -139,7 +139,7 @@ margin_top = 697.0
 margin_right = 221.0
 margin_bottom = 715.0
 custom_fonts/font = ExtResource( 9 )
-text = "FNF Benjine v2.1.0"
+text = "FNF Benjine v2.1.1"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
