@@ -61,6 +61,9 @@ func on_ready():
 	for idx in options_list_ref.get_child_count():
 		var suffix = " white" if idx == 0 else " basic"
 		options_list_ref.get_child(idx).play(OPTIONS[idx] + suffix)
+		
+		if idx == 2 && OS.get_name() == "HTML5":
+			options_list_ref.get_child(idx).modulate = Color.dimgray
 	
 	if !Conductor.playing || Conductor.stream != FREAKY_MENU:
 		Conductor.volume_db = linear2db(0.8)
@@ -84,12 +87,18 @@ func on_input(event):
 		menu_select_sound.stop()
 		menu_select_sound.play()
 		
+		if OS.get_name() == "HTML5":
+			return
+		
 		if option_idx == 2:
 			mod_type.show()
 		else:
 			mod_type.hide()
 	
 	elif option_idx == 2 && GodotX.xor(event.is_action_pressed("ui_left"), event.is_action_pressed("ui_right")):
+		if OS.get_name() == "HTML5":
+			return
+		
 		advanced_mods = !advanced_mods
 		
 		mod_type.get_node("Label").text = "[ADVANCED]" if advanced_mods else "[BASIC]"
@@ -97,6 +106,9 @@ func on_input(event):
 		menu_select_sound.play()
 	
 	elif event.is_action_pressed("ui_accept"):
+		if option_idx == 2 && OS.get_name() == "HTML5":
+			return
+		
 		set_process_input(false)
 		
 		if option_idx == 1 || option_idx == 2 || option_idx == 4:

@@ -22,5 +22,6 @@ health_to_index_map = [ {
 } ]
 
 [node name="Icon" parent="." index="0"]
+position = Vector2( 50, -75 )
 frames = ExtResource( 2 )
 frame = 47
