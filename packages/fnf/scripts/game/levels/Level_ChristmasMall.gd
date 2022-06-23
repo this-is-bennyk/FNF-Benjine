@@ -3,8 +3,6 @@ extends "res://scripts/game/Level.gd"
 onready var parents = $Parents_Christmas
 
 func do_level_specific_prep():
-	
-	
 	match song_data.name:
 		"Eggnog":
 			get_performer("player").idle_frequency = 2

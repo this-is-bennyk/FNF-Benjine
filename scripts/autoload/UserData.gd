@@ -19,7 +19,7 @@ func get_credits_path(package: String):
 	return IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("credits.tres")
 
 func get_song_list_path(package: String):
-	return IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("songs/credits.tres")
+	return IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("songs/song_list.tres")
 
 func _ready():
 	_attempt_first_time_setup()
