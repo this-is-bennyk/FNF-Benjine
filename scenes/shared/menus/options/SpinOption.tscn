@@ -11,7 +11,6 @@ custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 custom_fonts/font = ExtResource( 1 )
-text = "Option"
 valign = 1
 script = ExtResource( 2 )
 

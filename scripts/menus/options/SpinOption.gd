@@ -23,7 +23,8 @@ onready var spin_timer = $Spin_Timer
 var option_idx = 0
 
 func _ready():
-	text = option_name.capitalize()
+	if text.empty():
+		text = option_name.capitalize()
 	option_idx = default_option
 	_format_cur_option(option_idx)
 

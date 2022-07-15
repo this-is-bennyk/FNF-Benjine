@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/graphics/menus/main_menu/Main_Menu_Options.res" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/graphics/menus/bgs/options_menu_bg.png" type="Texture" id=2]
@@ -11,9 +11,8 @@
 [ext_resource path="res://assets/sounds/scrollMenu.ogg" type="AudioStream" id=9]
 [ext_resource path="res://assets/sounds/cancelMenu.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/sounds/confirmMenu.ogg" type="AudioStream" id=11]
-[ext_resource path="res://scripts/menus/options/OptionsSubmenu.gd" type="Script" id=12]
+[ext_resource path="res://scripts/menus/options/OSM_ModSpecific.gd" type="Script" id=12]
 [ext_resource path="res://scripts/menus/options/OSM_Controls.gd" type="Script" id=13]
-[ext_resource path="res://scenes/shared/menus/options/CtrlPckTitle.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/graphics/menus/SB_Empty.tres" type="StyleBox" id=15]
 [ext_resource path="res://assets/fonts/VCR_32_Options_W_Outline.tres" type="DynamicFont" id=16]
 [ext_resource path="res://scenes/shared/menus/options/AudioBars.tscn" type="PackedScene" id=17]
@@ -24,6 +23,8 @@
 [ext_resource path="res://assets/graphics/game/hud/ratings.tres" type="SpriteFrames" id=22]
 [ext_resource path="res://assets/graphics/game/hud/combo_nums/combo_nums.tres" type="SpriteFrames" id=23]
 [ext_resource path="res://scripts/menus/options/Combo_Adjustment.gd" type="Script" id=24]
+[ext_resource path="res://scenes/shared/menus/options/ResetOption.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scripts/menus/options/OSM_Reset.gd" type="Script" id=26]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -185,7 +186,7 @@ rotation = 0.0645772
 scale = Vector2( 0.8, 0.8 )
 frames = ExtResource( 1 )
 animation = "options basic"
-frame = 7
+frame = 2
 playing = true
 
 [node name="Menus" type="Control" parent="."]
@@ -201,7 +202,7 @@ margin_right = 600.0
 margin_bottom = 420.0
 size_flags_horizontal = 3
 script = ExtResource( 8 )
-valid_options_paths = [ NodePath("Gameplay"), NodePath("Audio"), NodePath("Controls"), NodePath("Mod-Specific") ]
+valid_options_paths = [ NodePath("Gameplay"), NodePath("Audio"), NodePath("Controls"), NodePath("Mod-Specific"), NodePath("Reset") ]
 submenu_desc = "Select a category!"
 
 [node name="Gameplay" parent="Menus/Category_Select" instance=ExtResource( 4 )]
@@ -329,6 +330,40 @@ text = "Mod-Specific"
 align = 1
 valign = 1
 
+[node name="HSeparator5" type="HSeparator" parent="Menus/Category_Select"]
+margin_top = 303.0
+margin_right = 600.0
+margin_bottom = 324.0
+size_flags_horizontal = 3
+custom_constants/separation = 21
+custom_styles/separator = ExtResource( 15 )
+
+[node name="Reset" parent="Menus/Category_Select" instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = ExtResource( 3 )
+margin_top = 328.0
+margin_right = 600.0
+margin_bottom = 381.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Reset"
+align = 1
+valign = 1
+
+[node name="BG" parent="Menus/Category_Select/Reset" instance=ExtResource( 4 )]
+modulate = Color( 0.203922, 0, 0.768627, 1 )
+show_behind_parent = true
+material = ExtResource( 3 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 602.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Reset"
+align = 1
+valign = 1
+
 [node name="Gameplay" type="VBoxContainer" parent="Menus"]
 visible = false
 margin_top = 120.0
@@ -358,13 +393,15 @@ option_name = "middlescroll"
 option_category = "gameplay"
 
 [node name="Ghost_Tapping" parent="Menus/Gameplay" instance=ExtResource( 20 )]
-margin_top = 66.0
-margin_bottom = 95.0
+margin_top = 99.0
+margin_bottom = 128.0
 option_name = "ghost_tapping"
 option_category = "gameplay"
 default_option = 1
 
 [node name="Combo_X_Offset" parent="Menus/Gameplay" instance=ExtResource( 20 )]
+margin_top = 132.0
+margin_bottom = 161.0
 option_name = "combo_x_offset"
 option_category = "gameplay"
 num_range = true
@@ -372,6 +409,8 @@ num_range_min = -640
 num_range_max = 640
 
 [node name="Combo_Y_Offset" parent="Menus/Gameplay" instance=ExtResource( 20 )]
+margin_top = 165.0
+margin_bottom = 194.0
 option_name = "combo_y_offset"
 option_category = "gameplay"
 num_range = true
@@ -379,8 +418,8 @@ num_range_min = -360
 num_range_max = 360
 
 [node name="Fullscreen" parent="Menus/Gameplay" instance=ExtResource( 20 )]
-margin_top = 66.0
-margin_bottom = 95.0
+margin_top = 198.0
+margin_bottom = 227.0
 option_name = "fullscreen"
 option_category = "gameplay"
 
@@ -469,12 +508,7 @@ margin_right = 600.0
 margin_bottom = 420.0
 size_flags_horizontal = 3
 script = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 submenu_desc = "Make your keys comfortable."
-
-[node name="Ctrl_Pck_Title" parent="Menus/Controls" instance=ExtResource( 14 )]
 
 [node name="Mod-Specific" type="VBoxContainer" parent="Menus"]
 visible = false
@@ -486,7 +520,34 @@ script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-submenu_desc = "Customize your mods! (WIP)"
+submenu_desc = "Customize your mods!"
+
+[node name="Reset" type="VBoxContainer" parent="Menus"]
+visible = false
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 26 )
+valid_options_paths = [ NodePath("Scores"), NodePath("Settings"), NodePath("All") ]
+submenu_desc = "Clean up your data."
+
+[node name="Scores" parent="Menus/Reset" instance=ExtResource( 25 )]
+text = "Reset Scores"
+reset_scores = true
+
+[node name="Settings" parent="Menus/Reset" instance=ExtResource( 25 )]
+margin_top = 33.0
+margin_bottom = 62.0
+text = "Reset Settings"
+reset_settings = true
+
+[node name="All" parent="Menus/Reset" instance=ExtResource( 25 )]
+margin_top = 66.0
+margin_bottom = 95.0
+text = "Reset Everything"
+reset_scores = true
+reset_settings = true
 
 [node name="Submenu_Desc" type="Label" parent="."]
 margin_left = 253.892

@@ -8,6 +8,9 @@ onready var transition_anim = $Polygon2D/AnimationPlayer
 
 func _ready():
 	if OS.has_feature("editor") || OS.get_name() == "HTML5":
+		if OS.has_feature("editor"):
+			for package in UserData.get_package_names():
+				UserData.load_keybinds(package)
 		get_parent().switch_state(load("res://scenes/shared/menus/default_menus/TitleScreen.tscn"))
 	else:
 		call_deferred("_load_packages")
@@ -22,7 +25,7 @@ func _load_packages():
 	var package_names = UserData.get_package_names()
 	var num_basic_mods = 0
 	
-	for package in UserData.get_package_names():
+	for package in package_names:
 		if package == "fnf":
 			continue
 		
@@ -38,6 +41,7 @@ func _load_packages():
 			print("Loading of mod " + mod_desc.mod_package_name + " at " + mod_path + " successful?: " + str(success))
 			
 			if success:
+				UserData.load_keybinds(package)
 				num_basic_mods += 1
 	
 	bg.texture = READY_TEXTURE

@@ -1,0 +1,138 @@
+[gd_resource type="Resource" load_steps=16 format=2]
+
+[ext_resource path="res://scripts/general/ResourceList.gd" type="Script" id=1]
+[ext_resource path="res://scripts/resources/option_entries/KeybindEntry.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+action_name = "4k_left"
+input1_is_key = true
+input1_as_key = 68
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 65
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+action_name = "4k_down"
+input1_is_key = true
+input1_as_key = 70
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 83
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+action_name = "4k_up"
+input1_is_key = true
+input1_as_key = 74
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 16777232
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+action_name = "4k_right"
+input1_is_key = true
+input1_as_key = 76
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 16777233
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+action_name = "master_volume_up"
+input1_is_key = true
+input1_as_key = 61
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 16777349
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 2 )
+action_name = "master_volume_down"
+input1_is_key = true
+input1_as_key = 45
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 16777347
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 2 )
+action_name = "master_volume_mute"
+input1_is_key = true
+input1_as_key = 48
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 16777350
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 2 )
+action_name = "ui_up"
+input1_is_key = true
+input1_as_key = 16777232
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 16777358
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 2 )
+action_name = "ui_down"
+input1_is_key = true
+input1_as_key = 16777234
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 16777352
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 2 )
+action_name = "ui_left"
+input1_is_key = true
+input1_as_key = 16777231
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 16777354
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 2 )
+action_name = "ui_right"
+input1_is_key = true
+input1_as_key = 16777233
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 16777356
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 2 )
+action_name = "ui_accept"
+input1_is_key = true
+input1_as_key = 16777221
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 16777222
+input2_as_btn = 0
+
+[sub_resource type="Resource" id=13]
+script = ExtResource( 2 )
+action_name = "ui_cancel"
+input1_is_key = true
+input1_as_key = 0
+input1_as_btn = 0
+input2_is_key = true
+input2_as_key = 16777220
+input2_as_btn = 0
+
+[resource]
+script = ExtResource( 1 )
+list = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ]

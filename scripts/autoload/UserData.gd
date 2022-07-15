@@ -1,13 +1,11 @@
 extends Node
 
+signal setting_set(setting, variant, category, package)
+
 const SETTINGS_DATA_PATH: String = "user://FNF_Benjine_Settings.data"
 const SAVE_DATA_PATH: String = "user://FNF_Benjine_Save.data"
 const IMPORTED_PACKAGES_PATH: String = "res://packages"
 const DEFAULT_SETTINGS_PATH: String = "res://assets/data/default_settings.data"
-#const DEFAULT_OVERRIDE_SETTINGS_PATH: String = "res://assets/data/default_override.cfg"
-
-#func get_override_settings_path():
-#	return "res://override.cfg" if OS.has_feature("editor") else OS.get_executable_path().get_base_dir().plus_file("override.cfg")
 
 func get_modpacks_path():
 	return "res://testing/mods" if OS.has_feature("editor") else OS.get_executable_path().get_base_dir().plus_file("mods")
@@ -18,6 +16,12 @@ func get_mod_desc_path(package: String):
 func get_credits_path(package: String):
 	return IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("credits.tres")
 
+func get_options_path(package: String):
+	return IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("options.tres")
+
+func get_keybinds_path(package: String):
+	return IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("keybinds.tres")
+
 func get_song_list_path(package: String):
 	return IMPORTED_PACKAGES_PATH.plus_file(package).plus_file("songs/song_list.tres")
 
@@ -27,17 +31,20 @@ func _ready():
 func _attempt_first_time_setup():
 	var directory = Directory.new()
 	
+	var default_settings = load_data(DEFAULT_SETTINGS_PATH)
+	
 	if !directory.file_exists(SETTINGS_DATA_PATH):
-		var default_settings = load_data(DEFAULT_SETTINGS_PATH)
 		save_data(SETTINGS_DATA_PATH, default_settings)
+	else:
+		var software_settings_version = default_settings["general"]["BENJINE"]["SETTINGS_VERSION"]
+		var savefile_settings_version = get_setting("SETTINGS_VERSION", 0, "BENJINE")
+		
+		if savefile_settings_version == 0 || savefile_settings_version != software_settings_version:
+			print("SETTINGS RESET")
+			save_data(SETTINGS_DATA_PATH, default_settings)
 	
 	if !directory.file_exists(SAVE_DATA_PATH):
 		save_data(SAVE_DATA_PATH, {})
-	
-#	if !directory.file_exists(get_override_settings_path()):
-#		var cfg = ConfigFile.new()
-#		cfg.load(DEFAULT_OVERRIDE_SETTINGS_PATH)
-#		cfg.save(get_override_settings_path())
 	
 	if !directory.dir_exists(get_modpacks_path()):
 		var err = directory.make_dir(get_modpacks_path())
@@ -78,14 +85,18 @@ func _set_immediate_priority_settings():
 	var settings = load_data(SETTINGS_DATA_PATH)
 	
 	for category in settings.keys():
+		if !settings[category].has("input"):
+			continue
+		
 		var inputs = settings[category]["input"]
 		
 		for input_name in inputs.keys():
-			if input_name == "order":
-				continue
+			if !InputMap.has_action(input_name):
+				InputMap.add_action(input_name)
 			
 			InputMap.action_erase_events(input_name)
-			InputMap.action_add_event(input_name, inputs[input_name])
+			InputMap.action_add_event(input_name, inputs[input_name][0])
+			InputMap.action_add_event(input_name, inputs[input_name][1])
 
 func is_valid_mod(package: String):
 	if package == "fnf":
@@ -175,6 +186,7 @@ func set_setting(setting: String, variant, category: String = "", package: Strin
 		cur_settings[package][setting] = variant
 	
 	save_data(SETTINGS_DATA_PATH, cur_settings)
+	emit_signal("setting_set", setting, variant, category, package)
 
 func get_song_score(song_name: String, difficulty: String, package: String = "fnf"):
 	var cur_save = load_data(SAVE_DATA_PATH)
@@ -274,22 +286,39 @@ func get_package_based_on_song_data(song_data: SongData):
 	
 	return package_path_split[0]
 
-#func get_override_setting(section: String, key: String, default_val = null):
-#	var cfg = ConfigFile.new()
-#	cfg.load(get_override_settings_path())
-#
-#	return cfg.get_value(section, key, default_val)
-#
-#func set_override_setting(section: String, key: String, value):
-#	var cfg = ConfigFile.new()
-#	cfg.load(get_override_settings_path())
-#
-#	cfg.set_value(section, key, value)
-#	cfg.save(get_override_settings_path())
-#
-#func get_override_section_keys(section: String):
-#	var cfg = ConfigFile.new()
-#	cfg.load(get_override_settings_path())
-#
-#	if cfg.has_section(section):
-#		return cfg.get_section_keys(section)
+# For core Benjine use only
+func load_keybinds(package):
+	var actions = get_settings_in_category("input", package)
+	
+	if actions && !actions.empty():
+		for action_name in actions.keys():
+			var evs = actions[action_name]
+			
+			if !InputMap.has_action(action_name):
+				InputMap.add_action(action_name)
+			
+			InputMap.action_erase_events(action_name)
+			InputMap.action_add_event(action_name, evs[0])
+			InputMap.action_add_event(action_name, evs[1])
+		
+		return
+	
+	var directory = Directory.new()
+	var keybinds_path = get_keybinds_path(package)
+	
+	if !directory.file_exists(keybinds_path):
+		return
+	
+	var default_actions = load(keybinds_path)
+	
+	for keybind_entry in default_actions.list:
+		var evs = keybind_entry.get_as_events()
+		
+		if !InputMap.has_action(keybind_entry.action_name):
+			InputMap.add_action(keybind_entry.action_name)
+		
+		InputMap.action_erase_events(keybind_entry.action_name)
+		InputMap.action_add_event(keybind_entry.action_name, evs[0])
+		InputMap.action_add_event(keybind_entry.action_name, evs[1])
+		
+		UserData.set_setting(keybind_entry.action_name, evs, "input", package)

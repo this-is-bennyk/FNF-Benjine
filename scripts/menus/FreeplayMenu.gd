@@ -46,7 +46,6 @@ var cached_instrumentals = {}
 var cur_bg_color
 var cur_outline_color
 
-
 var song_score = 0
 var song_lerp_score = 0
 

@@ -53,6 +53,10 @@ func advance_death_state(state):
 		DeathState.END:
 			loss_sfx.stop()
 			end_sfx.play()
+			
+			if player_character.anim_player.is_connected("animation_finished", self, "_advance_after_start"):
+				player_character.anim_player.disconnect("animation_finished", self, "_advance_after_start")
+			
 			player_character.play_anim("Death_Confirm")
 			Conductor.stop_song()
 			
@@ -61,16 +65,21 @@ func advance_death_state(state):
 			get_tree().create_timer(2.7).connect("timeout", get_parent(), "restart", [], CONNECT_DEFERRED | CONNECT_ONESHOT)
 		
 		DeathState.QUIT:
+			loss_sfx.stop()
 			cancel_sfx.play()
+			
+			if player_character.anim_player.is_connected("animation_finished", self, "_advance_after_start"):
+				player_character.anim_player.disconnect("animation_finished", self, "_advance_after_start")
+			
 			Conductor.stop_song()
 			
 			TransitionSystem.connect("transition_finished", self, "_quit",  [], CONNECT_DEFERRED | CONNECT_ONESHOT)
 			TransitionSystem.play_transition(TransitionSystem.Transitions.BASIC_FADE_OUT)
 
-func _advance_after_start(anim_name):
+func _advance_after_start(_anim_name):
 	advance_death_state(DeathState.LOOP)
 
-func _process(delta):
+func _process(_delta):
 	on_update()
 
 func on_update():

@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/fonts/VCR_32_Options_W_Outline.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/menus/options/KeybindOption.gd" type="Script" id=2]
+[ext_resource path="res://assets/graphics/menus/SB_Empty.tres" type="StyleBox" id=3]
+[ext_resource path="res://assets/graphics/menus/options/benjine_joypad_buttons.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 2
+outline_color = Color( 0.203922, 0, 0.768627, 1 )
+extra_spacing_char = -2
+extra_spacing_space = -2
+font_data = ExtResource( 5 )
 
 [node name="Keybind" type="Label"]
 margin_right = 600.0
@@ -10,25 +20,92 @@ size_flags_horizontal = 3
 custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Keybind"
 valign = 1
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Key_String" type="Label" parent="."]
-margin_right = 600.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+margin_right = 452.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
+custom_styles/separator = ExtResource( 3 )
+
+[node name="Left_Arrow" type="Label" parent="HBoxContainer"]
+margin_left = 456.0
+margin_right = 488.0
+margin_bottom = 29.0
+grow_horizontal = 0
 custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-custom_fonts/font = ExtResource( 1 )
-text = "Key"
+custom_fonts/font = SubResource( 1 )
+text = "< "
 align = 2
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="Input1_Key" type="Label" parent="HBoxContainer"]
+margin_left = 492.0
+margin_right = 562.0
+margin_bottom = 29.0
+grow_horizontal = 0
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = "Key1"
+align = 2
+valign = 1
+
+[node name="Input1_Btn" type="Control" parent="HBoxContainer"]
+visible = false
+margin_left = 463.0
+margin_right = 499.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 36, 0 )
+
+[node name="BtnFrames" type="AnimatedSprite" parent="HBoxContainer/Input1_Btn"]
+frames = ExtResource( 4 )
+centered = false
+
+[node name="Input2_Key" type="Label" parent="HBoxContainer"]
+visible = false
+margin_left = 482.0
+margin_right = 558.0
+margin_bottom = 29.0
+grow_horizontal = 0
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = "Key2"
+align = 2
+valign = 1
+
+[node name="Input2_Btn" type="Control" parent="HBoxContainer"]
+visible = false
+margin_left = 564.0
+margin_right = 600.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 36, 0 )
+
+[node name="BtnFrames" type="AnimatedSprite" parent="HBoxContainer/Input2_Btn"]
+frames = ExtResource( 4 )
+centered = false
+
+[node name="Right_Arrow" type="Label" parent="HBoxContainer"]
+margin_left = 566.0
+margin_right = 600.0
+margin_bottom = 29.0
+grow_horizontal = 0
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = " >"
+align = 2
+valign = 1

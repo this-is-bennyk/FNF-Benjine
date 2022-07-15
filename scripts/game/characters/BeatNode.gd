@@ -6,7 +6,7 @@ export(String) var idle_anim_name = "Idle"
 export(int) var idle_frequency = 1
 export(int) var idle_offset = 0
 
-onready var anim_player: AnimationPlayer = get_node(anim_player_path)
+onready var anim_player = get_node(anim_player_path)
 
 var anim_timer = 0
 var uninterrupted_anim = false

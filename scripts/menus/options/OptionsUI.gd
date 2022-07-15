@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node
 
 onready var cur_menu = $Menus/Category_Select
 onready var menus = [
@@ -6,7 +6,8 @@ onready var menus = [
 	$Menus/Gameplay,
 	$Menus/Audio,
 	$Menus/Controls,
-	$"Menus/Mod-Specific"
+	$"Menus/Mod-Specific",
+	$Menus/Reset
 ]
 
 onready var submenu_desc = $Submenu_Desc

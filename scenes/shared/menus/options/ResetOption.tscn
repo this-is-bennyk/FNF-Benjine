@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/VCR_32_Options_W_Outline.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/menus/options/ResetOption.gd" type="Script" id=2]
+
+[node name="Option" type="Label"]
+margin_right = 600.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Reset..."
+valign = 1
+script = ExtResource( 2 )

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/fonts/VCR_32_Options.tres" type="DynamicFont" id=1]
 
-[node name="Ctrl_Pck_Title" type="Label"]
+[node name="Package_Title" type="Label"]
 margin_right = 600.0
 margin_bottom = 29.0
 custom_colors/font_color = Color( 0.203922, 0, 0.768627, 1 )

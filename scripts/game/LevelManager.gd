@@ -117,9 +117,9 @@ func quit_to_menu():
 	get_tree().paused = false
 	
 	if is_freeplay:
-		main.switch_state(freeplay_path, prev_state_variables) # load(freeplay_path)
+		main.switch_state(freeplay_path, prev_state_variables)
 	else:
-		main.switch_state(story_mode_path, prev_state_variables) # load(story_mode_path)
+		main.switch_state(story_mode_path, prev_state_variables)
 
 func _load_level_infos():
 	var paths = []

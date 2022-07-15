@@ -23,6 +23,7 @@ var advanced_mods = true
 
 var mod_descs := []
 var mod_desc_map :=  {}
+var package_name_map := {}
 var button_group := ButtonGroup.new()
 
 var cur_option = "Base Benjine"
@@ -36,6 +37,8 @@ func _ready():
 		
 		if mod_desc.advanced_mod == advanced_mods:
 			mod_descs.append(mod_desc)
+			
+			package_name_map[mod_desc.mod_name] = package
 
 	# Parse the buttons for the advanced mods
 	for mod_desc in mod_descs:
@@ -47,6 +50,7 @@ func _ready():
 		button.connect("focus_entered", self, "_on_mod_name_pressed", [mod_desc.mod_name])
 		
 		button_container.add_child(button)
+		
 		mod_desc_map[mod_desc.mod_name] = mod_desc
 	
 	# Initialize the scene
@@ -115,6 +119,9 @@ func _on_launch_pressed():
 		print("Loading advanced mod")
 		var success = ProjectSettings.load_resource_pack(mod_path)
 		print("Loading of advanced mod" + cur_option + " at " + mod_path + " successful?: " + str(success))
+		
+		if success:
+			UserData.load_keybinds(package_name_map[cur_option])
 	
 	get_tree().change_scene(mod_desc.main_path)
 
