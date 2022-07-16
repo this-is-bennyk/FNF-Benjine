@@ -6,6 +6,8 @@ const SPIN_OPTION = preload("res://scenes/shared/menus/options/SpinOption.tscn")
 const SB_EMPTY = preload("res://assets/graphics/menus/SB_Empty.tres")
 const SEPARATION = 10
 
+const NO_MODS = "No modded options found."
+
 func _ready():
 	var dir = Directory.new()
 	var packages = UserData.get_package_names()
@@ -50,6 +52,11 @@ func _ready():
 	
 	for option in options:
 		option.reload()
+	
+	if get_child_count() == 0:
+		var msg = PACKAGE_TITLE.instance()
+		msg.text = NO_MODS
+		add_child(msg)
 
 func on_input(event: InputEvent):
 	if GodotX.xor(event.is_action_released("ui_up"), event.is_action_released("ui_down")):

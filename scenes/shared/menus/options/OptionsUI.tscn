@@ -186,7 +186,7 @@ rotation = 0.0645772
 scale = Vector2( 0.8, 0.8 )
 frames = ExtResource( 1 )
 animation = "options basic"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Menus" type="Control" parent="."]

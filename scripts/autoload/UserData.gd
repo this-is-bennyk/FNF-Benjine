@@ -27,6 +27,7 @@ func get_song_list_path(package: String):
 
 func _ready():
 	_attempt_first_time_setup()
+	_set_immediate_priority_settings()
 
 func _attempt_first_time_setup():
 	var directory = Directory.new()
@@ -51,8 +52,6 @@ func _attempt_first_time_setup():
 		print("Make modpack dir: " + str(err))
 	else:
 		print("Modpack dir: " + get_modpacks_path())
-	
-	_set_immediate_priority_settings()
 
 func save_data(path: String, dict: Dictionary):
 	var file = File.new()

@@ -1,6 +1,6 @@
 extends Label
 
-const CONFIRM_DIALOGUE = "You sure? (Game will exit.)"
+const CONFIRM_DIALOGUE = "You sure? (Game will restart.)"
 
 export(bool) var reset_scores = false
 export(bool) var reset_settings = false
@@ -25,7 +25,8 @@ func on_input(event: InputEvent):
 		if reset_settings:
 			dir.remove(UserData.SETTINGS_DATA_PATH)
 		
-		get_tree().quit()
+		UserData._ready()
+		get_tree().change_scene(ProjectSettings.get_setting("application/run/main_scene"))
 
 func unprime():
 	primed = false
