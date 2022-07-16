@@ -6,8 +6,8 @@
 script = ExtResource( 1 )
 mod_name = "Benjine Example Mod"
 mod_author = "ThisIsBennyK"
-mod_version = "2.1.0"
-mod_package_name = "Benjine_Example_Mod_V2.1.0"
+mod_version = "2.2.0"
+mod_package_name = "Benjine_Example_Mod_V2.2.0"
 advanced_mod = false
 main_path = "res://scenes/Main.tscn"
-description = "Shows off what an level in the Benjine is capable of, with little new code added."
+description = "Shows off what a level in the Benjine is capable of, with little new code added."
