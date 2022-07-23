@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/shared/game/characters/Girlfriend.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/shared/game/HUDPackage2D.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://packages/fnf/resources/graphics/week3/train.png" type="Texture" id=14]
 [ext_resource path="res://packages/fnf/resources/graphics/week3/street.png" type="Texture" id=15]
 [ext_resource path="res://packages/fnf/resources/sounds/train_passes.ogg" type="AudioStream" id=16]
+[ext_resource path="res://scripts/general/PitchScaledAudioStreamPlayer.gd" type="Script" id=17]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -164,6 +165,7 @@ idle_frequency = 2
 [node name="Train_Pass_Noise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 bus = "SFX"
+script = ExtResource( 17 )
 
 [node name="Train_Cooldown" type="Timer" parent="."]
 one_shot = true

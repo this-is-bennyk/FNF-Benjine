@@ -12,8 +12,8 @@ animations = [ {
 
 [node name="XML_To_SpriteFrames" type="Node2D"]
 script = ExtResource( 1 )
-load_path = "res://packages/bogus/characters/bogus/BogusDeath"
-save_path = "res://packages/bogus/characters/bogus/BogusDeath"
+load_path = "res://packages/fnfvr/resources/graphics/game/levels/week_5/upperBop"
+save_path = "res://packages/fnfvr/resources/graphics/game/levels/week_5/Upper_Boppers_VR"
 optimize = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

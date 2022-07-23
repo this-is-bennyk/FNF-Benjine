@@ -12,6 +12,7 @@ extends Node
 #	- Also applies when missing the sustained part of a sustained note.
 #	- The vocals mute when applying a miss penalty.
 
+const MAX_HEALTH = 2
 const HEALTH_BOOST = 0.023
 const HEALTH_PENALTY_OVERTAP = -0.04
 const HEALTH_PENALTY_MISS = -0.0475

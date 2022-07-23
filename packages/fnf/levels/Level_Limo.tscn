@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/shared/game/characters/Girlfriend.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/shared/game/HUDPackage2D.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://packages/fnf/resources/graphics/week4/fastCarLol.png" type="Texture" id=10]
 [ext_resource path="res://packages/fnf/resources/graphics/week4/limoOverlay.png" type="Texture" id=11]
 [ext_resource path="res://packages/fnf/scripts/Screen_Overlay.tres" type="Shader" id=12]
+[ext_resource path="res://scripts/general/PitchScaledAnimSprite.gd" type="Script" id=13]
+[ext_resource path="res://scripts/general/PitchScaledAudioStreamPlayer.gd" type="Script" id=14]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 12 )
@@ -58,6 +60,7 @@ position = Vector2( -200, 480 )
 frames = ExtResource( 7 )
 animation = "background limo pink"
 centered = false
+script = ExtResource( 13 )
 
 [node name="Dancing_Demon" parent="ParallaxBackground/Dancing_Demons" instance=ExtResource( 8 )]
 position = Vector2( 130, 80 )
@@ -92,6 +95,7 @@ position = Vector2( -120, 550 )
 frames = ExtResource( 9 )
 animation = "Limo stage"
 centered = false
+script = ExtResource( 13 )
 
 [node name="BF_Car" parent="." instance=ExtResource( 3 )]
 idle_frequency = 2
@@ -105,6 +109,7 @@ position = Vector2( 841, 236 )
 [node name="Car_Pass_Sound" type="AudioStreamPlayer" parent="."]
 volume_db = -3.098
 bus = "SFX"
+script = ExtResource( 14 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0

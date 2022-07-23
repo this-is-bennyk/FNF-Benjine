@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://packages/fnf/resources/graphics/week7/tankSky.png" type="Texture" id=1]
 [ext_resource path="res://scenes/shared/game/HUDPackage2D.tscn" type="PackedScene" id=2]
@@ -28,6 +28,8 @@
 [ext_resource path="res://packages/fnf/resources/graphics/week7/tankRolling.res" type="SpriteFrames" id=26]
 [ext_resource path="res://scenes/shared/game/characters/Partners.tscn" type="PackedScene" id=27]
 [ext_resource path="res://packages/fnf/characters/w7_pico/Pico_Speaker.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scripts/general/PitchScaledAnimPlayer.gd" type="Script" id=29]
+[ext_resource path="res://scripts/general/PitchScaledAnimSprite.gd" type="Script" id=30]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 8 )
@@ -351,6 +353,7 @@ centered = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Ruins/SmokeLeft"]
 autoplay = "Smoking"
 anims/Smoking = ExtResource( 15 )
+script = ExtResource( 29 )
 
 [node name="SmokeRight" type="AnimatedSprite" parent="ParallaxBackground/Ruins"]
 position = Vector2( 1145, -85 )
@@ -362,6 +365,7 @@ centered = false
 autoplay = "Smoking"
 anims/RESET = SubResource( 2 )
 anims/Smoking = ExtResource( 15 )
+script = ExtResource( 29 )
 
 [node name="Watchtower" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.4, 0.4 )
@@ -401,6 +405,7 @@ centered = false
 autoplay = "Roll"
 anims/RESET = SubResource( 16 )
 anims/Roll = SubResource( 17 )
+script = ExtResource( 29 )
 
 [node name="Tween" type="Tween" parent="ParallaxBackground/Behind_Ground/Tank_Path/Tank_PathFollow"]
 
@@ -421,6 +426,7 @@ motion_offset = Vector2( -32, -18 )
 [node name="Pico_Speaker" parent="ParallaxBackground/Metronomes" instance=ExtResource( 28 )]
 visible = false
 position = Vector2( 400, -5 )
+script = ExtResource( 30 )
 
 [node name="Partners" parent="." instance=ExtResource( 27 )]
 visible = false

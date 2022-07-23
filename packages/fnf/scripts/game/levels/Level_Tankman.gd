@@ -36,7 +36,7 @@ func roll_tank():
 		"unit_offset",
 		0,
 		1,
-		Conductor.get_seconds_per_beat() * 8 * 4
+		Conductor.get_seconds_per_beat() * 8 * 4 / Conductor.pitch_scale
 	)
 	
 	tank_tween.start()

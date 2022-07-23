@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/shared/game/characters/Girlfriend.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/shared/game/HUDPackage2D.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://packages/fnf/resources/graphics/week2/halloween_bg.res" type="SpriteFrames" id=5]
 [ext_resource path="res://packages/fnf/characters/spooky_kids/Spooky_Kids.tscn" type="PackedScene" id=6]
 [ext_resource path="res://packages/fnf/characters/monster/Monster.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/general/PitchScaledAnimPlayer.gd" type="Script" id=8]
+[ext_resource path="res://scripts/general/PitchScaledAudioStreamPlayer.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Lightning"
@@ -92,6 +94,7 @@ centered = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG"]
 anims/Lightning = SubResource( 1 )
 anims/RESET = SubResource( 2 )
+script = ExtResource( 8 )
 
 [node name="Girlfriend" parent="." instance=ExtResource( 1 )]
 
@@ -104,6 +107,8 @@ idle_frequency = 2
 visible = false
 
 [node name="Thunder" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
+script = ExtResource( 9 )
 
 [node name="HUDPackage2D" parent="." instance=ExtResource( 2 )]
 

@@ -24,8 +24,6 @@ onready var fast_car_tween = $ParallaxBackground/Fast_Car/FastCarLol/Tween
 onready var car_pass_sound = $Car_Pass_Sound
 
 func do_level_specific_prep():
-	
-	
 	bg_limo.play("background limo pink")
 	fg_limo.play("Limo stage")
 
@@ -37,7 +35,7 @@ func send_fast_car():
 		fast_car.position.x = CAR_START_X
 		fast_car.position.y = randi() % CAR_Y_MIN + (CAR_Y_MAX - CAR_Y_MIN)
 		
-		fast_car_tween.interpolate_property(fast_car, "position:x", fast_car.position.x, final_x, CAR_DURATION)
+		fast_car_tween.interpolate_property(fast_car, "position:x", fast_car.position.x, final_x, CAR_DURATION / Conductor.pitch_scale)
 		fast_car_tween.start()
 		
 		car_pass_sound.stop()

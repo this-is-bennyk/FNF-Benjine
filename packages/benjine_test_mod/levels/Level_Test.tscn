@@ -363,7 +363,7 @@ lane_type = 1
 position = Vector2( 167.25, 0 )
 lane_type = 1
 
-[node name="Opponent_Step_Zone" parent="HUDPackage2D/HUD/Visible_Elements" index="2"]
+[node name="Opponent_Step_Zone" parent="HUDPackage2D/HUD/Visible_Elements" index="3"]
 visible = false
 
 [editable path="HUDPackage2D"]

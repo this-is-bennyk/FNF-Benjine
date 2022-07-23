@@ -4,13 +4,13 @@
 
 [node name="ChartParser" type="Node"]
 script = ExtResource( 1 )
-json_name = ""
-mod_name = ""
-inst_name_and_ext = "Inst.ogg"
-vocals_name_and_ext = "Voices.ogg"
-result_suffixes = [ "_easy", "_normal", "_hard" ]
+json_name = "decimate"
+mod_name = "bogus"
+inst_name_and_ext = "Inst3.ogg"
+vocals_name_and_ext = "Voices3.ogg"
+result_suffixes = [ "_part3" ]
 chart_type = 0
-difficulties = PoolIntArray( 0, 1, 2 )
+difficulties = PoolIntArray( 2 )
 fnf_chart_naming = false
 num_lanes = 4
 psych_separate_gf_lanes = false

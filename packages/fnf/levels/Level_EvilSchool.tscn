@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/shared/game/notes/2d/pixel/Up_Pixel_Lane.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/shared/game/HUDPackage2D.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/effects/hxf_trail/HXF_GhostTrail.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scripts/game/notes/StepZone2D.gd" type="Script" id=12]
 [ext_resource path="res://assets/graphics/game/hud/pixel/countdown_messages.tres" type="SpriteFrames" id=13]
+[ext_resource path="res://scripts/general/PitchScaledAnimSprite.gd" type="Script" id=14]
 
 [node name="Level" type="Node"]
 script = ExtResource( 4 )
@@ -44,6 +45,7 @@ scale = Vector2( 6, 6 )
 frames = ExtResource( 10 )
 animation = "background 2 instance 1"
 centered = false
+script = ExtResource( 14 )
 
 [node name="Stage" type="Node2D" parent="."]
 scale = Vector2( 6, 6 )
@@ -69,10 +71,7 @@ position = Vector2( -30, -6 )
 resting_zoom = 1.05
 zoom_on_quarter_hit = 1.065
 
-[node name="Player_Step_Zone" parent="HUDPackage2D/HUD/Visible_Elements" index="0"]
-visible = false
-
-[node name="Opponent_Step_Zone" parent="HUDPackage2D/HUD/Visible_Elements" index="1"]
+[node name="Player_Step_Zone" parent="HUDPackage2D/HUD/Visible_Elements" index="1"]
 visible = false
 
 [node name="Pixel_Player_Zone" type="Node2D" parent="HUDPackage2D/HUD/Visible_Elements" index="2"]
@@ -111,7 +110,10 @@ lane_type = 1
 position = Vector2( 167.25, 0 )
 lane_type = 1
 
-[node name="Countdown_Msgs" parent="HUDPackage2D/HUD/Visible_Elements" index="6"]
+[node name="Opponent_Step_Zone" parent="HUDPackage2D/HUD/Visible_Elements" index="4"]
+visible = false
+
+[node name="Countdown_Msgs" parent="HUDPackage2D/HUD/Visible_Elements" index="7"]
 scale = Vector2( 6, 6 )
 frames = ExtResource( 13 )
 

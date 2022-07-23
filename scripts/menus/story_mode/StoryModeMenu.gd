@@ -155,6 +155,7 @@ func change_week_info():
 	week_name_display.text = week_names[week_idx]
 	week_tracklist_display.text = "Tracks:\n\n" + week_tracklists[week_idx].join("\n")
 	cur_week_score = week_scores[week_idx][difficulty_idx]
+	week_difficulty_display.frames = week_difficulties[week_idx]
 	week_difficulty_display.play(str(difficulty_idx))
 
 func _tween_difficulty():

@@ -24,11 +24,11 @@ func _process(delta):
 
 func check_activation():
 	if get_is_active():
-		visible = true
+#		visible = true
 		print("Activated " + name)
 		emit_signal("activated")
 	elif visible:
-		visible = false
+#		visible = false
 		print("Deactivated " + name)
 		emit_signal("deactivated")
 	

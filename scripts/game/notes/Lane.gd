@@ -186,7 +186,7 @@ func add_notes_from_data():
 				
 				if cur_note_data.has("note_data"):
 					for variable in cur_note_data.note_data:
-						note_instance.set(variable, cur_note_data.note_data[variable])
+						sus_note_instance.set(variable, cur_note_data.note_data[variable])
 				
 				spawn_note(sus_note_instance)
 	else:

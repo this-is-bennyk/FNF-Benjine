@@ -12,6 +12,8 @@ func _ready():
 	else:
 		particles = get_node(gles2_particles_path)
 		get_node(gles3_particles_path).queue_free()
+	
+	particles.speed_scale = Conductor.pitch_scale
 
 func restart():
 	particles.restart()
